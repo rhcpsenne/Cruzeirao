@@ -19,6 +19,23 @@ public class Usuario {
 	private String cref;
 	//private Enum sexo; --->GET E SET
 	private String foto;
+	public Usuario() {
+		super();
+	}
+	public Usuario(String email, String nome, Date dataNascimento, String telefoneFixo, String telefoneMovel,
+			String endereco, String rg, String cpf, String cref, String foto) {
+		super();
+		this.email = email;
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.telefoneFixo = telefoneFixo;
+		this.telefoneMovel = telefoneMovel;
+		this.endereco = endereco;
+		this.rg = rg;
+		this.cpf = cpf;
+		this.cref = cref;
+		this.foto = foto;
+	}
 	public String getEmail() {
 		return email;
 	}

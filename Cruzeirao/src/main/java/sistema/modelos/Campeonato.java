@@ -14,6 +14,20 @@ public class Campeonato {
 	private Date dataFimCampeonato;
 	private double valorTaxa;
 	
+	public Campeonato(String nome, ArrayList<Local> locais, Date dataInicioInscricao, Date dataFimInscricao,
+			Date dataInicioCampeonato, Date dataFimCampeonato, double valorTaxa) {
+		super();
+		this.nome = nome;
+		this.locais = locais;
+		this.dataInicioInscricao = dataInicioInscricao;
+		this.dataFimInscricao = dataFimInscricao;
+		this.dataInicioCampeonato = dataInicioCampeonato;
+		this.dataFimCampeonato = dataFimCampeonato;
+		this.valorTaxa = valorTaxa;
+	}
+	public Campeonato() {
+		super();
+	}
 	public String getNome() {
 		return nome;
 	}

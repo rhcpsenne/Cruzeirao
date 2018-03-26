@@ -1,2 +1,1 @@
 # Cruzeirao
-git revert HEAD

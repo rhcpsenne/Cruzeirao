@@ -1,6 +1,5 @@
 package sistema.modelos;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Usuario {

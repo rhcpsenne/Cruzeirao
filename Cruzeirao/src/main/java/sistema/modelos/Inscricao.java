@@ -2,26 +2,43 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Inscricao {
+	
+	@Id
 	private long numero;
 	private boolean pagamento;
 	private boolean validade;
 	private ArrayList<Inscrito> inscritos = new ArrayList<Inscrito>();
-	//private Categoria categoria;  --> GET E SET
+	private Categoria categoria;
 	private ArrayList<Partida> partidas = new ArrayList<Partida>();
 	private Equipe equipe;
 	public Inscricao() {
 		super();
 	}
+	
+	
 	public Inscricao(long numero, boolean pagamento, boolean validade, ArrayList<Inscrito> inscritos,
-			ArrayList<Partida> partidas, Equipe equipe) {
+			Categoria categoria, ArrayList<Partida> partidas, Equipe equipe) {
 		super();
 		this.numero = numero;
 		this.pagamento = pagamento;
 		this.validade = validade;
 		this.inscritos = inscritos;
+		this.categoria = categoria;
 		this.partidas = partidas;
 		this.equipe = equipe;
+	}
+
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	public long getNumero() {
 		return numero;
@@ -59,10 +76,13 @@ public class Inscricao {
 	public void setEquipe(Equipe equipe) {
 		this.equipe = equipe;
 	}
-	
+
+
 	@Override
 	public String toString() {
 		return "Inscricao [numero=" + numero + ", pagamento=" + pagamento + ", validade=" + validade + ", inscritos="
-				+ inscritos + ", partidas=" + partidas + ", equipe" + equipe + "]";
+				+ inscritos + ", categoria=" + categoria + ", partidas=" + partidas + ", equipe=" + equipe + "]";
 	}
+	
+	
 }

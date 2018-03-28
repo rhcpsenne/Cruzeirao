@@ -3,11 +3,14 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Campeonato {
 	private String nome;
 	private ArrayList<Local> locais = new ArrayList<Local>();
-	//private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
-	//private ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+	private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
+	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();
 	private Date dataInicioInscricao;
 	private Date dataFimInscricao;
 	private Date dataInicioCampeonato;
@@ -40,7 +43,7 @@ public class Campeonato {
 	public void setLocais(ArrayList<Local> locais) {
 		this.locais = locais;
 	}
-	/*public ArrayList<Juiz> getJuizes() {
+	public ArrayList<Juiz> getJuizes() {
 		return juizes;
 	}
 	public void setJuizes(ArrayList<Juiz> juizes) {
@@ -51,7 +54,7 @@ public class Campeonato {
 	}
 	public void setCategorias(ArrayList<Categoria> categorias) {
 		this.categorias = categorias;
-	}*/
+	}
 	public Date getDataInicioInscricao() {
 		return dataInicioInscricao;
 	}

@@ -1,5 +1,8 @@
 package sistema.modelos;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Gol {
 	private Inscrito inscrito;
 	private int tempo;

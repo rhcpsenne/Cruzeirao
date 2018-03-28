@@ -1,5 +1,8 @@
 package sistema.modelos;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Cartao {
 	private Inscrito inscrito;
 	private Enum tipo;

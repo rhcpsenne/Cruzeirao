@@ -1,6 +1,9 @@
 package sistema.modelos;
 
-public class Juiz {
+import javax.persistence.Entity;
+
+@Entity
+public class Juiz extends Usuario{
 	private Enum tipo;
 	private Usuario usuario;
 

@@ -3,12 +3,18 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Fase {
 	private Date dataInicio;
 	private Date dataFim;
 	private Enum formato;
 	private Categoria categoria;
 	private ArrayList<Grupo> grupos = new ArrayList<Grupo>();
+	
+	@Id
 	private int numero;
 	//Gets E Sets & ToString
 	public Fase() {

@@ -2,7 +2,14 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Categoria {
+	@Id
+	private int id;
+	
 	private String nome;
 	private int ApartirDe;
 	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
@@ -16,9 +23,10 @@ public class Categoria {
 	public Categoria() {
 		super();
 	}
-	public Categoria(String nome, int apartirDe, ArrayList<Inscricao> inscricoes, Campeonato campeonato,
+	public Categoria(int id, String nome, int apartirDe, ArrayList<Inscricao> inscricoes, Campeonato campeonato,
 			ArrayList<Fase> fases, int minJogadores, int maxJogadores, Enum sexo, int attribute74) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		ApartirDe = apartirDe;
 		this.inscricoes = inscricoes;
@@ -28,6 +36,13 @@ public class Categoria {
 		this.maxJogadores = maxJogadores;
 		this.sexo = sexo;
 		this.attribute74 = attribute74;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;

@@ -1,29 +1,38 @@
 package sistema.modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Usuario {
+	@Id
+	private int id;
+	
 	private String email;
 	private String nome;
 	private Date dataNascimento;
-	//private ArrayList<Equipe> equipes = new ArrayList<Equipe>();
-	//private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
-	//private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
-	//private Enum tipo; --->GET E SET
+	private ArrayList<Equipe> equipes = new ArrayList<Equipe>();
+	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
+	private Enum tipo; 
 	private String telefoneFixo;
 	private String telefoneMovel;
 	private String endereco;
 	private String rg;
 	private String cpf;
 	private String cref;
-	//private Enum sexo; --->GET E SET
+	private Enum sexo; 
 	private String foto;
 	public Usuario() {
 		super();
 	}
-	public Usuario(String email, String nome, Date dataNascimento, String telefoneFixo, String telefoneMovel,
-			String endereco, String rg, String cpf, String cref, String foto) {
+	public Usuario(int id, String email, String nome, Date dataNascimento, String telefoneFixo, String telefoneMovel,
+			String endereco, String rg, String cpf, String cref, String foto, Enum sexo, Enum tipo) {
 		super();
+		this.id = id;
 		this.email = email;
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
@@ -34,6 +43,15 @@ public class Usuario {
 		this.cpf = cpf;
 		this.cref = cref;
 		this.foto = foto;
+		this.sexo = sexo;
+		this.tipo = tipo;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getEmail() {
 		return email;
@@ -53,7 +71,7 @@ public class Usuario {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	/*
+	
 	public ArrayList<Equipe> getEquipes() {
 		return equipes;
 	}
@@ -71,7 +89,7 @@ public class Usuario {
 	}
 	public void setCampeonatos(ArrayList<Campeonato> campeonatos) {
 		this.campeonatos = campeonatos;
-	}*/
+	}
 	public String getTelefoneFixo() {
 		return telefoneFixo;
 	}
@@ -114,10 +132,29 @@ public class Usuario {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+	
+	
+	public Enum getTipo() {
+		return tipo;
+	}
+	public void setTipo(Enum tipo) {
+		this.tipo = tipo;
+	}
+	public Enum getSexo() {
+		return sexo;
+	}
+	public void setSexo(Enum sexo) {
+		this.sexo = sexo;
+	}
 	@Override
 	public String toString() {
-		return "Usuario [email=" + email + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", telefoneFixo="
-				+ telefoneFixo + ", telefoneMovel=" + telefoneMovel + ", endereco=" + endereco + ", rg=" + rg + ", cpf="
-				+ cpf + ", cref=" + cref + ", foto=" + foto + "]";
+		return "Usuario [id=" + id + ", email=" + email + ", nome=" + nome + ", dataNascimento=" + dataNascimento
+				+ ", equipes=" + equipes + ", inscricoes=" + inscricoes + ", campeonatos=" + campeonatos + ", tipo="
+				+ tipo + ", telefoneFixo=" + telefoneFixo + ", telefoneMovel=" + telefoneMovel + ", endereco="
+				+ endereco + ", rg=" + rg + ", cpf=" + cpf + ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto
+				+ "]";
 	}
+	
+	
+	
 }

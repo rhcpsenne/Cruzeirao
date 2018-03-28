@@ -2,7 +2,10 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
-public class PartidaFutebol {
+import javax.persistence.Entity;
+
+@Entity
+public class PartidaFutebol extends Partida{
 	private ArrayList<Gol> golsMandantes  = new ArrayList<Gol>();
 	private ArrayList<Gol> golsVisitantes = new ArrayList<Gol>();
 	private ArrayList<Gol> golsPenaltesMandantes = new ArrayList<Gol>();

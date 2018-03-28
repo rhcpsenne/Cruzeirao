@@ -2,10 +2,16 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Grupo {
 	private String nome;
 	private Fase fase;
 	private ArrayList<Rodada> rodadas = new ArrayList<Rodada>();
+	
+	@Id
 	private int numero;
 	//Gets E Sets & ToString
 	public Grupo() {

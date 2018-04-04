@@ -13,7 +13,7 @@ public class Categoria {
 	private int id;
 	
 	private String nome;
-	private int ApartirDe;
+	private int apartirDe;
 	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
 	private Campeonato campeonato;
 	private ArrayList<Fase> fases = new ArrayList<Fase>();
@@ -30,7 +30,7 @@ public class Categoria {
 		super();
 		this.id = id;
 		this.nome = nome;
-		ApartirDe = apartirDe;
+		this.apartirDe = apartirDe;
 		this.inscricoes = inscricoes;
 		this.campeonato = campeonato;
 		this.fases = fases;
@@ -53,10 +53,10 @@ public class Categoria {
 		this.nome = nome;
 	}
 	public int getApartirDe() {
-		return ApartirDe;
+		return apartirDe;
 	}
 	public void setApartirDe(int apartirDe) {
-		ApartirDe = apartirDe;
+		this.apartirDe = apartirDe;
 	}
 	public ArrayList<Inscricao> getInscricoes() {
 		return inscricoes;
@@ -102,7 +102,7 @@ public class Categoria {
 	}
 	@Override
 	public String toString() {
-		return "Categoria [nome=" + nome + ", ApartirDe=" + ApartirDe + ", inscricoes=" + inscricoes + ", campeonato="
+		return "Categoria [nome=" + nome + ", apartirDe=" + apartirDe + ", inscricoes=" + inscricoes + ", campeonato="
 				+ campeonato + ", fases=" + fases + ", minJogadores=" + minJogadores + ", maxJogadores=" + maxJogadores
 				+ ", sexo=" + sexo + ", attribute74=" + attribute74 + "]";
 	}

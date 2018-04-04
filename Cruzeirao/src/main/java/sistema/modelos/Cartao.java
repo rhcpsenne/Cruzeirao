@@ -1,22 +1,35 @@
 package sistema.modelos;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import enumerator.Tipo;
 
 @Entity
 public class Cartao {
+	@Id
+	private int id;
 	private Inscrito inscrito;
-	private Enum tipo;
+	private Tipo tipo;
 	private int tempo;
 	//Gets E Sets & ToString
 	public Cartao() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Cartao(Inscrito inscrito, Enum tipo, int tempo) {
+	public Cartao(int id, Inscrito inscrito, Tipo tipo, int tempo) {
 		super();
+		this.id = id;
 		this.inscrito = inscrito;
 		this.tipo = tipo;
 		this.tempo = tempo;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public Inscrito getInscrito() {
 		return inscrito;
@@ -30,14 +43,15 @@ public class Cartao {
 	public void setTempo(int tempo) {
 		this.tempo = tempo;
 	}
-	public Enum getTipo() {
+	public Tipo getTipo() {
 		return tipo;
 	}
-	public void setTipo(Enum tipo) {
+	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
 	@Override
 	public String toString() {
-		return "Cartao [inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
+		return "Cartao [id=" + id + ", inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
 	}
+	
 }

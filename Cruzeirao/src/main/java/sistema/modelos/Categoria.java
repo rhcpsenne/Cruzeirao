@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import enumerator.Sexo;
+
 @Entity
 public class Categoria {
 	@Id
@@ -17,14 +19,14 @@ public class Categoria {
 	private ArrayList<Fase> fases = new ArrayList<Fase>();
 	private int minJogadores;
 	private int maxJogadores;
-	private Enum sexo;
+	private Sexo sexo;
 	private int attribute74;
 	//Gets E Sets & ToString
 	public Categoria() {
 		super();
 	}
 	public Categoria(int id, String nome, int apartirDe, ArrayList<Inscricao> inscricoes, Campeonato campeonato,
-			ArrayList<Fase> fases, int minJogadores, int maxJogadores, Enum sexo, int attribute74) {
+			ArrayList<Fase> fases, int minJogadores, int maxJogadores, Sexo sexo, int attribute74) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -92,10 +94,10 @@ public class Categoria {
 	public void setAttribute74(int attribute74) {
 		this.attribute74 = attribute74;
 	}
-	public Enum getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
-	public void setSexo(Enum sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 	@Override

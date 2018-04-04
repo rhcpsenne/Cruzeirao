@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Campeonato {
+	@Id
+	private int id;
 	private String nome;
 	private ArrayList<Local> locais = new ArrayList<Local>();
 	private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
@@ -17,9 +20,10 @@ public class Campeonato {
 	private Date dataFimCampeonato;
 	private double valorTaxa;
 	
-	public Campeonato(String nome, ArrayList<Local> locais, Date dataInicioInscricao, Date dataFimInscricao,
+	public Campeonato(int id, String nome, ArrayList<Local> locais, Date dataInicioInscricao, Date dataFimInscricao,
 			Date dataInicioCampeonato, Date dataFimCampeonato, double valorTaxa) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.locais = locais;
 		this.dataInicioInscricao = dataInicioInscricao;
@@ -30,6 +34,13 @@ public class Campeonato {
 	}
 	public Campeonato() {
 		super();
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;
@@ -87,8 +98,10 @@ public class Campeonato {
 	}
 	@Override
 	public String toString() {
-		return "Campeonato [nome=" + nome + ", dataInicioInscricao=" + dataInicioInscricao + ", dataFimInscricao="
-				+ dataFimInscricao + ", dataInicioCampeonato=" + dataInicioCampeonato + ", dataFimCampeonato="
-				+ dataFimCampeonato + ", valorTaxa=" + valorTaxa + "]";
+		return "Campeonato [id=" + id + ", nome=" + nome + ", locais=" + locais + ", juizes=" + juizes + ", categorias="
+				+ categorias + ", dataInicioInscricao=" + dataInicioInscricao + ", dataFimInscricao=" + dataFimInscricao
+				+ ", dataInicioCampeonato=" + dataInicioCampeonato + ", dataFimCampeonato=" + dataFimCampeonato
+				+ ", valorTaxa=" + valorTaxa + "]";
 	}
+	
 }

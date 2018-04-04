@@ -2,9 +2,11 @@ package sistema.modelos;
 
 import javax.persistence.Entity;
 
+import enumerator.Tipo;
+
 @Entity
 public class Inscrito extends Usuario{
-	private Enum tipo;
+	private Tipo tipo;
 	private Usuario usuario;
 	private Inscricao inscricao;
 	private boolean aceiteUsuario;
@@ -16,7 +18,7 @@ public class Inscrito extends Usuario{
 	}
 	
 	
-	public Inscrito(Enum tipo, Usuario usuario, Inscricao inscricao, boolean aceiteUsuario, boolean suspensoJogos,
+	public Inscrito(Tipo tipo, Usuario usuario, Inscricao inscricao, boolean aceiteUsuario, boolean suspensoJogos,
 			boolean inscricaoValidada) {
 		super();
 		this.tipo = tipo;
@@ -28,10 +30,10 @@ public class Inscrito extends Usuario{
 	}
 
 
-	public Enum getTipo() {
+	public Tipo getTipo() {
 		return tipo;
 	}
-	public void setTipo(Enum tipo) {
+	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
 	public Usuario getUsuario() {

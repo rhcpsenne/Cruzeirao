@@ -6,6 +6,9 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import enumerator.Sexo;
+import enumerator.Tipo;
+
 @Entity
 public class Usuario {
 	@Id
@@ -17,20 +20,20 @@ public class Usuario {
 	private ArrayList<Equipe> equipes = new ArrayList<Equipe>();
 	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
 	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
-	private Enum tipo; 
+	private Tipo tipo; 
 	private String telefoneFixo;
 	private String telefoneMovel;
 	private String endereco;
 	private String rg;
 	private String cpf;
 	private String cref;
-	private Enum sexo; 
+	private Sexo sexo; 
 	private String foto;
 	public Usuario() {
 		super();
 	}
 	public Usuario(int id, String email, String nome, Date dataNascimento, String telefoneFixo, String telefoneMovel,
-			String endereco, String rg, String cpf, String cref, String foto, Enum sexo, Enum tipo) {
+			String endereco, String rg, String cpf, String cref, String foto, Sexo sexo, Tipo tipo) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -134,16 +137,16 @@ public class Usuario {
 	}
 	
 	
-	public Enum getTipo() {
+	public Tipo getTipo() {
 		return tipo;
 	}
-	public void setTipo(Enum tipo) {
+	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
-	public Enum getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
-	public void setSexo(Enum sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 	@Override

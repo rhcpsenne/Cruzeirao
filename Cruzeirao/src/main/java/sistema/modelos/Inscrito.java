@@ -1,7 +1,12 @@
 package sistema.modelos;
 
-public class Inscrito {
-	//private Enum tipo;
+import javax.persistence.Entity;
+
+import enumerator.Tipo;
+
+@Entity
+public class Inscrito extends Usuario{
+	private Tipo tipo;
 	private Usuario usuario;
 	private Inscricao inscricao;
 	private boolean aceiteUsuario;
@@ -11,14 +16,25 @@ public class Inscrito {
 	public Inscrito() {
 		super();
 	}
-	public Inscrito(Usuario usuario, Inscricao inscricao, boolean aceiteUsuario, boolean suspensoJogos,
+	
+	
+	public Inscrito(Tipo tipo, Usuario usuario, Inscricao inscricao, boolean aceiteUsuario, boolean suspensoJogos,
 			boolean inscricaoValidada) {
 		super();
+		this.tipo = tipo;
 		this.usuario = usuario;
 		this.inscricao = inscricao;
 		this.aceiteUsuario = aceiteUsuario;
 		this.suspensoJogos = suspensoJogos;
 		this.inscricaoValidada = inscricaoValidada;
+	}
+
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
 	public Usuario getUsuario() {
 		return usuario;
@@ -50,10 +66,13 @@ public class Inscrito {
 	public void setInscricaoValidada(boolean inscricaoValidada) {
 		this.inscricaoValidada = inscricaoValidada;
 	}
-	
+
+
 	@Override
 	public String toString() {
-		return "Inscrito [usuario=" + usuario + ", inscricao=" + inscricao + ", aceiteUsuario=" + aceiteUsuario + ", suspensoJogos="
-				+ suspensoJogos + ", inscricaoValidade" + inscricaoValidada + "]";
+		return "Inscrito [tipo=" + tipo + ", usuario=" + usuario + ", inscricao=" + inscricao + ", aceiteUsuario="
+				+ aceiteUsuario + ", suspensoJogos=" + suspensoJogos + ", inscricaoValidada=" + inscricaoValidada + "]";
 	}
+	
+	
 }

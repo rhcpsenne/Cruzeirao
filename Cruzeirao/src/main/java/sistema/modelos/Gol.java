@@ -1,6 +1,12 @@
 package sistema.modelos;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Gol {
+	@Id
+	private int id;
 	private Inscrito inscrito;
 	private int tempo;
 	private boolean penalty;
@@ -9,11 +15,19 @@ public class Gol {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Gol(Inscrito inscrito, int tempo, boolean penalty) {
+	public Gol(int id, Inscrito inscrito, int tempo, boolean penalty) {
 		super();
+		this.id = id;
 		this.inscrito = inscrito;
 		this.tempo = tempo;
 		this.penalty = penalty;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public Inscrito getInscrito() {
 		return inscrito;
@@ -35,6 +49,7 @@ public class Gol {
 	}
 	@Override
 	public String toString() {
-		return "Gol [inscrito=" + inscrito + ", tempo=" + tempo + ", penalty=" + penalty + "]";
+		return "Gol [id=" + id + ", inscrito=" + inscrito + ", tempo=" + tempo + ", penalty=" + penalty + "]";
 	}
+	
 }

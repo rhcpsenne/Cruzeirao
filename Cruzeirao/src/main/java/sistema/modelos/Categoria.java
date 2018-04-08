@@ -2,25 +2,35 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import enumerator.Sexo;
+
+@Entity
 public class Categoria {
+	@Id
+	private int id;
+	
 	private String nome;
-	private int ApartirDe;
+	private int apartirDe;
 	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
 	private Campeonato campeonato;
 	private ArrayList<Fase> fases = new ArrayList<Fase>();
 	private int minJogadores;
 	private int maxJogadores;
-	private Enum sexo;
+	private Sexo sexo;
 	private int attribute74;
 	//Gets E Sets & ToString
 	public Categoria() {
 		super();
 	}
-	public Categoria(String nome, int apartirDe, ArrayList<Inscricao> inscricoes, Campeonato campeonato,
-			ArrayList<Fase> fases, int minJogadores, int maxJogadores, Enum sexo, int attribute74) {
+	public Categoria(int id, String nome, int apartirDe, ArrayList<Inscricao> inscricoes, Campeonato campeonato,
+			ArrayList<Fase> fases, int minJogadores, int maxJogadores, Sexo sexo, int attribute74) {
 		super();
+		this.id = id;
 		this.nome = nome;
-		ApartirDe = apartirDe;
+		this.apartirDe = apartirDe;
 		this.inscricoes = inscricoes;
 		this.campeonato = campeonato;
 		this.fases = fases;
@@ -29,6 +39,13 @@ public class Categoria {
 		this.sexo = sexo;
 		this.attribute74 = attribute74;
 	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -36,10 +53,10 @@ public class Categoria {
 		this.nome = nome;
 	}
 	public int getApartirDe() {
-		return ApartirDe;
+		return apartirDe;
 	}
 	public void setApartirDe(int apartirDe) {
-		ApartirDe = apartirDe;
+		this.apartirDe = apartirDe;
 	}
 	public ArrayList<Inscricao> getInscricoes() {
 		return inscricoes;
@@ -77,15 +94,15 @@ public class Categoria {
 	public void setAttribute74(int attribute74) {
 		this.attribute74 = attribute74;
 	}
-	public Enum getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
-	public void setSexo(Enum sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 	@Override
 	public String toString() {
-		return "Categoria [nome=" + nome + ", ApartirDe=" + ApartirDe + ", inscricoes=" + inscricoes + ", campeonato="
+		return "Categoria [nome=" + nome + ", apartirDe=" + apartirDe + ", inscricoes=" + inscricoes + ", campeonato="
 				+ campeonato + ", fases=" + fases + ", minJogadores=" + minJogadores + ", maxJogadores=" + maxJogadores
 				+ ", sexo=" + sexo + ", attribute74=" + attribute74 + "]";
 	}

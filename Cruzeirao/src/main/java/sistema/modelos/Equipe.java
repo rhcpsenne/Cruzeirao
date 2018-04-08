@@ -3,7 +3,14 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Equipe {
+	@Id
+	private int id;
+	
 	private String nome;
 	private Date dataFundacao;
 	private String cidade;
@@ -13,14 +20,23 @@ public class Equipe {
 		super();
 	}
 
-	public Equipe(String nome, Date dataFundacao, String cidade, ArrayList<Usuario> diretores) {
+	public Equipe(int id, String nome, Date dataFundacao, String cidade, ArrayList<Usuario> diretores) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.dataFundacao = dataFundacao;
 		this.cidade = cidade;
 		this.diretores = diretores;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}

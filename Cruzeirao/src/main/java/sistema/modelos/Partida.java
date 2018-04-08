@@ -1,22 +1,30 @@
 package sistema.modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Partida {
+	@Id
 	private int numero;
 	private Inscricao equipeMandante;
 	private Inscricao equipeVisitante;
 	private Date data;
 	private Local local;
 	private Partida proxPartida;
-	//private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
-	//private Grupo grupo;
+	private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
+	private Grupo grupo;
 	private String relatoJuiz;
 	public Partida() {
 		super();
 	}
+	
+	
 	public Partida(int numero, Inscricao equipeMandante, Inscricao equipeVisitante, Date data, Local local,
-			Partida proxPartida, String relatoJuiz) {
+			Partida proxPartida, ArrayList<Juiz> juizes, Grupo grupo, String relatoJuiz) {
 		super();
 		this.numero = numero;
 		this.equipeMandante = equipeMandante;
@@ -24,7 +32,23 @@ public class Partida {
 		this.data = data;
 		this.local = local;
 		this.proxPartida = proxPartida;
+		this.juizes = juizes;
+		this.grupo = grupo;
 		this.relatoJuiz = relatoJuiz;
+	}
+
+
+	public ArrayList<Juiz> getJuizes() {
+		return juizes;
+	}
+	public void setJuizes(ArrayList<Juiz> juizes) {
+		this.juizes = juizes;
+	}
+	public Grupo getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
 	}
 	public int getNumero() {
 		return numero;
@@ -67,6 +91,14 @@ public class Partida {
 	}
 	public void setRelatoJuiz(String relatoJuiz) {
 		this.relatoJuiz = relatoJuiz;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Partida [numero=" + numero + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
+				+ equipeVisitante + ", data=" + data + ", local=" + local + ", proxPartida=" + proxPartida + ", juizes="
+				+ juizes + ", grupo=" + grupo + ", relatoJuiz=" + relatoJuiz + "]";
 	}
 	
 	

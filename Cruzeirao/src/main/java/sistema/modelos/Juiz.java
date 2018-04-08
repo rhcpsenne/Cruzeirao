@@ -1,22 +1,27 @@
 package sistema.modelos;
 
-public class Juiz {
-	private Enum tipo;
+import javax.persistence.Entity;
+
+import enumerator.Tipo;
+
+@Entity
+public class Juiz extends Usuario{
+	private Tipo tipo;
 	private Usuario usuario;
 
 	
 	public Juiz() {
 		super();
 	}
-	public Juiz(Enum tipo, Usuario usuario) {
+	public Juiz(Tipo tipo, Usuario usuario) {
 		super();
 		this.tipo = tipo;
 		this.usuario = usuario;
 	}
-	public Enum getTipo() {
+	public Tipo getTipo() {
 		return tipo;
 	}
-	public void setTipo(Enum tipo) {
+	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
 	public Usuario getUsuario() {

@@ -3,18 +3,26 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import enumerator.Formato;
+
+@Entity
 public class Fase {
 	private Date dataInicio;
 	private Date dataFim;
-	private Enum formato;
+	private Formato formato;
 	private Categoria categoria;
 	private ArrayList<Grupo> grupos = new ArrayList<Grupo>();
+	
+	@Id
 	private int numero;
 	//Gets E Sets & ToString
 	public Fase() {
 		super();
 	}
-	public Fase(Date dataInicio, Date dataFim, Enum formato, Categoria categoria, ArrayList<Grupo> grupos, int numero) {
+	public Fase(Date dataInicio, Date dataFim, Formato formato, Categoria categoria, ArrayList<Grupo> grupos, int numero) {
 		super();
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
@@ -53,10 +61,10 @@ public class Fase {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public Enum getFormato() {
+	public Formato getFormato() {
 		return formato;
 	}
-	public void setFormato(Enum formato) {
+	public void setFormato(Formato formato) {
 		this.formato = formato;
 	}
 	@Override

@@ -14,8 +14,8 @@ public class UsuarioMB {
 	
 	public void onRowEdit(RowEditEvent event) {
 
-		Usuario a = ((Usuario) event.getObject());
-		service.alterar(a);
+		Usuario u = ((Usuario) event.getObject());
+		service.alterar(u);
 	}
 
 	public void salvar() {

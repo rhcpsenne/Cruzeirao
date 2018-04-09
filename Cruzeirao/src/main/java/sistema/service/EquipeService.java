@@ -2,37 +2,34 @@ package sistema.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
+import sistema.dao.EquipeDAO;
 import sistema.modelos.Equipe;
 
 public class EquipeService {
-private EntityManagerFactory emf;
+	EquipeDAO equipeDAO = new EquipeDAO();
 	
-	public EquipeService() {
-		emf = Persistence.createEntityManagerFactory("Cruzeirao");
+	public Equipe salvar(Equipe equipe) {
+		equipe = equipeDAO.save(equipe);
+		equipeDAO.closeEntityManager();
+		return equipe;
 	}
 	
-	public void salvar(Equipe equipe) {
-		EntityManager entm = emf.createEntityManager();
-		entm.getTransaction().begin();
-			entm.persist(equipe);
-		entm.getTransaction().commit();
-		entm.close();
-	}
-	
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	public List<Equipe> getEquipes(){
-		List<Equipe> equipes;
-		
-		EntityManager entm = emf.createEntityManager();
-		Query q = entm.createQuery("Select e From Equipe e");
-		equipes = q.getResultList();
-		entm.close();
-		
-		return equipes;
+		List <Equipe> list = equipeDAO.getAll(Equipe.class);
+		equipeDAO.closeEntityManager();
+		return list;
+	}
+	
+	public void alterar(Equipe equipe) {
+		equipeDAO.save(equipe);
+		equipeDAO.closeEntityManager();
+	}
+
+	
+	public void remover(Equipe equipe) {
+		equipe = equipeDAO.getById(Equipe.class, equipe.getId());
+		equipeDAO.remove(equipe);
+		equipeDAO.closeEntityManager();
 	}
 }

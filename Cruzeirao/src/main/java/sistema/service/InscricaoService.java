@@ -2,37 +2,34 @@ package sistema.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
+import sistema.dao.InscricaoDAO;
 import sistema.modelos.Inscricao;
 
 public class InscricaoService {
-private EntityManagerFactory emf;
+	InscricaoDAO inscricaoDAO = new InscricaoDAO();
 	
-	public InscricaoService() {
-		emf = Persistence.createEntityManagerFactory("Cruzeirao");
+	public Inscricao salvar(Inscricao inscricao) {
+		inscricao = inscricaoDAO.save(inscricao);
+		inscricaoDAO.closeEntityManager();
+		return inscricao;
 	}
 	
-	public void salvar(Inscricao inscricao) {
-		EntityManager entm = emf.createEntityManager();
-		entm.getTransaction().begin();
-			entm.persist(inscricao);
-		entm.getTransaction().commit();
-		entm.close();
+	//@SuppressWarnings("unchecked")
+	public List<Inscricao> getInscricoes(){
+		List <Inscricao> list = inscricaoDAO.getAll(Inscricao.class);
+		inscricaoDAO.closeEntityManager();
+		return list;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Inscricao> getInscricao(){
-		List<Inscricao> inscricoes;
-		
-		EntityManager entm = emf.createEntityManager();
-		Query q = entm.createQuery("Select i From Inscricao i");
-		inscricoes = q.getResultList();
-		entm.close();
-		
-		return inscricoes;
+	public void alterar(Inscricao inscricao) {
+		inscricaoDAO.save(inscricao);
+		inscricaoDAO.closeEntityManager();
+	}
+
+	
+	public void remover(Inscricao inscricao) {
+		inscricao = inscricaoDAO.getById(Inscricao.class, inscricao.getNumero());
+		inscricaoDAO.remove(inscricao);
+		inscricaoDAO.closeEntityManager();
 	}
 }

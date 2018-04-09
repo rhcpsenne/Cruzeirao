@@ -1,38 +1,34 @@
 package sistema.service;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
+import sistema.dao.PartidaDAO;
 import sistema.modelos.Partida;
 
 public class PartidaService {
-private EntityManagerFactory emf;
+	PartidaDAO partidaDAO = new PartidaDAO();
 	
-	public PartidaService() {
-		emf = Persistence.createEntityManagerFactory("Cruzeirao");
+	public Partida salvar(Partida partida) {
+		partida = partidaDAO.save(partida);
+		partidaDAO.closeEntityManager();
+		return partida;
 	}
 	
-	public void salvar(Partida partida) {
-		EntityManager entm = emf.createEntityManager();
-		entm.getTransaction().begin();
-			entm.persist(partida);
-		entm.getTransaction().commit();
-		entm.close();
-	}
-	
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	public List<Partida> getPartidas(){
-		List<Partida> partidas;
-		
-		EntityManager entm = emf.createEntityManager();
-		Query q = entm.createQuery("Select p From Partida p");
-		partidas = q.getResultList();
-		entm.close();
-		
-		return partidas;
+		List <Partida> list = partidaDAO.getAll(Partida.class);
+		partidaDAO.closeEntityManager();
+		return list;
+	}
+	
+	public void alterar(Partida partida) {
+		partidaDAO.save(partida);
+		partidaDAO.closeEntityManager();
+	}
+
+	
+	public void remover(Partida partida) {
+		partida = partidaDAO.getById(Partida.class, partida.getNumero());
+		partidaDAO.remove(partida);
+		partidaDAO.closeEntityManager();
 	}
 }

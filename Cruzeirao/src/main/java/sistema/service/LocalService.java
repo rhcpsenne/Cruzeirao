@@ -1,38 +1,34 @@
 package sistema.service;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
+import sistema.dao.LocalDAO;
 import sistema.modelos.Local;
 
 public class LocalService {
-private EntityManagerFactory emf;
+	LocalDAO localDAO = new LocalDAO();
 	
-	public LocalService() {
-		emf = Persistence.createEntityManagerFactory("Cruzeirao");
+	public Local salvar(Local local) {
+		local = localDAO.save(local);
+		localDAO.closeEntityManager();
+		return local;
 	}
 	
-	public void salvar(Local local) {
-		EntityManager entm = emf.createEntityManager();
-		entm.getTransaction().begin();
-			entm.persist(local);
-		entm.getTransaction().commit();
-		entm.close();
-	}
-	
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	public List<Local> getLocais(){
-		List<Local> locais;
-		
-		EntityManager entm = emf.createEntityManager();
-		Query q = entm.createQuery("Select l From Local l");
-		locais = q.getResultList();
-		entm.close();
-		
-		return locais;
+		List <Local> list = localDAO.getAll(Local.class);
+		localDAO.closeEntityManager();
+		return list;
+	}
+	
+	public void alterar(Local local) {
+		localDAO.save(local);
+		localDAO.closeEntityManager();
+	}
+
+	
+	public void remover(Local local) {
+		local = localDAO.getById(Local.class, local.getId());
+		localDAO.remove(local);
+		localDAO.closeEntityManager();
 	}
 }

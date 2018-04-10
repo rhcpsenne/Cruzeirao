@@ -2,11 +2,17 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Equipe;
 import sistema.service.EquipeService;
 
+
+@ManagedBean
+@ViewScoped
 public class EquipeMB {
 	private Equipe equipe = new Equipe();
 	private List<Equipe> equipes;
@@ -28,11 +34,11 @@ public class EquipeMB {
 
 	}
 
-	public Equipe getAluno() {
+	public Equipe getEquipe() {
 		return equipe;
 	}
 
-	public void setAluno(Equipe equipe) {
+	public void setEquipe(Equipe equipe) {
 		this.equipe = equipe;
 	}
 

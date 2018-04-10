@@ -1,0 +1,56 @@
+
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+		
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroEquipe.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	<h1><p:outputLabel value="#{msg['pages.login.menu']}"/></h1>
+	
+	 <h:form id="formLogin">	
+	  <p:growl id="growl" sticky="true" showDetail="true"/>
+           <p:tab id="personal" title="Login">
+           <p:panel header="Login">
+           <p:messages />
+      
+      <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
+      
+      <h:panelGrid columns="2" columnClasses="label, value">
+      <p:outputLabel for="nome" value="Nome:" />
+      <p:inputText id="nome" value="#{null}" required="true" label="Nome"/>
+      
+      <h:outputText value="Password: " />
+        <p:password id="feedback" value="#{null}" feedback="true" />
+      
+
+             
+      </h:panelGrid>
+      
+      <h:panelGrid columns="2" columnClasses="label, value">
+
+                  
+      </h:panelGrid>
+      </h:panelGrid>
+                
+      </p:panel>
+            <div align="right">
+            <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
+            </div>
+        </p:tab>
+  
+	   
+       </h:form>
+     <br/>
+   </ui:define>
+ </ui:composition>

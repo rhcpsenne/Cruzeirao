@@ -19,10 +19,16 @@
 	  <h1><p:outputLabel value="#{msg['pages.cadastroUsuario.menu']}"/></h1>
 	  
 	  <h:form id="formUsuario">	
-	  <div align="center">
-	  <p:panel header="Cadastrar Usuario" style="margin-bottom:1px;border: none" >
-	  <p:panelGrid columns="4" cellpadding="5"  >
+	  <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    
+        <p:tab id="personal" title="Cadastro">
+            <p:panel header="Cadastro Usuario">
+                <p:messages />
       
+      <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
+      
+      <h:panelGrid columns="2" columnClasses="label, value">
       <p:outputLabel for="nome" value="Nome:" />
       <p:inputText id="nome" value="#{usuarioMB.usuario.nome}" required="true" label="Nome"/>
       
@@ -42,7 +48,11 @@
       
       <p:outputLabel for="telefonefixo" value="Telefone Fixo:" />
       <p:inputText id="telefonefixo" value="#{usuarioMB.usuario.telefoneFixo}"  mask="(999) 99999-9999" required="true" label="Telefonefixo"/>
+      <h:outputText />
       
+      </h:panelGrid>
+      
+      <h:panelGrid columns="2" columnClasses="label, value">
       <p:outputLabel for="telefonemovel" value="Telefone Movel:" />
       <p:inputText id="telefonemovel" value="#{usuarioMB.usuario.telefoneMovel}"  mask="(999) 99999-9999" required="true" label="Telefonemovel"/>
       
@@ -58,24 +68,26 @@
       <p:outputLabel for="cref" value="Cref:" />
       <p:inputText id="cref" value="#{usuarioMB.usuario.nome}" required="true" label="cref"/>
         
-      	<div align="center">
+      	
       <p:outputLabel for="sexo" value="Sexo:"/>
            	<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}" style="width:170px" >
      			<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}" noSelectionOption="true" />
                 <f:selectItems value="#{usuarioMB.sexo}" />
             </p:selectOneMenu>
-          </div>  
-      
-	  </p:panelGrid>
-	  
-	  <p:separator/>
-	  <p:commandButton value="Salvar" 
-	                 action="1"
-	                 update=":formUsuario"
-	                 />
-	                 
-	   </p:panel>
-	   </div>
+            
+           
+                </h:panelGrid>
+                </h:panelGrid>
+                
+            </p:panel>
+            <div align="right">
+            <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
+            </div>
+        </p:tab>
+  
+    
+   
+	   
        </h:form>
             
    <br/>

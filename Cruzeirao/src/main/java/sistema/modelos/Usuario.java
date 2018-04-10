@@ -18,6 +18,7 @@ public class Usuario {
 	private String nome;
 	private Date dataNascimento;
 	private ArrayList<Equipe> equipes = new ArrayList<Equipe>();
+	private ArrayList<Usuario> diretores = new ArrayList<Usuario>();
 	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
 	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
 	private Tipo tipo; 
@@ -50,6 +51,14 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 	
+	
+	
+	public ArrayList<Usuario> getDiretores() {
+		return diretores;
+	}
+	public void setDiretores(ArrayList<Usuario> diretores) {
+		this.diretores = diretores;
+	}
 	public int getId() {
 		return id;
 	}

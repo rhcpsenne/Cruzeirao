@@ -5,21 +5,23 @@
 	xmlns:p="http://primefaces.org/ui">
 	<h:form>
 		<p:panelMenu>
-		    <p:submenu label="#{msg['pages.comuns.menuLateral.inicio']}" >
-			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="inicio.xhtml" />
+		    <p:submenu label="Inicio" >
+			   <p:menuitem value="Inicio" url="inicio.xhtml" />
 			</p:submenu>
 		
-			<p:submenu label="#{msg['pages.comuns.menuLateral.gerencial']}">
+			<p:submenu label="Gerencial">
 				<p:menuitem value="Cadastrar Usuario"      url="cadastroUsuario.xhtml" />
-				<p:menuitem value="Cadastro Equipe" url="cadastroDiretor.xhtml" />
-				<p:menuitem value="#{msg['pages.cadastroJogador.menu']}" url="cadastroJogador.xhtml" />
-	       </p:submenu>
+				<p:menuitem value="Cadastrar Equipe" url="cadastroEquipe.xhtml" />
+		    </p:submenu>
 					
-			<p:submenu label="#{msg['pages.comuns.menuLateral.options']}">
-				<p:menuitem value="#{msg['pages.linguagem.menu']}" url="linguagem.xhtml" />
+			<p:submenu label="Opcoes">
+				<p:menuitem value="Linguagem" url="linguagem.xhtml" />
 	       </p:submenu>
 		
 		</p:panelMenu>
+		
+	
 	</h:form>
+	
 </ui:composition>
 

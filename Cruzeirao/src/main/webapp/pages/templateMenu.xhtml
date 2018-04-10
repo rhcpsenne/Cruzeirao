@@ -14,7 +14,7 @@
 
 		<title>
 		   <ui:insert name="title">
-				<h:outputLabel value="#{msg['pages.templateMenu.titleMainMenu']}" />
+				<h:outputLabel value="Menu Principal" />
 			</ui:insert>
 	    </title>
 	</h:head>
@@ -26,7 +26,7 @@
 		<p:layout id="globalLayout" fullPage="true">
 
 
-			<p:layoutUnit position="north" size="160" >
+			<p:layoutUnit position="north" size="200" >
 				<ui:include src="comuns/cabecalho.xhtml" />
 			</p:layoutUnit>
 
@@ -38,8 +38,8 @@
 
 			<!-- Menu lateral -->
 			<p:layoutUnit position="west"
-				header="#{msg['pages.templateMenu.titleMainMenu']}"
-				collapsible="true" size="250">
+				header="Menu Principal"
+				collapsible="true" size="300">
 				<ui:include src="comuns/menuLateral.xhtml" />
 			</p:layoutUnit>
 

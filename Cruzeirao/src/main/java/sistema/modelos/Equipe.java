@@ -15,6 +15,7 @@ public class Equipe {
 	private Date dataFundacao;
 	private String cidade;
 	private ArrayList<Usuario> diretores = new ArrayList<Usuario>();
+	private ArrayList<Usuario> jogadores = new ArrayList<Usuario>();
 	
 	public Equipe() {
 		super();
@@ -29,6 +30,16 @@ public class Equipe {
 		this.diretores = diretores;
 	}
 	
+	
+	
+	public ArrayList<Usuario> getJogadores() {
+		return jogadores;
+	}
+
+	public void setJogadores(ArrayList<Usuario> jogadores) {
+		this.jogadores = jogadores;
+	}
+
 	public int getId() {
 		return id;
 	}

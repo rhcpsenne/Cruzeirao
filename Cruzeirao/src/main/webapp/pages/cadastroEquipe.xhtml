@@ -19,7 +19,7 @@
 	  <h1><p:outputLabel value="#{msg['pages.cadastroEquipe.menu']}"/></h1>
 	  
 	  <h:form id="formEquipe">	
-	  <p:panelGrid columns="2">
+	  <h:panelGrid columns="4">
       
       <p:outputLabel for="nome" value="Nome:" />
       <p:inputText id="nome" value="#{equipeMB.equipe.nome}" required="true" label="Nome"/>
@@ -39,7 +39,7 @@
                 <f:selectItems value="#{usuarioMB.usuario.tipo.DIRETOR}" />
             </p:selectOneMenu>
 
-	  </p:panelGrid>
+	  </h:panelGrid>
 	  <p:commandButton value="Salvar" 
 	                 action="1"
 	                 update=":formEquipe"

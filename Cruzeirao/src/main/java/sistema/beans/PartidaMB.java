@@ -28,11 +28,11 @@ public class PartidaMB {
 
 	}
 
-	public Partida getAluno() {
+	public Partida getPartida() {
 		return partida;
 	}
 
-	public void setAluno(Partida partida) {
+	public void setPartida(Partida partida) {
 		this.partida = partida;
 	}
 

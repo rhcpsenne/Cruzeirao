@@ -26,9 +26,9 @@
       <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
       
         
-      <p:outputLabel for="diretor" value="Diretores:"/>
-     	 <p:selectOneMenu id="diretor" value="#{null}" style="width:170px" >
-             <f:selectItem itemLabel="Selecionar Diretor" itemValue="#{null}" noSelectionOption="true" />
+      <p:outputLabel for="equipes" value="Equipes:"/>
+     	 <p:selectOneMenu id="equipes" value="#{null}" style="width:170px" >
+             <f:selectItem itemLabel="Selecionar Equipe" itemValue="#{null}" noSelectionOption="true" />
              <f:selectItems value="#{null}" />
          </p:selectOneMenu>
   
@@ -38,10 +38,7 @@
                 
       </p:panel>
             <div align="right">
-            <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
-            </div>
-             <div align="left">
-            <p:commandButton value="Add" actionListener="1" update="growl" process="@this"/>
+            <p:commandButton value="Show" actionListener="1" update="growl" process="@this"/>
             </div>
         </p:tab>
   
@@ -73,7 +70,3 @@
     	   
 	</ui:define>
 </ui:composition>
-   
-   
-  
-	

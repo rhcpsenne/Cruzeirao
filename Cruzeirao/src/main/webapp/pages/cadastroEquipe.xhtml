@@ -19,49 +19,57 @@
 	  <h1><p:outputLabel value="#{msg['pages.cadastroEquipe.menu']}"/></h1>
 	  
 	  <h:form id="formEquipe">	
-	  <p:panelGrid columns="2">
+	  <p:growl id="growl" sticky="true" showDetail="true"/>
+           <p:tab id="personal" title="Cadastro">
+           <p:panel header="Cadastro Equipe">
+           <p:messages />
       
-      <p:outputLabel for="nome" value="Nome:" />
-      <p:inputText id="nome" value="#{equipeMB.equipe.nome}" required="true" label="Nome"/>
+      <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
       
-      <p:outputLabel for="datafundacao" value="Data de Fundacao:" />
-      <p:outputLabel id="datafundacao"  required="true" label="Data de fundacao">
-      <p:calendar value="#{equipeMB.equipe.dataFundacao}" pattern="dd/MM/yyyy"/>
-      </p:outputLabel>
-    
-      
-      <p:outputLabel for="cidade" value="Cidade:" />
-      <p:inputText id="cidade" value="#{equipeMB.equipe.cidade}" required="true" label="Cidade"/>
-      
-       <p:outputLabel for="diretores" value="Diretores:"/>
-     		<p:selectOneMenu id="diretores" value="#{equipeMB.equipe.diretores}" style="width:170px" >
-                <f:selectItem itemLabel="Selecionar Diretor" itemValue="" noSelectionOption="true" />
-                <f:selectItems value="#{usuarioMB.usuario.tipo.DIRETOR}" />
-            </p:selectOneMenu>
-
-	  </p:panelGrid>
-	  <p:commandButton value="Salvar" 
-	                 action="1"
-	                 update=":formEquipe"
-	                 />
+        
+      <p:outputLabel for="equipes" value="Equipes:"/>
+     	 <p:selectOneMenu id="equipes" value="#{null}" style="width:170px" >
+             <f:selectItem itemLabel="Selecionar Equipe" itemValue="#{null}" noSelectionOption="true" />
+             <f:selectItems value="#{null}" />
+         </p:selectOneMenu>
+  
+                  
+     
+      </h:panelGrid>
+                
+      </p:panel>
+            <div align="right">
+            <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
+            </div>
+             <div align="left">
+            <p:commandButton value="Add" actionListener="1" update="growl" process="@this"/>
+            </div>
+        </p:tab>
+  
+	   
        </h:form>
        
-       <h:form id="formEquipes">
+<h:form id="formEquipes">
 	
 	 	 	
-	<p:dataTable var="diretor" value="#{equipeMB.diretores}"
-	             editable="false" editMode="cell">
-
-	<p:column>
+	<p:dataTable var="equipe" value="#{equipeMB.equipe}"
+	             editable="false" editMode="cell"
+	             
+	>
 	
-	     <p:commandLink value="Excluir" action="#{itemPedidoMB.remover(item)}" update="formItensPedidos"></p:commandLink>
+	<p:column headerText="Equipes">
+	   
+                  <p:outputLabel value="#{equipe.nome}" itemLabel="#{equipe.nome}"/>
+                  </p:column>
+    
+    <p:column>
+	
+	     <p:commandLink value="Excluir" action="#{itemPedidoMB.remover(item)}" update="formEquipes"></p:commandLink>
 	</p:column>
 	
 	</p:dataTable>
-	
-		
-	</h:form>
-       
+      
+    </h:form>   
     <br/>
     	   
 	</ui:define>

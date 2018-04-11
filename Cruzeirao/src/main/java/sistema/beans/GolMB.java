@@ -2,11 +2,16 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Gol;
 import sistema.service.GolService;
 
+@ManagedBean
+@ViewScoped
 public class GolMB {
 	private Gol gol = new Gol();
 	private List<Gol> gols;

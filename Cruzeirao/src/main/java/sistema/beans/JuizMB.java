@@ -2,11 +2,17 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Juiz;
 import sistema.service.JuizService;
 
+
+@ManagedBean
+@ViewScoped
 public class JuizMB {
 	private Juiz juiz = new Juiz();
 	private List<Juiz> juizs;

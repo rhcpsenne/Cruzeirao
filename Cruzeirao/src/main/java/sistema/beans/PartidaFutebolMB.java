@@ -2,11 +2,16 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.PartidaFutebol;
 import sistema.service.PartidaFutebolService;
 
+@ManagedBean
+@ViewScoped
 public class PartidaFutebolMB {
 	private PartidaFutebol partidaFutebol = new PartidaFutebol();
 	private List<PartidaFutebol> partidaFutebols;

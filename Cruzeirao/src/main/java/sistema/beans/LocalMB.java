@@ -2,11 +2,17 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Local;
 import sistema.service.LocalService;
 
+
+@ManagedBean
+@ViewScoped
 public class LocalMB {
 	private Local local = new Local();
 	private List<Local> locals;

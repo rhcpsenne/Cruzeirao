@@ -27,58 +27,45 @@
                 <p:messages />
       
       <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
-      
       <h:panelGrid columns="2" columnClasses="label, value">
-      <p:outputLabel for="equipeMandante" value="Equipe Mandante:" />
-      <p:inputText id="equipeMandante" value="" required="true" label="equipeMandante"/>
-      
-      <h:panelGrid columns="2" columnClasses="label, value">
-      <p:outputLabel for="equipeVisitante" value="Equipe Visitante:" />
-      <p:inputText id="equipeVisitante" value="" required="true" label="equipeVisitante"/>
-      
-       <p:outputLabel for="tipo" value="Tipo:"/>
-           	<p:selectOneMenu id="tipo" value="" style="width:170px" >
-     			<f:selectItem itemLabel="Selecionar Tipo" itemValue="#{null}" noSelectionOption="true" />
+      <p:outputLabel for="eqmand" value="Equipe Mandante:"/>
+           	<p:selectOneMenu id="eqmand" value="" style="width:170px" >
+     			<f:selectItem itemLabel="Selecionar Equipe" itemValue="#{null}" noSelectionOption="true" />
                 <f:selectItems value="" />
             </p:selectOneMenu>
       
-      <p:outputLabel for="email" value="Local:" />
-      <p:inputText id="email" value="" required="true" label="Email"/>
+      <p:outputLabel for="eqv" value="Equipe Visitante:"/>
+           	<p:selectOneMenu id="eqv" value="" style="width:170px" >
+     			<f:selectItem itemLabel="Selecionar Equipe" itemValue="#{null}" noSelectionOption="true" />
+                <f:selectItems value="" />
+            </p:selectOneMenu>
       
-      <p:outputLabel for="data" value="Data:" />
-     	<p:outputLabel id="data"  required="true" label="Data">
-     	<p:calendar value="" pattern="dd/MM/yyyy"/>
-      </p:outputLabel>
+     
       
-      <p:outputLabel for="proximaPartida" value="Telefone Fixo:" />
+      <p:outputLabel for="proximaPartida" value="Próxima Partida:" />
       <p:inputText id="proximaPartida" value=""  mask="(999) 99999-9999" required="true" label="Telefonefixo"/>
       <h:outputText />
       
       </h:panelGrid>
       
       <h:panelGrid columns="2" columnClasses="label, value">
-      <p:outputLabel for="telefonemovel" value="Telefone Movel:" />
-      <p:inputText id="telefonemovel" value=""  mask="(999) 99999-9999" required="true" label="Telefonemovel"/>
       
-      <p:outputLabel for="endereco" value="Endereco:" />
-      <p:inputText id="endereco" value="" required="true" label="Endereco"/>
+      <p:outputLabel for="juizes" value="Juízes: "/>
+           	<p:selectOneMenu id="juizes" value="" style="width:170px" >
+     			<f:selectItem itemLabel="Selecionar Juízes" itemValue="#{null}" noSelectionOption="true" />
+                <f:selectItems value="" />
+            </p:selectOneMenu>
       
-      <p:outputLabel for="rg" value="RG:" />
-      <p:inputText id="rg" value="" required="true" label="RG"/>
-      
-      <p:outputLabel for="cpf" value="CPF:" />
-      <p:inputText id="cpf" value="" required="true" label="CPF"/>
-      
-      <p:outputLabel for="cref" value="Cref:" />
-      <p:inputText id="cref" value="" required="true" label="cref"/>
-        
-      	
-      <p:outputLabel for="sexo" value="Sexo:"/>
-           	<p:selectOneMenu id="sexo" value="" style="width:170px" >
-     			<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}" noSelectionOption="true" />
+     <p:outputLabel for="local" value="Local: "/>
+           	<p:selectOneMenu id="local" value="" style="width:170px" >
+     			<f:selectItem itemLabel="Selecionar Local" itemValue="#{null}" noSelectionOption="true" />
                 <f:selectItems value="" />
             </p:selectOneMenu>
             
+             <p:outputLabel for="data" value="Data:" />
+     	<p:outputLabel id="data"  required="true" label="Data">
+     	<p:calendar value="" pattern="dd/MM/yyyy"/>
+      </p:outputLabel>
            
                 </h:panelGrid>
                 </h:panelGrid>
@@ -86,6 +73,10 @@
             </p:panel>
             <div align="right">
             <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
+            </div>
+            
+             <div align="left">
+            <p:commandButton value="Add" actionListener="1" update="growl" process="@this"/>
             </div>
         </p:tab>
   

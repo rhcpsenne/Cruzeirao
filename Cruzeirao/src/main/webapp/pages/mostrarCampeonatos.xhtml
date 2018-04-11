@@ -9,7 +9,7 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 		
 	<ui:define name="title">
-		<h:outputText value="#{msg['pages.cadastroEquipe.title']}" />
+		<h:outputText value="#{msg['pages.cadastroCampeonato.title']}" />
 	</ui:define>
 	
 
@@ -17,7 +17,7 @@
 	  
 	  <h1><p:outputLabel value="#{msg['pages.cadastroEquipe.menu']}"/></h1>
 	  
-	  <h:form id="formEquipe">	
+	  <h:form id="formCadastro">	
 	  <p:growl id="growl" sticky="true" showDetail="true"/>
            <p:tab id="personal" title="Cadastro">
            <p:panel header="Cadastro Equipe">
@@ -26,9 +26,9 @@
       <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
       
         
-      <p:outputLabel for="equipes" value="Equipes:"/>
-     	 <p:selectOneMenu id="equipes" value="#{null}" style="width:170px" >
-             <f:selectItem itemLabel="Selecionar Equipe" itemValue="#{null}" noSelectionOption="true" />
+      <p:outputLabel for="campeonatos" value="Campeonatos:"/>
+     	 <p:selectOneMenu id="campeonatos" value="#{null}" style="width:170px" >
+             <f:selectItem itemLabel="Selecionar Campeonato" itemValue="#{null}" noSelectionOption="true" />
              <f:selectItems value="#{null}" />
          </p:selectOneMenu>
   
@@ -38,33 +38,24 @@
                 
       </p:panel>
             <div align="right">
-            <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
-            </div>
-             <div align="left">
-            <p:commandButton value="Add" actionListener="1" update="growl" process="@this"/>
+            <p:commandButton value="Show" actionListener="1" update="growl" process="@this"/>
             </div>
         </p:tab>
   
 	   
        </h:form>
        
-<h:form id="formEquipes">
+<h:form id="formCampeonatos">
 	
-	 	 	
-	<p:dataTable var="equipe" value="#{equipeMB.equipe}"
-	             editable="false" editMode="cell"
-	             
-	>
+	<p:dataTable var="campeonato" value="#{campeonatoMB.campeonato}"
+	             editable="false" editMode="cell">
 	
-	<p:column headerText="Equipes">
-	   
-                  <p:outputLabel value="#{equipe.nome}" itemLabel="#{equipe.nome}"/>
-                  </p:column>
-    
-    <p:column>
-	
-	     <p:commandLink value="Excluir" action="#{itemPedidoMB.remover(item)}" update="formEquipes"></p:commandLink>
-	</p:column>
+	<p:column headerText="Campeonatos">	   
+              <p:outputLabel value="#{campeonato.nome}" itemLabel="#{campeonato.nome}"/>                  
+    </p:column>
+    <p:column headerText="Anos">	   
+              <p:outputLabel value="#{campeonato.ano}" itemLabel="#{campeonato.ano}"/>                  
+    </p:column>
 	
 	</p:dataTable>
       
@@ -73,7 +64,3 @@
     	   
 	</ui:define>
 </ui:composition>
-   
-   
-  
-	

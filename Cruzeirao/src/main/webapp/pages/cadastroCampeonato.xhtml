@@ -22,14 +22,14 @@
  
     
         <p:tab id="personal" title="Cadastro">
-            <p:panel header="Cadastro Usuario">
+            <p:panel header="Cadastro Campeonato">
                 <p:messages />
       
       <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
       
       <h:panelGrid columns="2" columnClasses="label, value">
       <p:outputLabel for="nome" value="Nome: " />
-      <p:inputText id="nome" value="" required="true" label="nome"/>
+      <p:inputText id="nome" value="" required="true" label="nome" style="width:87%"/>
       
       
        <p:outputLabel for="locais" value="Locais:"/>
@@ -49,7 +49,8 @@
      			<f:selectItem itemLabel="Selecionar Categorias" itemValue="#{null}" noSelectionOption="true" />
                 <f:selectItems value="" />
             </p:selectOneMenu> 
-      
+      </h:panelGrid>      
+      <h:panelGrid columns="2" columnClasses="label, value">
       <p:outputLabel for="dataII" value="Data Inicio Inscrição:" />
      	<p:outputLabel id="dataII"  required="true" label="DataII">
      	<p:calendar value="" pattern="dd/MM/yyyy"/>

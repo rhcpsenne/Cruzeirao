@@ -2,11 +2,16 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Cartao;
 import sistema.service.CartaoService;
 
+@ManagedBean
+@ViewScoped
 public class CartaoMB {
 	private Cartao cartao = new Cartao();
 	private List<Cartao> cartoes;

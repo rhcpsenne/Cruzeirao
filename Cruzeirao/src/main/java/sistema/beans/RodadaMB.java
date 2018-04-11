@@ -2,11 +2,16 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Rodada;
 import sistema.service.RodadaService;
 
+@ManagedBean
+@ViewScoped
 public class RodadaMB {
 	private Rodada rodada = new Rodada();
 	private List<Rodada> rodadas;

@@ -2,37 +2,34 @@ package sistema.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
+import sistema.dao.PartidaFutebolDAO;
 import sistema.modelos.PartidaFutebol;
 
 public class PartidaFutebolService {
-private EntityManagerFactory emf;
+	PartidaFutebolDAO partidaFutebolDAO = new PartidaFutebolDAO();
 	
-	public PartidaFutebolService() {
-		emf = Persistence.createEntityManagerFactory("Cruzeirao");
+	public PartidaFutebol salvar(PartidaFutebol partidaFutebol) {
+		partidaFutebol = partidaFutebolDAO.save(partidaFutebol);
+		partidaFutebolDAO.closeEntityManager();
+		return partidaFutebol;
 	}
 	
-	public void salvar(PartidaFutebol partfut) {
-		EntityManager entm = emf.createEntityManager();
-		entm.getTransaction().begin();
-			entm.persist(partfut);
-		entm.getTransaction().commit();
-		entm.close();
+	//@SuppressWarnings("unchecked")
+	public List<PartidaFutebol> getPartidasFutebol(){
+		List <PartidaFutebol> list = partidaFutebolDAO.getAll(PartidaFutebol.class);
+		partidaFutebolDAO.closeEntityManager();
+		return list;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<PartidaFutebol> getPFs(){
-		List<PartidaFutebol> pfs;
-		
-		EntityManager entm = emf.createEntityManager();
-		Query q = entm.createQuery("Select pf From PartidaFutebol pf");
-		pfs = q.getResultList();
-		entm.close();
-		
-		return pfs;
+	public void alterar(PartidaFutebol partidaFutebol) {
+		partidaFutebolDAO.save(partidaFutebol);
+		partidaFutebolDAO.closeEntityManager();
+	}
+
+	
+	public void remover(PartidaFutebol partidaFutebol) {
+		partidaFutebol = partidaFutebolDAO.getById(PartidaFutebol.class, partidaFutebol.getNumero());
+		partidaFutebolDAO.remove(partidaFutebol);
+		partidaFutebolDAO.closeEntityManager();
 	}
 }

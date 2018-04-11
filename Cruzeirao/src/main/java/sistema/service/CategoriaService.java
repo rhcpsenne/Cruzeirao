@@ -2,38 +2,35 @@ package sistema.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
+import sistema.dao.CategoriaDAO;
 import sistema.modelos.Categoria;
 
 
 public class CategoriaService {
-private EntityManagerFactory emf;
+	CategoriaDAO categoriaDAO = new CategoriaDAO();
 	
-	public CategoriaService() {
-		emf = Persistence.createEntityManagerFactory("Cruzeirao");
+	public Categoria salvar(Categoria categoria) {
+		categoria = categoriaDAO.save(categoria);
+		categoriaDAO.closeEntityManager();
+		return categoria;
 	}
 	
-	public void salvar(Categoria categoria) {
-		EntityManager entm = emf.createEntityManager();
-		entm.getTransaction().begin();
-			entm.persist(categoria);
-		entm.getTransaction().commit();
-		entm.close();
-	}
-	
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	public List<Categoria> getCategorias(){
-		List<Categoria> categorias;
-		
-		EntityManager entm = emf.createEntityManager();
-		Query q = entm.createQuery("Select c From Categoria c");
-		categorias = q.getResultList();
-		entm.close();
-		
-		return categorias;
+		List <Categoria> list = categoriaDAO.getAll(Categoria.class);
+		categoriaDAO.closeEntityManager();
+		return list;
+	}
+	
+	public void alterar(Categoria categoria) {
+		categoriaDAO.save(categoria);
+		categoriaDAO.closeEntityManager();
+	}
+
+	
+	public void remover(Categoria categoria) {
+		categoria = categoriaDAO.getById(Categoria.class, categoria.getId());
+		categoriaDAO.remove(categoria);
+		categoriaDAO.closeEntityManager();
 	}
 }

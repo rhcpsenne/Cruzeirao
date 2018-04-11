@@ -1,0 +1,51 @@
+package sistema.beans;
+
+import java.util.List;
+
+import org.primefaces.event.RowEditEvent;
+
+import sistema.modelos.Inscrito;
+import sistema.service.InscritoService;
+
+public class InscritoMB {
+	private Inscrito inscrito = new Inscrito();
+	private List<Inscrito> inscritos;
+	private InscritoService service = new InscritoService();
+	
+	public void onRowEdit(RowEditEvent event) {
+
+		Inscrito g = ((Inscrito) event.getObject());
+		service.alterar(g);
+	}
+
+	public void salvar() {
+		inscrito = service.salvar(inscrito);
+
+		if (inscritos != null)
+			inscritos.add(inscrito);
+
+		inscrito = new Inscrito();
+
+	}
+
+	public Inscrito getAluno() {
+		return inscrito;
+	}
+
+	public void setAluno(Inscrito inscrito) {
+		this.inscrito = inscrito;
+	}
+
+	// Retorna a lista de alunos para a tabela
+	public List<Inscrito> getInscritos() {
+		if (inscritos == null)
+			inscritos = service.getInscritos();
+
+		return inscritos;
+	}
+
+	public void remover(Inscrito inscrito) {
+		service.remover(inscrito);
+		inscritos.remove(inscrito);
+	}
+}

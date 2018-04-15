@@ -29,5 +29,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Lucas/Desktop/apache-tomcat-8.0.18/apache-tomcat-8.0.18/lib/annotations-api.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

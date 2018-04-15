@@ -2,11 +2,17 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Inscricao;
 import sistema.service.InscricaoService;
 
+
+@ManagedBean
+@ViewScoped
 public class InscricaoMB {
 	private Inscricao inscricao = new Inscricao();
 	private List<Inscricao> inscricaos;

@@ -2,11 +2,16 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Partida;
 import sistema.service.PartidaService;
 
+@ManagedBean
+@ViewScoped
 public class PartidaMB {
 	private Partida partida = new Partida();
 	private List<Partida> partidas;

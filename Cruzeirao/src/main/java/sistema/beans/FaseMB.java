@@ -2,11 +2,16 @@ package sistema.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.primefaces.event.RowEditEvent;
 
 import sistema.modelos.Fase;
 import sistema.service.FaseService;
 
+@ManagedBean
+@ViewScoped
 public class FaseMB {
 	private Fase fase = new Fase();
 	private List<Fase> fases;

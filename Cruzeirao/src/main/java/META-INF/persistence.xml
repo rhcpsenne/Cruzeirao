@@ -16,5 +16,8 @@
 		<class>sistema.modelos.PartidaFutebol</class>
 		<class>sistema.modelos.Rodada</class>
 		<class>sistema.modelos.Usuario</class>
+		<class>enumconverter.TipoConverter</class>
+		<class>enumconverter.SexoConverter</class>
+		<class>enumconverter.FormatoConverter</class>
 	</persistence-unit>
 </persistence>

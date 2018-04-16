@@ -54,4 +54,13 @@ public class CategoriaMB {
 		categorias.remove(categoria);
 
 	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
 }

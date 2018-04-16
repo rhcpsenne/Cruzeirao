@@ -18,29 +18,22 @@
 		<h1>
 			<p:outputLabel value="#{msg['pages.cadastroCampeonato.menu']}" />
 		</h1>
-
-		<h:form id="formCampeonato">
-			<p:growl id="growl" sticky="true" showDetail="true" />
-
-
-			<p:tab id="personal" title="Cadastro">
-				<p:panel header="Cadastro Campeonato">
-					<p:messages />
-
-					<h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
+		
+		 <h:form>
+                 
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    <p:wizard flowListener="#{userWizard.onFlowProcess}">
+        <p:tab id="campeonato" title="Campeonato">
+            <p:panel header="Detalhes do Campeonato">
+                <p:messages />
+                
+               <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
 
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="nome" value="Nome: " />
-							<p:inputText id="nome" value="" required="true" label="nome"
+							<p:inputText id="nome" value="#{campeonatoMB.campeonato.nome}" required="true" label="nome"
 								style="width:87%" />
-
-
-							<p:outputLabel for="locais" value="Locais:" />
-							<p:selectOneMenu id="locais" value="" style="width:170px">
-								<f:selectItem itemLabel="Selecionar locais" itemValue="#{null}"
-									noSelectionOption="true" />
-								<f:selectItems value="" />
-							</p:selectOneMenu>
 
 							<p:outputLabel for="juizes" value="Juizes:" />
 							<p:selectOneMenu id="juizes" value="" style="width:170px">
@@ -48,20 +41,16 @@
 									noSelectionOption="true" />
 								<f:selectItems value="" />
 							</p:selectOneMenu>
-
-							<p:outputLabel for="categorias" value="Categorias:" />
-							<p:selectOneMenu id="categorias" value="" style="width:170px">
-								<f:selectItem itemLabel="Selecionar Categorias"
-									itemValue="#{null}" noSelectionOption="true" />
-								<f:selectItems value="" />
-							</p:selectOneMenu>
-						</h:panelGrid>
-						<h:panelGrid columns="2" columnClasses="label, value">
-							<p:outputLabel for="dataII" value="Data Inicio Inscrição:" />
+							
+								<p:outputLabel for="dataII" value="Data Inicio Inscrição:" />
 							<p:outputLabel id="dataII" required="true" label="DataII">
 								<p:calendar value="" pattern="dd/MM/yyyy" />
 							</p:outputLabel>
-
+							
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2" columnClasses="label, value">
+						
 							<p:outputLabel for="dataFI" value="Data Final Inscrição:" />
 							<p:outputLabel id="dataFI" required="true" label="DataFI">
 								<p:calendar value="" pattern="dd/MM/yyyy" />
@@ -84,18 +73,154 @@
 
 
 					</h:panelGrid>
+                
+            </p:panel>
+        </p:tab>
+        
+        
+        
+ 
+        <p:tab id="categoria" title="Categoria">
+            <p:panel header="Detalhes da Categoria">
+                <p:messages />
+                
+                
+                <h:panelGrid id="cadastro2" columns="3" columnClasses="grid,grid">
 
-				</p:panel>
-				<div align="right">
-					<p:commandButton value="Submit" actionListener="1" update="growl"
-						process="@this" />
-				</div>
-			</p:tab>
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<p:outputLabel for="nome2" value="Nome: " />
+							<p:inputText id="nome2" value="" required="true" label="nome2" />
+
+							<p:outputLabel for="fases" value="Fases:" />
+							<p:selectOneMenu id="fases" value="" style="width:170px">
+								<f:selectItem itemLabel="Selecionar Fases" itemValue="#{null}"
+									noSelectionOption="true" />
+								<f:selectItems value="" />
+							</p:selectOneMenu>
 
 
+						</h:panelGrid>
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<p:outputLabel for="min" value="Minimo de jogadores: " />
+							<p:inputText id="min" value="" required="true" label="min" />
+
+							<p:outputLabel for="max" value="Maximo de jogadores: " />
+							<p:inputText id="max" value="" required="true" label="max" />
 
 
-		</h:form>
+							<p:outputLabel for="sexo" value="Sexo:" />
+							<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}"
+								style="width:170px">
+								<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}"
+									noSelectionOption="true" />
+								<f:selectItems value="" />
+							</p:selectOneMenu>
+
+						</h:panelGrid>
+
+
+					</h:panelGrid>
+                
+                
+            </p:panel>
+        </p:tab>
+        
+        
+        
+ 
+        <p:tab id="local" title="Local">
+            <p:panel header="Detalhes do Local">
+                <p:messages />
+                
+                <h:panelGrid id="cadastro3" columns="2" columnClasses="grid,grid">
+						
+						<p:outputLabel for="idlocal" value="Código do Local:" />
+						<p:inputText id="idlocal" value="" required="true" label="numero" />
+
+						<p:outputLabel for="end" value="Endereço:" />
+						<p:inputText id="end" value="" required="true" label="end" />
+
+					</h:panelGrid>
+
+                
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="confirm" title="Confirmation">
+            <p:panel header="Confirmation">
+                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                   
+                   
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Nome: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Juizes: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Data Inicio Inscrição: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                        
+                        <h:outputText value="Data Final Inscrição: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                        
+                        <h:outputText value="Data Inicio Campeonato: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                        
+                        <h:outputText value="Data Final Campeonato: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                        
+                        <h:outputText value="Valor Taxa: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                    </h:panelGrid>
+                   
+                   
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Nome: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Fases: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                        
+                        <h:outputText value="Minimo de jogadores: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                        
+                        <h:outputText value="Maximo de jogadores: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                        
+                        <h:outputText value="Sexo: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                    </h:panelGrid>
+            
+              
+                  
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Código do Local: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Endereço: " />
+                        <h:outputText value="" styleClass="outputLabel"/>
+                     
+ 
+                        <h:outputText />
+                        <h:outputText />
+                    </h:panelGrid>
+                </h:panelGrid>
+ 
+                <p:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+ 
+</h:form>
+    
+		
+		
+		
+		
+		
+		
+		
 
 		<br />
 

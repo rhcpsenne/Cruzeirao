@@ -7,60 +7,95 @@
 	xmlns:ui2="http://java.sun.com/jsf/facelets"
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components"
 	xmlns:pe="http://primefaces.org/ui/extensions">
-		
+
 	<ui:define name="title">
 		<h:outputText value="#{msg['pages.cadastroCampeonato.title']}" />
 	</ui:define>
-	
+
 
 	<ui:define name="principal">
-	  
-	  <h1><p:outputLabel value="#{msg['pages.cadastroEquipe.menu']}"/></h1>
-	  
-	  <h:form id="formCadastro">	
-	  <p:growl id="growl" sticky="true" showDetail="true"/>
-           <p:tab id="personal" title="Cadastro">
-           <p:panel header="Cadastro Equipe">
-           <p:messages />
-      
-      <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
-      
-        
-      <p:outputLabel for="campeonatos" value="Campeonatos:"/>
-     	 <p:selectOneMenu id="campeonatos" value="#{null}" style="width:170px" >
-             <f:selectItem itemLabel="Selecionar Campeonato" itemValue="#{null}" noSelectionOption="true" />
-             <f:selectItems value="#{null}" />
-         </p:selectOneMenu>
-  
-                  
-     
-      </h:panelGrid>
-                
-      </p:panel>
-            <div align="right">
-            <p:commandButton value="Show" actionListener="1" update="growl" process="@this"/>
-            </div>
-        </p:tab>
-  
-	   
-       </h:form>
-       
-<h:form id="formCampeonatos">
-	
-	<p:dataTable var="campeonato" value="#{campeonatoMB.campeonato}"
-	             editable="false" editMode="cell">
-	
-	<p:column headerText="Campeonatos">	   
-              <p:outputLabel value="#{campeonato.nome}" itemLabel="#{campeonato.nome}"/>                  
-    </p:column>
-    <p:column headerText="Anos">	   
-              <p:outputLabel value="#{campeonato.ano}" itemLabel="#{campeonato.ano}"/>                  
-    </p:column>
-	
-	</p:dataTable>
-      
-    </h:form>   
-    <br/>
-    	   
+
+		<h1>
+			<p:outputLabel value="#{msg['pages.cadastroEquipe.menu']}" />
+		</h1>
+
+		<h:form id="formCadastro">
+			<p:growl id="growl" sticky="true" showDetail="true" />
+			<p:tab id="personal" title="Cadastro">
+				<p:panel header="Consulta Campeonato">
+					<p:messages />
+
+					<h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
+
+
+						<p:outputLabel for="campeonatos" value="Campeonatos:" />
+						<p:selectOneMenu id="campeonatos" value="#{null}"
+							style="width:170px">
+							<f:selectItem itemLabel="Selecionar Campeonato"
+								itemValue="#{null}" noSelectionOption="true" />
+							<f:selectItems value="#{null}" />
+						</p:selectOneMenu>
+
+
+
+					</h:panelGrid>
+
+				</p:panel>
+				<div align="right">
+					<p:commandButton value="Show" actionListener="1" update="growl"
+						process="@this" />
+				</div>
+			</p:tab>
+
+
+		</h:form>
+
+		<h:form id="formCampeonatos">
+
+			<p:dataTable var="campeonato" value="#{campeonatoMB.campeonato}"
+				editable="false" editMode="cell">
+
+				<p:column headerText="Nome">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Local">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Juizes">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Categorias">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Data Inicio Inscrição">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Data Fim Inscrição">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Data Inicio Campeonato">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Data Fim Campeonato">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+				<p:column headerText="Taxa">
+					<p:outputLabel value=""
+						itemLabel="" />
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+		<br />
+
 	</ui:define>
 </ui:composition>

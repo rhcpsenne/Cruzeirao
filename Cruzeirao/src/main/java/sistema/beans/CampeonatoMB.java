@@ -54,4 +54,14 @@ public class CampeonatoMB {
 		campeonatos.remove(campeonato);
 
 	}
+
+	public Campeonato getCampeonato() {
+		return campeonato;
+	}
+
+	public void setCampeonato(Campeonato campeonato) {
+		this.campeonato = campeonato;
+	}
+	
+	
 }

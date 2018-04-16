@@ -55,4 +55,9 @@ public class EquipeMB {
 		equipes.remove(equipe);
 
 	}
+
+	public void setEquipes(List<Equipe> equipes) {
+		this.equipes = equipes;
+	}
+	
 }

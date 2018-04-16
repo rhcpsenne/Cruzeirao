@@ -7,74 +7,75 @@
 	xmlns:ui2="http://java.sun.com/jsf/facelets"
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components"
 	xmlns:pe="http://primefaces.org/ui/extensions">
-		
+
 	<ui:define name="title">
 		<h:outputText value="#{msg['pages.cadastroCategoria.title']}" />
 	</ui:define>
-	
+
 
 	<ui:define name="principal">
-	  
-	  <h1><p:outputLabel value="#{msg['pages.cadastroCategoria.menu']}"/></h1>
-	  
-	  <h:form id="formCategoria">	
-	  <p:growl id="growl" sticky="true" showDetail="true"/>
- 
-    
-        <p:tab id="personal" title="Cadastro">
-            <p:panel header="Cadastro Usuario">
-                <p:messages />
-      
-      <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
-      
-      <h:panelGrid columns="2" columnClasses="label, value">
-      <p:outputLabel for="nome" value="Nome: " />
-      <p:inputText id="nome" value="" required="true" label="nome"/>
-      
-      
-       <p:outputLabel for="inscricoes" value="Inscrições:"/>
-           	<p:selectOneMenu id="inscricoes" value="" style="width:170px" >
-     			<f:selectItem itemLabel="Selecionar inscrições" itemValue="#{null}" noSelectionOption="true" />
-                <f:selectItems value="" />
-            </p:selectOneMenu>
-      
-       <p:outputLabel for="fases" value="Fases:"/>
-           	<p:selectOneMenu id="fases" value="" style="width:170px" >
-     			<f:selectItem itemLabel="Selecionar Fases" itemValue="#{null}" noSelectionOption="true" />
-                <f:selectItems value="" />
-            </p:selectOneMenu>  
-      
-      
-      <p:outputLabel for="campeonato" value="Campeonato:" />
-     	<p:outputLabel id="campeonato"  required="true" label="campeonato">
-      </p:outputLabel>
-        
-        
-          <p:outputLabel for="min" value="Minimo de jogadores: " />
-      <p:inputText id="min" value="" required="true" label="min"/>
-        
-          <p:outputLabel for="max" value="Maximo de jogadores: " />
-      <p:inputText id="max" value="" required="true" label="max"/>
-   	  <p:outputLabel for="sexo" value="Sexo: " />
-      <p:inputText id="sexo" value="" required="true" label="sexo"/>
-      
-      </h:panelGrid>
-      
-      
-      </h:panelGrid>
-                
-            </p:panel>
-            <div align="right">
-            <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
-            </div>
-        </p:tab>
-  
-    
-   
-	   
-       </h:form>
-            
-   <br/>
-   	   
+
+		<h1>
+			<p:outputLabel value="#{msg['pages.cadastroCategoria.menu']}" />
+		</h1>
+
+		<h:form id="formCategoria">
+			<p:growl id="growl" sticky="true" showDetail="true" />
+
+
+			<p:tab id="personal" title="Cadastro">
+				<p:panel header="Cadastro de Categoria">
+					<p:messages />
+
+					<h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
+
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<p:outputLabel for="nome" value="Nome: " />
+							<p:inputText id="nome" value="" required="true" label="nome" />
+
+							<p:outputLabel for="fases" value="Fases:" />
+							<p:selectOneMenu id="fases" value="" style="width:170px">
+								<f:selectItem itemLabel="Selecionar Fases" itemValue="#{null}"
+									noSelectionOption="true" />
+								<f:selectItems value="" />
+							</p:selectOneMenu>
+
+
+						</h:panelGrid>
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<p:outputLabel for="min" value="Minimo de jogadores: " />
+							<p:inputText id="min" value="" required="true" label="min" />
+
+							<p:outputLabel for="max" value="Maximo de jogadores: " />
+							<p:inputText id="max" value="" required="true" label="max" />
+
+
+							<p:outputLabel for="sexo" value="Sexo:" />
+							<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}"
+								style="width:170px">
+								<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}"
+									noSelectionOption="true" />
+								<f:selectItems value="" />
+							</p:selectOneMenu>
+
+						</h:panelGrid>
+
+
+					</h:panelGrid>
+
+				</p:panel>
+				<div align="right">
+					<p:commandButton value="Submit" actionListener="1" update="growl"
+						process="@this" />
+				</div>
+			</p:tab>
+
+
+
+
+		</h:form>
+
+		<br />
+
 	</ui:define>
 </ui:composition>

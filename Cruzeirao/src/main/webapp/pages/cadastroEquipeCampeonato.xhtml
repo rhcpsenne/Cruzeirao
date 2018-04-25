@@ -1,0 +1,98 @@
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+		
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroEquipe.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	  <h1><p:outputLabel value="#{msg['pages.cadastroEquipe.menu']}"/></h1>
+	  
+	  <h:form id="formEquipe">	
+	  <p:growl id="growl" sticky="true" showDetail="true"/>
+           <p:tab id="personal" title="Cadastro">
+           <p:panel header="Registrar equipe em uma categoria">
+           <p:messages />
+      
+      <h:panelGrid id="cadastro" columns="2" columnClasses="grid,grid">
+      
+        
+      <p:outputLabel for="campeonatos" value="Campeonatos:"/>
+     	 <p:selectOneMenu id="campeonatos" value="#{null}" style="width:170px" >
+             <f:selectItem itemLabel="Selecionar Campeonatos:" itemValue="#{null}" noSelectionOption="true" />
+             <f:selectItems value="#{null}" />
+         </p:selectOneMenu>
+         
+             <p:outputLabel for="categorias" value="Categorias:"/>
+     	 <p:selectOneMenu id="categorias" value="#{null}" style="width:170px" >
+             <f:selectItem itemLabel="Selecionar Categorias:" itemValue="#{null}" noSelectionOption="true" />
+             <f:selectItems value="#{null}" />
+         </p:selectOneMenu>
+         
+             <p:outputLabel for="equipes" value="Equipes:"/>
+     	 <p:selectOneMenu id="equipes" value="#{null}" style="width:170px" >
+             <f:selectItem itemLabel="Selecionar Equipes:" itemValue="#{null}" noSelectionOption="true" />
+             <f:selectItems value="#{null}" />
+         </p:selectOneMenu>
+         
+             <p:outputLabel for="jogadores" value="Jogadores:"/>
+     	 <p:selectOneMenu id="jogadores" value="#{null}" style="width:170px" >
+             <f:selectItem itemLabel="Selecionar Jogadores:" itemValue="#{null}" noSelectionOption="true" />
+             <f:selectItems value="#{null}" />
+         </p:selectOneMenu>
+         
+  
+                  
+     
+      </h:panelGrid>
+                
+      </p:panel>
+            <div align="right">
+            <p:commandButton value="Submit" actionListener="1" update="growl" process="@this"/>
+            </div>
+             <div align="left">
+            <p:commandButton value="Add" actionListener="1" update="growl" process="@this"/>
+            </div>
+        </p:tab>
+  
+	   
+       </h:form>
+       
+<h:form id="formEquipes">
+	
+	 	 	
+	<p:dataTable var="equipe" value="#{equipeMB.equipe}"
+	             editable="false" editMode="cell"
+	             
+	>
+	
+	<p:column headerText="Jogadores">
+	   
+                  <p:outputLabel value="#{equipe.nome}" itemLabel="#{equipe.nome}"/>
+                  </p:column>
+    
+    <p:column>
+	
+	     <p:commandLink value="Excluir" action="#{itemPedidoMB.remover(item)}" update="formEquipes"></p:commandLink>
+	</p:column>
+	
+	</p:dataTable>
+      
+    </h:form>   
+    <br/>
+    	   
+	</ui:define>
+</ui:composition>
+   
+   
+  
+	

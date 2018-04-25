@@ -23,7 +23,7 @@
                  
     <p:growl id="growl" sticky="true" showDetail="true"/>
  
-    <p:wizard flowListener="#{userWizard.onFlowProcess}">
+    <p:wizard flowListener="#{campeonatoMB.onFlowProcess}">
         <p:tab id="campeonato" title="Campeonato">
             <p:panel header="Detalhes do Campeonato">
                 <p:messages />
@@ -32,11 +32,11 @@
 
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="nome" value="Nome: " />
-							<p:inputText id="nome" value="#{campeonatoMB.campeonato.nome}" required="true" label="nome"
+							<p:inputText id="nome" value="null" required="true" label="nome"
 								style="width:87%" />
 
 							<p:outputLabel for="juizes" value="Juizes:" />
-							<p:selectOneMenu id="juizes" value="" style="width:170px">
+							<p:selectOneMenu id="juizes" value="null" style="width:170px">
 								<f:selectItem itemLabel="Selecionar Juizes" itemValue="#{null}"
 									noSelectionOption="true" />
 								<f:selectItems value="" />
@@ -44,7 +44,7 @@
 							
 								<p:outputLabel for="dataII" value="Data Inicio Inscrição:" />
 							<p:outputLabel id="dataII" required="true" label="DataII">
-								<p:calendar value="" pattern="dd/MM/yyyy" />
+								<p:calendar value="null" pattern="dd/MM/yyyy" />
 							</p:outputLabel>
 							
 						</h:panelGrid>
@@ -53,21 +53,21 @@
 						
 							<p:outputLabel for="dataFI" value="Data Final Inscrição:" />
 							<p:outputLabel id="dataFI" required="true" label="DataFI">
-								<p:calendar value="" pattern="dd/MM/yyyy" />
+								<p:calendar value="null" pattern="dd/MM/yyyy" />
 							</p:outputLabel>
 
 							<p:outputLabel for="dataIC" value="Data Inicio Campeonato:" />
 							<p:outputLabel id="dataIC" required="true" label="DataIC">
-								<p:calendar value="" pattern="dd/MM/yyyy" />
+								<p:calendar value="null" pattern="dd/MM/yyyy" />
 							</p:outputLabel>
 
 							<p:outputLabel for="dataFC" value="Data Final Campeonato:" />
 							<p:outputLabel id="dataFC" required="true" label="DataFC">
-								<p:calendar value="" pattern="dd/MM/yyyy" />
+								<p:calendar value="null" pattern="dd/MM/yyyy" />
 							</p:outputLabel>
 
 							<p:outputLabel for="taxa" value="Valor Taxa:" />
-							<p:inputText id="taxa" value="" required="true" label="taxa" />
+							<p:inputText id="taxa" value="null" required="true" label="taxa" />
 
 						</h:panelGrid>
 
@@ -89,23 +89,23 @@
 
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="nome2" value="Nome: " />
-							<p:inputText id="nome2" value="" required="true" label="nome2" />
+							<p:inputText id="nome2" value="null" required="true" label="nome2" />
 
 							<p:outputLabel for="fases" value="Fases:" />
-							<p:selectOneMenu id="fases" value="" style="width:170px">
+							<p:selectOneMenu id="fases" value="null" style="width:170px">
 								<f:selectItem itemLabel="Selecionar Fases" itemValue="#{null}"
 									noSelectionOption="true" />
-								<f:selectItems value="" />
+								<f:selectItems value="null" />
 							</p:selectOneMenu>
 
 
 						</h:panelGrid>
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="min" value="Minimo de jogadores: " />
-							<p:inputText id="min" value="" required="true" label="min" />
+							<p:inputText id="min" value="null" required="true" label="min" />
 
 							<p:outputLabel for="max" value="Maximo de jogadores: " />
-							<p:inputText id="max" value="" required="true" label="max" />
+							<p:inputText id="max" value="null" required="true" label="max" />
 
 
 							<p:outputLabel for="sexo" value="Sexo:" />
@@ -113,7 +113,7 @@
 								style="width:170px">
 								<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}"
 									noSelectionOption="true" />
-								<f:selectItems value="" />
+								<f:selectItems value="null" />
 							</p:selectOneMenu>
 
 						</h:panelGrid>
@@ -135,10 +135,10 @@
                 <h:panelGrid id="cadastro3" columns="2" columnClasses="grid,grid">
 						
 						<p:outputLabel for="idlocal" value="Código do Local:" />
-						<p:inputText id="idlocal" value="" required="true" label="numero" />
+						<p:inputText id="idlocal" value="null" required="true" label="numero" />
 
 						<p:outputLabel for="end" value="Endereço:" />
-						<p:inputText id="end" value="" required="true" label="end" />
+						<p:inputText id="end" value="null" required="true" label="end" />
 
 					</h:panelGrid>
 
@@ -153,25 +153,25 @@
                    
                     <h:panelGrid columns="2" columnClasses="label, value">
                         <h:outputText value="Nome: " />
-                        <h:outputText value="" styleClass="outputLabel"/>
+                        <h:outputText value="null" styleClass="outputLabel"/>
  
                         <h:outputText value="Juizes: " />
-                        <h:outputText value="" styleClass="outputLabel"/>
+                        <h:outputText value="null" styleClass="outputLabel"/>
  
                         <h:outputText value="Data Inicio Inscrição: " />
-                        <h:outputText value="" styleClass="outputLabel"/>
+                        <h:outputText value="null" styleClass="outputLabel"/>
                         
                         <h:outputText value="Data Final Inscrição: " />
-                        <h:outputText value="" styleClass="outputLabel"/>
+                        <h:outputText value="null" styleClass="outputLabel"/>
                         
                         <h:outputText value="Data Inicio Campeonato: " />
-                        <h:outputText value="" styleClass="outputLabel"/>
+                        <h:outputText value="null" styleClass="outputLabel"/>
                         
                         <h:outputText value="Data Final Campeonato: " />
-                        <h:outputText value="" styleClass="outputLabel"/>
+                        <h:outputText value="null" styleClass="outputLabel"/>
                         
                         <h:outputText value="Valor Taxa: " />
-                        <h:outputText value="" styleClass="outputLabel"/>
+                        <h:outputText value="null" styleClass="outputLabel"/>
                     </h:panelGrid>
                    
                    

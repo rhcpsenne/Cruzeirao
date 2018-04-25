@@ -19,5 +19,7 @@
 		<class>enumconverter.TipoConverter</class>
 		<class>enumconverter.SexoConverter</class>
 		<class>enumconverter.FormatoConverter</class>
+		<class>sistema.modelos.Diretor</class>
+		<class>sistema.modelos.Jogador</class>
 	</persistence-unit>
 </persistence>

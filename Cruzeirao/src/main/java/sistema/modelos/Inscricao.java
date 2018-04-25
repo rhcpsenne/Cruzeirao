@@ -3,12 +3,15 @@ package sistema.modelos;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Inscricao {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long numero;
 	private boolean pagamento;
 	private boolean validade;

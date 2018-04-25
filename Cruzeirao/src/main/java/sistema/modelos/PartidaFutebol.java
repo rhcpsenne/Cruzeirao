@@ -3,8 +3,10 @@ package sistema.modelos;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@PrimaryKeyJoinColumn(name="num_partida")
 public class PartidaFutebol extends Partida{
 	private ArrayList<Gol> golsMandantes  = new ArrayList<Gol>();
 	private ArrayList<Gol> golsVisitantes = new ArrayList<Gol>();

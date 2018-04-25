@@ -3,6 +3,8 @@ package sistema.modelos;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -12,6 +14,7 @@ public class Grupo {
 	private ArrayList<Rodada> rodadas = new ArrayList<Rodada>();
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int numero;
 	//Gets E Sets & ToString
 	public Grupo() {

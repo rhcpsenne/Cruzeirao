@@ -3,11 +3,14 @@ package sistema.modelos;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Rodada {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int numero;
 	private Grupo grupo;
 	private ArrayList<Partida> partidas = new ArrayList<Partida>();

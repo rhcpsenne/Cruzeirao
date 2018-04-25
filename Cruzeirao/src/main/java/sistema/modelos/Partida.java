@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Partida {
 	@Id
-	private int numero;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int num_partida;
+	
 	private Inscricao equipeMandante;
 	private Inscricao equipeVisitante;
 	private Date data;
@@ -23,10 +27,10 @@ public class Partida {
 	}
 	
 	
-	public Partida(int numero, Inscricao equipeMandante, Inscricao equipeVisitante, Date data, Local local,
+	public Partida(int num_partida, Inscricao equipeMandante, Inscricao equipeVisitante, Date data, Local local,
 			Partida proxPartida, ArrayList<Juiz> juizes, Grupo grupo, String relatoJuiz) {
 		super();
-		this.numero = numero;
+		this.num_partida = num_partida;
 		this.equipeMandante = equipeMandante;
 		this.equipeVisitante = equipeVisitante;
 		this.data = data;
@@ -51,10 +55,10 @@ public class Partida {
 		this.grupo = grupo;
 	}
 	public int getNumero() {
-		return numero;
+		return num_partida;
 	}
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setNumero(int num_partida) {
+		this.num_partida = num_partida;
 	}
 	public Inscricao getEquipeMandante() {
 		return equipeMandante;
@@ -96,7 +100,7 @@ public class Partida {
 
 	@Override
 	public String toString() {
-		return "Partida [numero=" + numero + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
+		return "Partida [num_partida=" + num_partida + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
 				+ equipeVisitante + ", data=" + data + ", local=" + local + ", proxPartida=" + proxPartida + ", juizes="
 				+ juizes + ", grupo=" + grupo + ", relatoJuiz=" + relatoJuiz + "]";
 	}

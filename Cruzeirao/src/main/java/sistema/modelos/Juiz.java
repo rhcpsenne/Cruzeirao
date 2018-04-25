@@ -1,10 +1,12 @@
 package sistema.modelos;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import enumerator.Tipo;
 
 @Entity
+@PrimaryKeyJoinColumn(name="id_usuario")
 public class Juiz extends Usuario{
 	private Tipo tipo;
 	private Usuario usuario;

@@ -2,6 +2,11 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
+@PrimaryKeyJoinColumn(name="id_usuario")
 public class Jogador extends Usuario {
 
 	private ArrayList<Usuario> diretores = new ArrayList<Usuario>();

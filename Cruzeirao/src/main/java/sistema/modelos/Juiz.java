@@ -1,6 +1,11 @@
 package sistema.modelos;
 
+import java.util.ArrayList;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import enumerator.Tipo;
@@ -9,7 +14,12 @@ import enumerator.Tipo;
 @PrimaryKeyJoinColumn(name="id_usuario")
 public class Juiz extends Usuario{
 	private Tipo tipo;
+	@OneToOne(cascade=CascadeType.ALL)
 	private Usuario usuario;
+	@ManyToMany(mappedBy="juizes", cascade=CascadeType.ALL)
+	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
+	@ManyToMany(mappedBy="juizes", cascade=CascadeType.ALL)
+	private ArrayList<Partida> partidas = new ArrayList<Partida>();
 
 	
 	public Juiz() {

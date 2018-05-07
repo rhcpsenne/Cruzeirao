@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Inscricao {
@@ -16,9 +17,12 @@ public class Inscricao {
 	private boolean pagamento;
 	private boolean validade;
 	private ArrayList<Inscrito> inscritos = new ArrayList<Inscrito>();
+	@ManyToOne
 	private Categoria categoria;
 	private ArrayList<Partida> partidas = new ArrayList<Partida>();
+	@ManyToOne
 	private Equipe equipe;
+
 	public Inscricao() {
 		super();
 	}

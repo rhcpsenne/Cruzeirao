@@ -1,22 +1,32 @@
 package sistema.modelos;
 
+import java.util.ArrayList;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Local {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int local_id;
+	@ManyToMany(mappedBy="locais", cascade=CascadeType.ALL)
+	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
+	@OneToMany(mappedBy="local", cascade=CascadeType.ALL)
+	private ArrayList<Partida> partidas = new ArrayList<Partida>();
+	
 	
 	private String endereco;
 	
 	
-	public Local(int id, String endereco) {
+	public Local(int local_id, String endereco) {
 		super();
-		this.id = id;
+		this.local_id = local_id;
 		this.endereco = endereco;
 	}
 
@@ -26,11 +36,11 @@ public class Local {
 	
 
 	public int getId() {
-		return id;
+		return local_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int local_id) {
+		this.local_id = local_id;
 	}
 
 	public String getEndereco() {

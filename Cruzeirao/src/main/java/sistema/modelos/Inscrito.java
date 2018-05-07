@@ -1,6 +1,7 @@
 package sistema.modelos;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import enumerator.Tipo;
@@ -9,6 +10,7 @@ import enumerator.Tipo;
 @PrimaryKeyJoinColumn(name="id_usuario")
 public class Inscrito extends Usuario{
 	private Tipo tipo;
+	@ManyToOne
 	private Usuario usuario;
 	private Inscricao inscricao;
 	private boolean aceiteUsuario;

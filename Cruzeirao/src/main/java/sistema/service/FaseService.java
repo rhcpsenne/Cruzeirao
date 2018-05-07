@@ -28,7 +28,7 @@ public class FaseService {
 
 	
 	public void remover(Fase fase) {
-		fase = faseDAO.getById(Fase.class, fase.getNumero());
+		fase = faseDAO.getById(Fase.class, fase.getId());
 		faseDAO.remove(fase);
 		faseDAO.closeEntityManager();
 	}

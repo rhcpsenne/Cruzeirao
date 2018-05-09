@@ -3,30 +3,36 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Equipe {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int equipe_id;
 	
 	private String nome;
 	private Date dataFundacao;
 	private String cidade;
+	@ManyToMany(mappedBy="equipes", cascade=CascadeType.ALL)
 	private ArrayList<Usuario> diretores = new ArrayList<Usuario>();
 	private ArrayList<Usuario> jogadores = new ArrayList<Usuario>();
+	@OneToMany(mappedBy="equipe", cascade=CascadeType.ALL)
+	private ArrayList<Inscricao> incricoes = new ArrayList<Inscricao>();
 	
 	public Equipe() {
 		super();
 	}
 
-	public Equipe(int id, String nome, Date dataFundacao, String cidade, ArrayList<Usuario> diretores) {
+	public Equipe(int equipe_id, String nome, Date dataFundacao, String cidade, ArrayList<Usuario> diretores) {
 		super();
-		this.id = id;
+		this.equipe_id = equipe_id;
 		this.nome = nome;
 		this.dataFundacao = dataFundacao;
 		this.cidade = cidade;
@@ -44,11 +50,11 @@ public class Equipe {
 	}
 
 	public int getId() {
-		return id;
+		return equipe_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int equipe_id) {
+		this.equipe_id = equipe_id;
 	}
 
 	public String getNome() {

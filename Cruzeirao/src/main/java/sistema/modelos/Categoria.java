@@ -2,10 +2,13 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import enumerator.Sexo;
 
@@ -13,12 +16,15 @@ import enumerator.Sexo;
 public class Categoria {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int cat_id;
 	
 	private String nome;
 	private int apartirDe;
+	@OneToMany(mappedBy="categoria", cascade=CascadeType.ALL)
 	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+	@ManyToOne
 	private Campeonato campeonato;
+	@OneToMany(mappedBy="categoria", cascade=CascadeType.ALL)
 	private ArrayList<Fase> fases = new ArrayList<Fase>();
 	private int minJogadores;
 	private int maxJogadores;
@@ -28,10 +34,10 @@ public class Categoria {
 	public Categoria() {
 		super();
 	}
-	public Categoria(int id, String nome, int apartirDe, ArrayList<Inscricao> inscricoes, Campeonato campeonato,
+	public Categoria(int cat_id, String nome, int apartirDe, ArrayList<Inscricao> inscricoes, Campeonato campeonato,
 			ArrayList<Fase> fases, int minJogadores, int maxJogadores, Sexo sexo, int attribute74) {
 		super();
-		this.id = id;
+		this.cat_id = cat_id;
 		this.nome = nome;
 		this.apartirDe = apartirDe;
 		this.inscricoes = inscricoes;
@@ -44,10 +50,10 @@ public class Categoria {
 	}
 	
 	public int getId() {
-		return id;
+		return cat_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int cat_id) {
+		this.cat_id = cat_id;
 	}
 	public String getNome() {
 		return nome;
@@ -105,8 +111,9 @@ public class Categoria {
 	}
 	@Override
 	public String toString() {
-		return "Categoria [nome=" + nome + ", apartirDe=" + apartirDe + ", inscricoes=" + inscricoes + ", campeonato="
-				+ campeonato + ", fases=" + fases + ", minJogadores=" + minJogadores + ", maxJogadores=" + maxJogadores
-				+ ", sexo=" + sexo + ", attribute74=" + attribute74 + "]";
+		return "Categoria [cat_id=" + cat_id + ", nome=" + nome + ", apartirDe=" + apartirDe + ", inscricoes="
+				+ inscricoes + ", campeonato=" + campeonato + ", fases=" + fases + ", minJogadores=" + minJogadores
+				+ ", maxJogadores=" + maxJogadores + ", sexo=" + sexo + ", attribute74=" + attribute74 + "]";
 	}
+	
 }

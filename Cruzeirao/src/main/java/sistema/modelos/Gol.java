@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Gol {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int gol_id;
 	private Inscrito inscrito;
 	private int tempo;
 	private boolean penalty;
@@ -18,19 +18,19 @@ public class Gol {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Gol(int id, Inscrito inscrito, int tempo, boolean penalty) {
+	public Gol(int gol_id, Inscrito inscrito, int tempo, boolean penalty) {
 		super();
-		this.id = id;
+		this.gol_id = gol_id;
 		this.inscrito = inscrito;
 		this.tempo = tempo;
 		this.penalty = penalty;
 	}
 	
 	public int getId() {
-		return id;
+		return gol_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int gol_id) {
+		this.gol_id = gol_id;
 	}
 	public Inscrito getInscrito() {
 		return inscrito;
@@ -52,7 +52,7 @@ public class Gol {
 	}
 	@Override
 	public String toString() {
-		return "Gol [id=" + id + ", inscrito=" + inscrito + ", tempo=" + tempo + ", penalty=" + penalty + "]";
+		return "Gol [id=" + gol_id + ", inscrito=" + inscrito + ", tempo=" + tempo + ", penalty=" + penalty + "]";
 	}
 	
 }

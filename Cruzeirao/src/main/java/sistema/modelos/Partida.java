@@ -3,10 +3,15 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Partida {
@@ -17,11 +22,17 @@ public class Partida {
 	private Inscricao equipeMandante;
 	private Inscricao equipeVisitante;
 	private Date data;
+	@ManyToOne
 	private Local local;
 	private Partida proxPartida;
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="partida_juiz", joinColumns={@JoinColumn(name="ID_Partida")}, inverseJoinColumns={@JoinColumn(name="ID_Juiz")})
 	private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
 	private Grupo grupo;
 	private String relatoJuiz;
+	@ManyToOne
+	private Rodada rod;
+	
 	public Partida() {
 		super();
 	}

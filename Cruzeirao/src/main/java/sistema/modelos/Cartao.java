@@ -11,7 +11,7 @@ import enumerator.Tipo;
 public class Cartao {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int cartao_id;
 	private Inscrito inscrito;
 	private Tipo tipo;
 	private int tempo;
@@ -20,19 +20,19 @@ public class Cartao {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Cartao(int id, Inscrito inscrito, Tipo tipo, int tempo) {
+	public Cartao(int cartao_id, Inscrito inscrito, Tipo tipo, int tempo) {
 		super();
-		this.id = id;
+		this.cartao_id = cartao_id;
 		this.inscrito = inscrito;
 		this.tipo = tipo;
 		this.tempo = tempo;
 	}
 	
 	public int getId() {
-		return id;
+		return cartao_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int cartao_id) {
+		this.cartao_id = cartao_id;
 	}
 	public Inscrito getInscrito() {
 		return inscrito;
@@ -54,7 +54,7 @@ public class Cartao {
 	}
 	@Override
 	public String toString() {
-		return "Cartao [id=" + id + ", inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
+		return "Cartao [cartao_id=" + cartao_id + ", inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
 	}
 	
 }

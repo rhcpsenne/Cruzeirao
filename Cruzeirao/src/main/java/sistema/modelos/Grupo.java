@@ -2,15 +2,20 @@ package sistema.modelos;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Grupo {
 	private String nome;
+	@ManyToOne
 	private Fase fase;
+	@OneToMany(mappedBy="grupo", cascade=CascadeType.ALL)
 	private ArrayList<Rodada> rodadas = new ArrayList<Rodada>();
 	
 	@Id

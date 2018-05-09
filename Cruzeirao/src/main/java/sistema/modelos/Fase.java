@@ -3,8 +3,13 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import enumerator.Formato;
 
@@ -13,23 +18,26 @@ public class Fase {
 	private Date dataInicio;
 	private Date dataFim;
 	private Formato formato;
+	@ManyToOne
 	private Categoria categoria;
+	@OneToMany(mappedBy="fase", cascade=CascadeType.ALL)
 	private ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 	
 	@Id
-	private int numero;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int fase_id;
 	//Gets E Sets & ToString
 	public Fase() {
 		super();
 	}
-	public Fase(Date dataInicio, Date dataFim, Formato formato, Categoria categoria, ArrayList<Grupo> grupos, int numero) {
+	public Fase(Date dataInicio, Date dataFim, Formato formato, Categoria categoria, ArrayList<Grupo> grupos, int fase_id) {
 		super();
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 		this.formato = formato;
 		this.categoria = categoria;
 		this.grupos = grupos;
-		this.numero = numero;
+		this.fase_id = fase_id;
 	}
 	public Date getDataInicio() {
 		return dataInicio;
@@ -55,11 +63,11 @@ public class Fase {
 	public void setGrupos(ArrayList<Grupo> grupos) {
 		this.grupos = grupos;
 	}
-	public int getNumero() {
-		return numero;
+	public int getId() {
+		return fase_id;
 	}
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setId(int fase_id) {
+		this.fase_id = fase_id;
 	}
 	public Formato getFormato() {
 		return formato;
@@ -70,6 +78,6 @@ public class Fase {
 	@Override
 	public String toString() {
 		return "Fase [dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", categoria=" + categoria + ", grupos="
-				+ grupos + ", numero=" + numero + "]";
+				+ grupos + ", numero=" + fase_id + "]";
 	}
 }

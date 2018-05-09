@@ -3,12 +3,17 @@ package sistema.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 
 import enumerator.Sexo;
 import enumerator.Tipo;
@@ -23,9 +28,13 @@ public class Usuario {
 	private String email;
 	private String nome;
 	private Date dataNascimento;
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="usuario_equipe", joinColumns={@JoinColumn(name="ID_Equipe")}, inverseJoinColumns={@JoinColumn(name="ID_Usuario")})
 	private ArrayList<Equipe> equipes = new ArrayList<Equipe>();
 	private ArrayList<Usuario> diretores = new ArrayList<Usuario>();
-	private ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+	@OneToMany(mappedBy="usuario", cascade=CascadeType.ALL)
+	private ArrayList<Inscrito> inscricoes = new ArrayList<Inscrito>();
+	@OneToMany(mappedBy="usuario", cascade=CascadeType.ALL)
 	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
 	private Tipo tipo; 
 	private String telefoneFixo;
@@ -36,6 +45,7 @@ public class Usuario {
 	private String cref;
 	private Sexo sexo; 
 	private String foto;
+
 	public Usuario() {
 		super();
 	}
@@ -96,10 +106,10 @@ public class Usuario {
 	public void setEquipes(ArrayList<Equipe> equipes) {
 		this.equipes = equipes;
 	}
-	public ArrayList<Inscricao> getInscricoes() {
+	public ArrayList<Inscrito> getInscricoes() {
 		return inscricoes;
 	}
-	public void setInscricoes(ArrayList<Inscricao> inscricoes) {
+	public void setInscricoes(ArrayList<Inscrito> inscricoes) {
 		this.inscricoes = inscricoes;
 	}
 	public ArrayList<Campeonato> getCampeonatos() {

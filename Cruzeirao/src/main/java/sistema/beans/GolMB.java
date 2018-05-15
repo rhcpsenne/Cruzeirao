@@ -33,11 +33,11 @@ public class GolMB {
 
 	}
 
-	public Gol getAluno() {
+	public Gol getGol() {
 		return gol;
 	}
 
-	public void setAluno(Gol gol) {
+	public void setGol(Gol gol) {
 		this.gol = gol;
 	}
 

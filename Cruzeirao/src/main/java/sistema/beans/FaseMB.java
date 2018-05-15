@@ -33,11 +33,11 @@ public class FaseMB {
 
 	}
 
-	public Fase getAluno() {
+	public Fase getFase() {
 		return fase;
 	}
 
-	public void setAluno(Fase fase) {
+	public void setFase(Fase fase) {
 		this.fase = fase;
 	}
 

@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
@@ -7,7 +8,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name="num_partida")
-public class PartidaFutebol extends Partida{
+public class PartidaFutebol extends Partida implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Gol> golsMandantes  = new ArrayList<Gol>();
 	private ArrayList<Gol> golsVisitantes = new ArrayList<Gol>();
 	private ArrayList<Gol> golsPenaltesMandantes = new ArrayList<Gol>();

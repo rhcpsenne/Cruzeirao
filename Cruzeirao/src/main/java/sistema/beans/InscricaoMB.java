@@ -34,11 +34,11 @@ public class InscricaoMB {
 
 	}
 
-	public Inscricao getAluno() {
+	public Inscricao getInscricao() {
 		return inscricao;
 	}
 
-	public void setAluno(Inscricao inscricao) {
+	public void setInscricao(Inscricao inscricao) {
 		this.inscricao = inscricao;
 	}
 

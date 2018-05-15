@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
@@ -12,7 +13,9 @@ import enumerator.Tipo;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id_usuario")
-public class Juiz extends Usuario{
+public class Juiz extends Usuario implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Tipo tipo;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Usuario usuario;

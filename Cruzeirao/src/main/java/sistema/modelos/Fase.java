@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,7 +15,9 @@ import javax.persistence.OneToMany;
 import enumerator.Formato;
 
 @Entity
-public class Fase {
+public class Fase implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Date dataInicio;
 	private Date dataFim;
 	private Formato formato;

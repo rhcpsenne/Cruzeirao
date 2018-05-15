@@ -34,11 +34,11 @@ public class JuizMB {
 
 	}
 
-	public Juiz getAluno() {
+	public Juiz getJuiz() {
 		return juiz;
 	}
 
-	public void setAluno(Juiz juiz) {
+	public void setJuiz(Juiz juiz) {
 		this.juiz = juiz;
 	}
 

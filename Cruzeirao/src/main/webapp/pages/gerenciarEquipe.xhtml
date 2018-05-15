@@ -30,7 +30,7 @@
 					<p:panel>
 						<p:messages />
 
-						<h:panelGrid id="cadastro2" columns="3" columnClasses="grid,grid">
+						<h:panelGrid id="cadastro2" columns="2" columnClasses="grid,grid">
 
 							<h:panelGrid columns="2" columnClasses="label, value">
 
@@ -59,30 +59,13 @@
 								<h:outputText value="Diretor: " />
 								<h:outputText value="null" styleClass="outputLabel" />
 
-							</h:panelGrid>
-
-							<h:panelGrid columns="2" columnClasses="label, value">
-
-
-								<h:outputText value="Data da Fundação: " />
-								<h:outputText value="null" styleClass="outputLabel" />
-
-								<h:outputText value="Cidade: " />
-								<h:outputText value="null" styleClass="outputLabel" />
-
-							</h:panelGrid>
-
-
-							<h:panelGrid columns="2" columnClasses="label, value">
 
 								<p:dataTable id="basicDT" var="car"
 									value="#{dtSelectionView.cars1}">
 									<f:facet name="header">
             Jogadores
         </f:facet>
-									<p:column headerText="Nome">
-										<h:outputText value="#{null}" />
-									</p:column>
+
 									<p:column style="width:32px;text-align: center">
 										<p:commandButton update=":form:jogadorDetail"
 											oncomplete="PF('carOP').show('#{component.clientId}')"
@@ -145,6 +128,18 @@
 									onclick="PF('dlg2').show();" />
 
 							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+
+
+								<h:outputText value="Data da Fundação: " />
+								<h:outputText value="null" styleClass="outputLabel" />
+
+								<h:outputText value="Cidade: " />
+								<h:outputText value="null" styleClass="outputLabel" />
+
+							</h:panelGrid>
+
 
 
 						</h:panelGrid>

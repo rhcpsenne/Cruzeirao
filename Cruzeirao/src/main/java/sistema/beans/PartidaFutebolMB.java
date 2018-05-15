@@ -33,11 +33,11 @@ public class PartidaFutebolMB {
 
 	}
 
-	public PartidaFutebol getAluno() {
+	public PartidaFutebol getPartidaFutebol() {
 		return partidaFutebol;
 	}
 
-	public void setAluno(PartidaFutebol partidaFutebol) {
+	public void setPartidaFutebol(PartidaFutebol partidaFutebol) {
 		this.partidaFutebol = partidaFutebol;
 	}
 

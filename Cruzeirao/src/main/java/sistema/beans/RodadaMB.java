@@ -33,11 +33,11 @@ public class RodadaMB {
 
 	}
 
-	public Rodada getAluno() {
+	public Rodada getRodada() {
 		return rodada;
 	}
 
-	public void setAluno(Rodada rodada) {
+	public void setRodada(Rodada rodada) {
 		this.rodada = rodada;
 	}
 

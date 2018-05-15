@@ -34,11 +34,11 @@ public class GrupoMB {
 
 	}
 
-	public Grupo getAluno() {
+	public Grupo getGrupo() {
 		return grupo;
 	}
 
-	public void setAluno(Grupo grupo) {
+	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
 	}
 

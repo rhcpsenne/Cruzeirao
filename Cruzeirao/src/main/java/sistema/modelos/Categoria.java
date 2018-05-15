@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,9 @@ import javax.persistence.OneToMany;
 import enumerator.Sexo;
 
 @Entity
-public class Categoria {
+public class Categoria implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cat_id;

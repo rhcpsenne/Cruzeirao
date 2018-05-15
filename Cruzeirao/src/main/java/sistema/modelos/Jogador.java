@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
@@ -7,7 +8,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id_usuario")
-public class Jogador extends Usuario {
+public class Jogador extends Usuario implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private ArrayList<Usuario> diretores = new ArrayList<Usuario>();
 	private Usuario usuario;

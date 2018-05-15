@@ -34,11 +34,11 @@ public class LocalMB {
 
 	}
 
-	public Local getAluno() {
+	public Local getLocal() {
 		return local;
 	}
 
-	public void setAluno(Local local) {
+	public void setLocal(Local local) {
 		this.local = local;
 	}
 

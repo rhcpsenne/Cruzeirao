@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Grupo {
+public class Grupo implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	@ManyToOne
 	private Fase fase;

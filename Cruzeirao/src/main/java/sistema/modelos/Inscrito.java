@@ -1,5 +1,7 @@
 package sistema.modelos;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -8,7 +10,9 @@ import enumerator.Tipo;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id_usuario")
-public class Inscrito extends Usuario{
+public class Inscrito extends Usuario implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Tipo tipo;
 	@ManyToOne
 	private Usuario usuario;

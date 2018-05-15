@@ -34,11 +34,11 @@ public class InscritoMB {
 
 	}
 
-	public Inscrito getAluno() {
+	public Inscrito getInscrito() {
 		return inscrito;
 	}
 
-	public void setAluno(Inscrito inscrito) {
+	public void setInscrito(Inscrito inscrito) {
 		this.inscrito = inscrito;
 	}
 

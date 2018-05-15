@@ -33,11 +33,11 @@ public class CartaoMB {
 
 	}
 
-	public Cartao getAluno() {
+	public Cartao getCartao() {
 		return cartao;
 	}
 
-	public void setAluno(Cartao cartao) {
+	public void setCartao(Cartao cartao) {
 		this.cartao = cartao;
 	}
 

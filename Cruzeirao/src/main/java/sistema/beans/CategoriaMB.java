@@ -33,13 +33,13 @@ public class CategoriaMB {
 
 	}
 
-	public Categoria getAluno() {
-		return categoria;
-	}
-
-	public void setAluno(Categoria categoria) {
-		this.categoria = categoria;
-	}
+//	public Categoria getCategoria() {
+//		return categoria;
+//	}
+//
+//	public void setCategoria(Categoria categoria) {
+//		this.categoria = categoria;
+//	}
 
 	// Retorna a lista de alunos para a tabela
 	public List<Categoria> getCategorias() {

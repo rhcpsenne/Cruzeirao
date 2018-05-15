@@ -72,15 +72,15 @@ public class CampeonatoMB {
 
 	}
 
-	public Campeonato getAluno() {
-		return campeonato;
-	}
+//	public Campeonato getCampeonato() {
+//		return campeonato;
+//	}
+//
+//	public void setCampeonato(Campeonato campeonato) {
+//		this.campeonato = campeonato;
+//	}
 
-	public void setAluno(Campeonato campeonato) {
-		this.campeonato = campeonato;
-	}
-
-	// Retorna a lista de alunos para a tabela
+	// Retorna a lista de campeonatos para a tabela
 	public List<Campeonato> getCampeonatos() {
 		if (campeonatos == null)
 			campeonatos = service.getCampeonatos();

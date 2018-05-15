@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+.panelGridCenter td,.panelGridCenter tr {
+    text-align: center;
+}
+
+.panelGridCenter td,.panelGridLeft tr {
+    text-align: left;
+}
+
+.panelGridCenter td,.panelGridRight tr {
+    text-align: right;
+}
+

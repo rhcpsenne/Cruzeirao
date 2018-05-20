@@ -121,6 +121,85 @@ public class Campeonato implements Serializable{
 		this.usuario = usuario;
 	}
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + campeonato_id;
+		result = prime * result + ((categorias == null) ? 0 : categorias.hashCode());
+		result = prime * result + ((dataFimCampeonato == null) ? 0 : dataFimCampeonato.hashCode());
+		result = prime * result + ((dataFimInscricao == null) ? 0 : dataFimInscricao.hashCode());
+		result = prime * result + ((dataInicioCampeonato == null) ? 0 : dataInicioCampeonato.hashCode());
+		result = prime * result + ((dataInicioInscricao == null) ? 0 : dataInicioInscricao.hashCode());
+		result = prime * result + ((juizes == null) ? 0 : juizes.hashCode());
+		result = prime * result + ((locais == null) ? 0 : locais.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(valorTaxa);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Campeonato other = (Campeonato) obj;
+		if (campeonato_id != other.campeonato_id)
+			return false;
+		if (categorias == null) {
+			if (other.categorias != null)
+				return false;
+		} else if (!categorias.equals(other.categorias))
+			return false;
+		if (dataFimCampeonato == null) {
+			if (other.dataFimCampeonato != null)
+				return false;
+		} else if (!dataFimCampeonato.equals(other.dataFimCampeonato))
+			return false;
+		if (dataFimInscricao == null) {
+			if (other.dataFimInscricao != null)
+				return false;
+		} else if (!dataFimInscricao.equals(other.dataFimInscricao))
+			return false;
+		if (dataInicioCampeonato == null) {
+			if (other.dataInicioCampeonato != null)
+				return false;
+		} else if (!dataInicioCampeonato.equals(other.dataInicioCampeonato))
+			return false;
+		if (dataInicioInscricao == null) {
+			if (other.dataInicioInscricao != null)
+				return false;
+		} else if (!dataInicioInscricao.equals(other.dataInicioInscricao))
+			return false;
+		if (juizes == null) {
+			if (other.juizes != null)
+				return false;
+		} else if (!juizes.equals(other.juizes))
+			return false;
+		if (locais == null) {
+			if (other.locais != null)
+				return false;
+		} else if (!locais.equals(other.locais))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		if (Double.doubleToLongBits(valorTaxa) != Double.doubleToLongBits(other.valorTaxa))
+			return false;
+		return true;
+	}
+	@Override
 	public String toString() {
 		return "Campeonato [campeonato_id=" + campeonato_id + ", nome=" + nome + ", locais=" + locais + ", juizes=" + juizes + ", categorias="
 				+ categorias + ", dataInicioInscricao=" + dataInicioInscricao + ", dataFimInscricao=" + dataFimInscricao

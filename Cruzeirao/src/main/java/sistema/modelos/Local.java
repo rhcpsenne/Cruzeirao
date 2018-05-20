@@ -54,6 +54,52 @@ public class Local implements Serializable {
 		this.endereco = endereco;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((campeonatos == null) ? 0 : campeonatos.hashCode());
+		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
+		result = prime * result + local_id;
+		result = prime * result + ((partidas == null) ? 0 : partidas.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Local other = (Local) obj;
+		if (campeonatos == null) {
+			if (other.campeonatos != null)
+				return false;
+		} else if (!campeonatos.equals(other.campeonatos))
+			return false;
+		if (endereco == null) {
+			if (other.endereco != null)
+				return false;
+		} else if (!endereco.equals(other.endereco))
+			return false;
+		if (local_id != other.local_id)
+			return false;
+		if (partidas == null) {
+			if (other.partidas != null)
+				return false;
+		} else if (!partidas.equals(other.partidas))
+			return false;
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		return "Local [endereco=" + endereco + "]";

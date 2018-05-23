@@ -3,27 +3,31 @@ package sistema.converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import sistema.modelos.Local;
+import javax.faces.convert.FacesConverter;
 
-//@FacesConverter(value = "classeConverter")    
-//@FacesConverter(forClass = Classe.class)
-public class LocalConverter implements Converter {
-    @Override
-    public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
-        if (value != null && !value.isEmpty()) {
-            return (Local)uiComponent.getAttributes().get(value);
-        }
-        return null;
-    }
+import sistema.modelos.*;
+import sistema.beans.LocalMB;
 
-    @Override
-    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-        if (value instanceof Local) {
-            Local entity = (Local) value;
-            return String.valueOf(entity.getId());
-            }
-        
-        return "";
-    }
+@FacesConverter("localConverter")
+public class LocalConverter implements Converter{
+	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+		if(value != null && value.trim().length() > 0) {
+			for(Local loc : LocalMB.locais) {
+				if(loc.getNome().equals(value)) {
+					return loc;
+				}
+			}		
+		}
+    return null;
 }
 
+	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+		Local loc = (Local)object;
+		if (loc != null) {
+			if (loc instanceof Local)
+				return loc.getNome();
+		}
+
+		return null;
+	}
+}

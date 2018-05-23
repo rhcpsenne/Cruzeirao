@@ -5,25 +5,29 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import sistema.modelos.Usuario;
+import sistema.modelos.*;
+import sistema.beans.UsuarioMB;
 
-@FacesConverter("clienteConverter")
+@FacesConverter("usuarioConverter")
 public class UsuarioConverter implements Converter{
-    @Override
-    public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
-        if (value != null && !value.isEmpty()) {
-            return (Usuario)uiComponent.getAttributes().get(value);
-        }
-        return null;
-    }
+	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+		if(value != null && value.trim().length() > 0) {
+			for(Usuario usr : UsuarioMB.usuarios) {
+				if(usr.getNome().equals(value)) {
+					return usr;
+				}
+			}		
+		}
+    return null;
+}
 
-    @Override
-    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-        if (value instanceof Usuario) {
-            Usuario entity = (Usuario) value;
-            return String.valueOf(entity.getId());
-            }
-        
-        return "";
-    }
+	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+		Usuario usr = (Usuario)object;
+		if (usr != null) {
+			if (usr instanceof Usuario)
+				return usr.getNome();
+		}
+
+		return null;
+	}
 }

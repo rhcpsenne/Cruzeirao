@@ -15,7 +15,7 @@ import sistema.service.LocalService;
 @ViewScoped
 public class LocalMB {
 	private Local local = new Local();
-	private List<Local> locals;
+	public static List<Local> locais;
 	private LocalService service = new LocalService();
 	
 	public void onRowEdit(RowEditEvent event) {
@@ -27,8 +27,8 @@ public class LocalMB {
 	public void salvar() {
 		local = service.salvar(local);
 
-		if (locals != null)
-			locals.add(local);
+		if (locais != null)
+			locais.add(local);
 
 		local = new Local();
 
@@ -44,14 +44,14 @@ public class LocalMB {
 
 	// Retorna a lista de alunos para a tabela
 	public List<Local> getLocais() {
-		if (locals == null)
-			locals = service.getLocais();
+		if (locais == null)
+			locais = service.getLocais();
 
-		return locals;
+		return locais;
 	}
 
 	public void remover(Local local) {
 		service.remover(local);
-		locals.remove(local);
+		locais.remove(local);
 	}
 }

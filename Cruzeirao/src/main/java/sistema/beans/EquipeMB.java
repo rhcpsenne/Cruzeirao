@@ -15,7 +15,7 @@ import sistema.service.EquipeService;
 @ViewScoped
 public class EquipeMB {
 	private Equipe equipe = new Equipe();
-	private List<Equipe> equipes;
+	public static List<Equipe> equipes;
 	private EquipeService service = new EquipeService();
 	
 	public void onRowEdit(RowEditEvent event) {
@@ -57,7 +57,7 @@ public class EquipeMB {
 	}
 
 	public void setEquipes(List<Equipe> equipes) {
-		this.equipes = equipes;
+		EquipeMB.equipes = equipes;
 	}
 	
 }

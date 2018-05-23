@@ -15,7 +15,7 @@ import sistema.service.GrupoService;
 @ViewScoped
 public class GrupoMB {
 	private Grupo grupo = new Grupo();
-	private List<Grupo> grupos;
+	public static List<Grupo> grupos;
 	private GrupoService service = new GrupoService();
 	
 	public void onRowEdit(RowEditEvent event) {

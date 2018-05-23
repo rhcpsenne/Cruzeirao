@@ -19,7 +19,7 @@ import enumerator.Tipo;
 @ViewScoped
 public class UsuarioMB {
 	private Usuario usuario = new Usuario();
-	private List<Usuario> usuarios;
+	public static List<Usuario> usuarios;
 	private UsuarioService service = new UsuarioService();
 	
 	

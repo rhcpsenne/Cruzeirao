@@ -15,7 +15,7 @@ import sistema.service.InscricaoService;
 @ViewScoped
 public class InscricaoMB {
 	private Inscricao inscricao = new Inscricao();
-	private List<Inscricao> inscricaos;
+	public static List<Inscricao> inscricoes;
 	private InscricaoService service = new InscricaoService();
 	
 	public void onRowEdit(RowEditEvent event) {
@@ -27,8 +27,8 @@ public class InscricaoMB {
 	public void salvar() {
 		inscricao = service.salvar(inscricao);
 
-		if (inscricaos != null)
-			inscricaos.add(inscricao);
+		if (inscricoes != null)
+			inscricoes.add(inscricao);
 
 		inscricao = new Inscricao();
 
@@ -44,14 +44,14 @@ public class InscricaoMB {
 
 	// Retorna a lista de alunos para a tabela
 	public List<Inscricao> getInscricoes() {
-		if (inscricaos == null)
-			inscricaos = service.getInscricoes();
+		if (inscricoes == null)
+			inscricoes = service.getInscricoes();
 
-		return inscricaos;
+		return inscricoes;
 	}
 
 	public void remover(Inscricao inscricao) {
 		service.remover(inscricao);
-		inscricaos.remove(inscricao);
+		inscricoes.remove(inscricao);
 	}
 }

@@ -3,27 +3,32 @@ package sistema.converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import sistema.modelos.Grupo;
+import javax.faces.convert.FacesConverter;
 
-//@FacesConverter(value = "classeConverter")    
-//@FacesConverter(forClass = Classe.class)
-public class GrupoConverter implements Converter {
-    @Override
-    public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
-        if (value != null && !value.isEmpty()) {
-            return (Grupo)uiComponent.getAttributes().get(value);
-        }
-        return null;
-    }
+import sistema.modelos.*;
+import sistema.beans.GrupoMB;
 
-    @Override
-    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-        if (value instanceof Grupo) {
-            Grupo entity = (Grupo) value;
-            return String.valueOf(entity.getNumero());
-            }
-        
-        return "";
-    }
+@FacesConverter("grupoConverter")
+public class GrupoConverter implements Converter{
+	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+		if(value != null && value.trim().length() > 0) {
+			for(Grupo grp : GrupoMB.grupos) {
+				if(grp.getNome().equals(value)) {
+					return grp;
+				}
+			}		
+		}
+    return null;
+}
+
+	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+		Grupo grp = (Grupo)object;
+		if (grp != null) {
+			if (grp instanceof Grupo)
+				return grp.getNome();
+		}
+
+		return null;
+	}
 }
 

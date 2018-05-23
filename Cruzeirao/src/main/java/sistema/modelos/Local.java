@@ -18,6 +18,7 @@ public class Local implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int local_id;
+	private String nome;
 	@ManyToMany(mappedBy="locais", cascade=CascadeType.ALL)
 	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
 	@OneToMany(mappedBy="local", cascade=CascadeType.ALL)
@@ -44,6 +45,14 @@ public class Local implements Serializable {
 
 	public void setId(int local_id) {
 		this.local_id = local_id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEndereco() {

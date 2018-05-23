@@ -14,7 +14,7 @@ import sistema.service.CategoriaService;
 @ViewScoped
 public class CategoriaMB {
 	private Categoria categoria = new Categoria();
-	private List<Categoria> categorias;
+	public static List<Categoria> categorias;
 	private CategoriaService service = new CategoriaService();
 	
 	public void onRowEdit(RowEditEvent event) {

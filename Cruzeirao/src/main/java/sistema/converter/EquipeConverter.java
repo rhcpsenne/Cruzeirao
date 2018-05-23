@@ -3,27 +3,32 @@ package sistema.converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import sistema.modelos.Equipe;
+import javax.faces.convert.FacesConverter;
 
-//@FacesConverter(value = "classeConverter")    
-//@FacesConverter(forClass = Classe.class)
-public class EquipeConverter implements Converter {
-    @Override
-    public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
-        if (value != null && !value.isEmpty()) {
-            return (Equipe)uiComponent.getAttributes().get(value);
-        }
-        return null;
-    }
+import sistema.modelos.*;
+import sistema.beans.EquipeMB;
 
-    @Override
-    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-        if (value instanceof Equipe) {
-            Equipe entity = (Equipe) value;
-            return String.valueOf(entity.getId());
-            }
-        
-        return "";
-    }
+@FacesConverter("equipeConverter")
+public class EquipeConverter implements Converter{
+	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+		if(value != null && value.trim().length() > 0) {
+			for(Equipe eq : EquipeMB.equipes) {
+				if(eq.getNome().equals(value)) {
+					return eq;
+				}
+			}		
+		}
+    return null;
+}
+
+	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+		Equipe eq = (Equipe)object;
+		if (eq != null) {
+			if (eq instanceof Equipe)
+				return eq.getNome();
+		}
+
+		return null;
+	}
 }
 

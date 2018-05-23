@@ -18,7 +18,7 @@ import sistema.service.CampeonatoService;
 @ViewScoped
 public class CampeonatoMB {
 	private Campeonato campeonato = new Campeonato();
-	private List<Campeonato> campeonatos;
+	public static List<Campeonato> campeonatos;
 	private CampeonatoService service = new CampeonatoService();
 	
 	private Usuario usuario = new Usuario();

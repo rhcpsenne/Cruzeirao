@@ -52,9 +52,12 @@
 					<p:panel header="Gerenciar">
 						<h:panelGrid id="confirmation" columns="3"
 							columnClasses="grid,grid,grid">
-							<h:panelGrid columns="2" columnClasses="label, value">
+							
+							<h:panelGrid columns="2" columnClasses="label, value"
+								style="width:60%; margin-left:30%;" >
+								
 								<h:outputText value="Nome: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="null" styleClass="outputLabel"/>
 
 								<h:outputText value="Diretor: " />
 								<h:outputText value="null" styleClass="outputLabel" />
@@ -129,7 +132,12 @@
 
 							</h:panelGrid>
 
-							<h:panelGrid columns="2" columnClasses="label, value">
+							<h:panelGrid columns="2" columnClasses="label, value"
+								style="width:50%; margin-left:auto; margin-right:auto;">
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value"
+								style="width:60%; margin-left:auto; margin-right:auto;">
 
 
 								<h:outputText value="Data da Fundação: " />
@@ -137,6 +145,73 @@
 
 								<h:outputText value="Cidade: " />
 								<h:outputText value="null" styleClass="outputLabel" />
+
+								<p:dataTable id="basicDT2" var="car"
+									value="#{dtSelectionView.cars1}">
+									<f:facet name="header">
+            Tecnicos
+        </f:facet>
+
+									<p:column style="width:32px;text-align:center">
+										<p:commandButton update=":form:tecnicoDetail"
+											oncomplete="PF('carOP').show('#{component.clientId}')"
+											icon="ui-icon-search" title="View">
+											<f:setPropertyActionListener value="#{car}"
+												target="#{dtSelectionView.selectedCar}" />
+										</p:commandButton>
+									</p:column>
+								</p:dataTable>
+
+								<p:overlayPanel widgetVar="carOP" showEffect="fade"
+									hideEffect="fade" dismissable="false" showCloseIcon="true">
+									<p:outputPanel id="tecnicoDetail" style="text-align:center;">
+										<p:panelGrid columns="2"
+											rendered="#{not empty dtSelectionView.selectedCar}"
+											columnClasses="label,value">
+											<f:facet name="header">
+												<p:graphicImage
+													name="demo/images/car/#{dtSelectionView.selectedCar.brand}-big.gif" />
+											</f:facet>
+
+											<h:outputText value="Nome:" />
+											<h:outputText value="" />
+
+											<h:outputText value="Year" />
+											<h:outputText value="" />
+
+											<h:outputText value="E-Mail:" />
+											<h:outputText value="" />
+
+											<h:outputText value="Data de Nascimento:" />
+											<h:outputText value="" />
+
+											<h:outputText value="Telefone Fixo:" />
+											<h:outputText value="" />
+
+											<h:outputText value="Telefone Movel:" />
+											<h:outputText value="" />
+
+											<h:outputText value="Endereco:" />
+											<h:outputText value="" />
+
+											<h:outputText value="RG:" />
+											<h:outputText value="" />
+
+											<h:outputText value="CPF:" />
+											<h:outputText value="" />
+
+											<h:outputText value="Cref:" />
+											<h:outputText value="" />
+
+											<h:outputText value="Sexo:" />
+											<h:outputText value="" />
+										</p:panelGrid>
+									</p:outputPanel>
+								</p:overlayPanel>
+
+
+								<p:commandButton value="Adicionar Tecnico" type="button"
+									onclick="PF('dlg2').show();" />
 
 							</h:panelGrid>
 
@@ -146,86 +221,78 @@
 
 
 
-						<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true"
-							height="100">
+						<p:dialog header="Cadastro Jogador" widgetVar="dlg2" modal="true"
+							height="300" lenght="500" appendTo="@(body)">
 							<p:tab id="personal" title="Cadastro">
-								<p:panel header="Cadastro Usuario">
-									<p:messages />
 
-									<h:panelGrid id="cadastro" columns="3"
-										columnClasses="grid,grid">
+								<p:messages />
 
-										<h:panelGrid columns="2" columnClasses="label, value">
-											<p:outputLabel for="nome" value="Nome:" />
-											<p:inputText id="nome" value="#{usuarioMB.usuario.nome}"
-												required="true" label="Nome" />
+								<h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
 
-											<p:outputLabel for="tipo" value="Tipo:" />
-											<p:selectOneMenu id="tipo" value="#{usuarioMB.usuario.tipo}"
-												style="width:170px">
-												<f:selectItem itemLabel="Selecionar Tipo"
-													itemValue="#{null}" noSelectionOption="true" />
-												<f:selectItems value="#{usuarioMB.tipo}" />
-											</p:selectOneMenu>
+									<h:panelGrid columns="2" columnClasses="label, value">
+										<p:outputLabel for="nome" value="Nome:" />
+										<p:inputText id="nome" value="#{usuarioMB.usuario.nome}"
+											required="true" label="Nome" />
 
-											<p:outputLabel for="email" value="E-Mail:" />
-											<p:inputText id="email" value="#{usuarioMB.usuario.email}"
-												required="true" label="Email" />
+										<p:outputLabel for="email" value="E-Mail:" />
+										<p:inputText id="email"  value="#{usuarioMB.usuario.email}"
+											required="true" label="Email" />
 
-											<p:outputLabel for="datanascimento"
-												value="Data de Nascimento:" />
-											<p:outputLabel id="datanascimento" required="true"
-												label="Datanascimento">
-												<p:calendar value="#{usuarioMB.usuario.dataNascimento}"
-													pattern="dd/MM/yyyy" />
-											</p:outputLabel>
+										<p:outputLabel for="datanascimento"
+											value="Data de Nascimento:" />
+										<p:outputLabel id="datanascimento" required="true"
+											label="Datanascimento">
+											<p:calendar value="#{usuarioMB.usuario.dataNascimento}"
+												pattern="dd/MM/yyyy" />
+										</p:outputLabel>
 
-											<p:outputLabel for="telefonefixo" value="Telefone Fixo:" />
-											<p:inputText id="telefonefixo"
-												value="#{usuarioMB.usuario.telefoneFixo}"
-												mask="(999) 99999-9999" required="true" label="Telefonefixo" />
-											<h:outputText />
-
-										</h:panelGrid>
-
-										<h:panelGrid columns="2" columnClasses="label, value">
-											<p:outputLabel for="telefonemovel" value="Telefone Movel:" />
-											<p:inputText id="telefonemovel"
-												value="#{usuarioMB.usuario.telefoneMovel}"
-												mask="(999) 99999-9999" required="true"
-												label="Telefonemovel" />
-
-											<p:outputLabel for="endereco" value="Endereco:" />
-											<p:inputText id="endereco"
-												value="#{usuarioMB.usuario.endereco}" required="true"
-												label="Endereco" />
-
-											<p:outputLabel for="rg" value="RG:" />
-											<p:inputText id="rg" value="#{usuarioMB.usuario.rg}"
-												required="true" label="RG" />
-
-											<p:outputLabel for="cpf" value="CPF:" />
-											<p:inputText id="cpf" value="#{usuarioMB.usuario.cpf}"
-												required="true" label="CPF" />
-
-											<p:outputLabel for="cref" value="Cref:" />
-											<p:inputText id="cref" value="#{usuarioMB.usuario.nome}"
-												required="true" label="cref" />
+										<p:outputLabel for="telefonefixo" value="Telefone Fixo:" />
+										<p:inputText id="telefonefixo"
+											value="#{usuarioMB.usuario.telefoneFixo}"
+											mask="(999) 99999-9999" required="true" label="Telefonefixo" />
 
 
-											<p:outputLabel for="sexo" value="Sexo:" />
-											<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}"
-												style="width:170px">
-												<f:selectItem itemLabel="Selecionar Sexo"
-													itemValue="#{null}" noSelectionOption="true" />
-												<f:selectItems value="#{usuarioMB.sexo}" />
-											</p:selectOneMenu>
+										<p:outputLabel for="telefonemovel" value="Telefone Movel:" />
+										<p:inputText id="telefonemovel"
+											value="#{usuarioMB.usuario.telefoneMovel}"
+											mask="(999) 99999-9999" required="true" label="Telefonemovel" />
 
-
-										</h:panelGrid>
 									</h:panelGrid>
 
-								</p:panel>
+									<h:panelGrid columns="2" columnClasses="label, value">
+
+
+										<p:outputLabel for="endereco" value="Endereco:" />
+										<p:inputText id="endereco"
+											value="#{usuarioMB.usuario.endereco}" required="true"
+											label="Endereco" />
+
+										<p:outputLabel for="rg" value="RG:" />
+										<p:inputText id="rg" value="#{usuarioMB.usuario.rg}"
+											required="true" label="RG" />
+
+										<p:outputLabel for="cpf" value="CPF:" />
+										<p:inputText id="cpf" value="#{usuarioMB.usuario.cpf}"
+											required="true" label="CPF" />
+
+										<p:outputLabel for="cref" value="Cref:" />
+										<p:inputText id="cref" value="#{usuarioMB.usuario.nome}"
+											required="true" label="cref" />
+
+
+										<p:outputLabel for="sexo" value="Sexo:" />
+										<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}"
+											style="width:191px">
+											<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}"
+												noSelectionOption="true" />
+											<f:selectItems value="#{usuarioMB.sexo}" />
+										</p:selectOneMenu>
+										<h:outputText />
+
+
+									</h:panelGrid>
+								</h:panelGrid>
+
 								<div align="right">
 									<p:commandButton value="Submit" actionListener="1"
 										update="growl" process="@this" />

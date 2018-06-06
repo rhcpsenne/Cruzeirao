@@ -16,10 +16,15 @@
 		<class>sistema.modelos.PartidaFutebol</class>
 		<class>sistema.modelos.Rodada</class>
 		<class>sistema.modelos.Usuario</class>
-		<class>enumconverter.TipoConverter</class>
-		<class>enumconverter.SexoConverter</class>
-		<class>enumconverter.FormatoConverter</class>
 		<class>sistema.modelos.Diretor</class>
 		<class>sistema.modelos.Jogador</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:derby://localhost:1527/Cruzeirao;create=true" />
+			<property name="javax.persistence.jdbc.user" value="app" />
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver" />
+			<property name="javax.persistence.jdbc.password" value="123"/>
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+		</properties>
 	</persistence-unit>
 </persistence>

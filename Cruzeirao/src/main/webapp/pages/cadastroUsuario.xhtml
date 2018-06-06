@@ -40,7 +40,7 @@
 								style="width:170px">
 								<f:selectItem itemLabel="Selecionar Tipo" itemValue="#{null}"
 									noSelectionOption="true" />
-								<f:selectItems value="#{usuarioMB.tipo}" />
+								<f:selectItems value="#{usuarioMB.usuario.tipo}" />
 							</p:selectOneMenu>
 
 							<p:outputLabel for="email" value="E-Mail:" />
@@ -57,7 +57,7 @@
 							<p:outputLabel for="telefonefixo" value="Telefone Fixo:" />
 							<p:inputText id="telefonefixo"
 								value="#{usuarioMB.usuario.telefoneFixo}"
-								mask="(999) 99999-9999" required="true" label="Telefonefixo" />
+								mask="(99)9999-9999" required="true" label="Telefonefixo" />
 							<h:outputText />
 
 						</h:panelGrid>
@@ -66,7 +66,7 @@
 							<p:outputLabel for="telefonemovel" value="Telefone Movel:" />
 							<p:inputText id="telefonemovel"
 								value="#{usuarioMB.usuario.telefoneMovel}"
-								mask="(999) 99999-9999" required="true" label="Telefonemovel" />
+								mask="(99)99999-9999" required="true" label="Telefonemovel" />
 
 							<p:outputLabel for="endereco" value="Endereco:" />
 							<p:inputText id="endereco" value="#{usuarioMB.usuario.endereco}"
@@ -90,7 +90,7 @@
 								style="width:170px">
 								<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}"
 									noSelectionOption="true" />
-								<f:selectItems value="#{usuarioMB.sexo}" />
+								<f:selectItems value="#{usuarioMB.usuario.sexo}" />
 							</p:selectOneMenu>
 
 
@@ -99,7 +99,7 @@
 
 				</p:panel>
 				<div align="right">
-					<p:commandButton value="Submit" actionListener="1" update="growl"
+					<p:commandButton value="Submit" actionListener="#{usuarioMB.salvar}" update="growl"
 						process="@this" />
 				</div>
 			</p:tab>

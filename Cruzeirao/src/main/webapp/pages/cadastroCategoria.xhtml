@@ -31,10 +31,10 @@
 
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="nome" value="Nome: " />
-							<p:inputText id="nome" value="" required="true" label="nome" />
+							<p:inputText id="nome" value="#{categoriaMB.categoria.nome}" required="true" label="nome" />
 
 							<p:outputLabel for="fases" value="Fases:" />
-							<p:selectOneMenu id="fases" value="" style="width:170px">
+							<p:selectOneMenu id="fases" value="categoriaMB.categoria.fases" style="width:170px">
 								<f:selectItem itemLabel="Selecionar Fases" itemValue="#{null}"
 									noSelectionOption="true" />
 								<f:selectItems value="" />
@@ -44,10 +44,10 @@
 						</h:panelGrid>
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="min" value="Minimo de jogadores: " />
-							<p:inputText id="min" value="" required="true" label="min" />
+							<p:inputText id="min" value="#{#categoriaMB.categoria.minJogadores}" required="true" label="min" />
 
 							<p:outputLabel for="max" value="Maximo de jogadores: " />
-							<p:inputText id="max" value="" required="true" label="max" />
+							<p:inputText id="max" value="#{#categoriaMB.categoria.maxJogadores}" required="true" label="max" />
 
 
 							<p:outputLabel for="sexo" value="Sexo:" />

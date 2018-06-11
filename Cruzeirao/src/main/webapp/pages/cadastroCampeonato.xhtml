@@ -8,13 +8,13 @@
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
-<link rel="stylesheet" type="text/css" href="../../css/theme.css" />
-<h:outputStylesheet name="grid/grid.css" library="primefaces" />
+	<link rel="stylesheet" type="text/css" href="../../css/theme.css" />
+	<h:outputStylesheet name="grid/grid.css" library="primefaces" />
 
 	<ui:define name="title">
 		<h:outputText value="#{msg['pages.cadastroCampeonato.title']}" />
 	</ui:define>
-	
+
 
 	<ui:define name="principal">
 
@@ -22,7 +22,7 @@
 			<p:outputLabel value="#{msg['pages.cadastroCampeonato.menu']}" />
 		</h1>
 
-		<h:form>
+		<h:form id="formCampeonato">
 
 			<p:growl id="growl" sticky="true" showDetail="true" />
 
@@ -32,18 +32,18 @@
 						<p:messages />
 
 						<h:panelGrid id="cadastro" columns="2">
-							
+
 							<p:panelGrid columns="2" columnClasses="grid,grid"
 								styleClass="panelGridLeft">
 
 
 								<p:outputLabel for="nome" value="Nome: " />
-								<p:inputText id="nome"
-									value="#{msg['pages.cadastroCampeonato.nome']}" required="true"
-									label="nome" style="width:87%" />
+								<p:inputText id="nome" value="#{campeonatoMB.campeonato.nome}"
+									required="true" label="nome" style="width:87%" />
 
 								<p:outputLabel for="juizes" value="Juizes:" />
-								<p:selectOneMenu id="juizes" value="null" style="width:170px">
+								<p:selectOneMenu id="juizes"
+									value="#{campeonatoMB.campeonato.juizes}" style="width:170px">
 									<f:selectItem itemLabel="Selecionar Juizes" itemValue="#{null}"
 										noSelectionOption="true" />
 									<f:selectItems value="" />
@@ -51,33 +51,43 @@
 
 								<p:outputLabel for="dataII" value="Data Inicio Inscrição:" />
 								<p:outputLabel id="dataII" required="true" label="DataII">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar
+										value="#{campeonatoMB.campeonato.dataInicioInscricao}"
+										pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 
 								<p:outputLabel for="dataFI" value="Data Final Inscrição:" />
 								<p:outputLabel id="dataFI" required="true" label="DataFI">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar value="#{campeonatoMB.campeonato.dataFimInscricao}"
+										pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 							</p:panelGrid>
 
 
 
-							<p:panelGrid columns="2" columnClasses="grid,grid" styleClass="panelGridRight">
+							<p:panelGrid columns="2" columnClasses="grid,grid"
+								styleClass="panelGridRight">
 
 								<p:outputLabel for="dataIC" value="Data Inicio Campeonato: " />
 								<p:outputLabel id="dataIC" required="true" label="DataIC">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar
+										value="#{campeonatoMB.campeonato.dataInicioCampeonato}"
+										pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 								<p:outputLabel for="dataFC" value="Data Final Campeonato: " />
 								<p:outputLabel id="dataFC" required="true" label="DataFC">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar
+										value="#{campeonatoMB.campeonato.dataFimCampeonato}"
+										pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 								<p:outputLabel for="taxa" value="Valor Taxa: " />
-								<p:inputText id="taxa" value="null" required="true" label="taxa" />
+								<p:inputText id="taxa"
+									value="#{campeonatoMB.campeonato.valorTaxa}" required="true"
+									label="taxa" />
 
 
 							</p:panelGrid>
@@ -89,7 +99,7 @@
 				</p:tab>
 
 
-
+				<!-- ARRUMAR A PARTIR DAQUI -->
 
 				<p:tab id="categoria" title="Categoria">
 					<p:panel header="Detalhes da Categoria">
@@ -100,16 +110,8 @@
 
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<p:outputLabel for="nome2" value="Nome: " />
-								<p:inputText id="nome2" value="null" required="true"
-									label="nome2" />
-
-								<p:outputLabel for="fases" value="Fases:" />
-								<p:selectOneMenu id="fases" value="null" style="width:170px">
-									<f:selectItem itemLabel="Selecionar Fases" itemValue="#{null}"
-										noSelectionOption="true" />
-									<f:selectItems value="null" />
-								</p:selectOneMenu>
-
+								<p:inputText id="nome2" value="#{categoriaMB.categoria.nome}"
+									required="true" label="nome2" />
 
 							</h:panelGrid>
 							<h:panelGrid columns="2" columnClasses="label, value">
@@ -121,11 +123,11 @@
 
 
 								<p:outputLabel for="sexo" value="Sexo:" />
-								<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}"
+								<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}"
 									style="width:170px">
-									<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}"
-										noSelectionOption="true" />
-									<f:selectItems value="null" />
+									<f:selectItem itemLabel="Selecionar Sexo"
+										itemValue="#{usuarioMB.usuario.sexo}" noSelectionOption="true" />
+									<f:selectItems value="#{usuarioMB.sexo}" />
 								</p:selectOneMenu>
 
 							</h:panelGrid>
@@ -136,9 +138,6 @@
 
 					</p:panel>
 				</p:tab>
-
-
-
 
 				<p:tab id="local" title="Local">
 					<p:panel header="Detalhes do Local">
@@ -167,25 +166,27 @@
 
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<h:outputText value="Nome: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.nome}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Juizes: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.juizes}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Data Inicio Inscrição: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.dataInicioInscricao}" styleClass="outputLabel" />
 
 								<h:outputText value="Data Final Inscrição: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.dataFimInscricao}" styleClass="outputLabel" />
 
 								<h:outputText value="Data Inicio Campeonato: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.dataInicioCampeonato}" styleClass="outputLabel" />
 
 								<h:outputText value="Data Final Campeonato: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.dataFimCampeonato}" styleClass="outputLabel" />
 
 								<h:outputText value="Valor Taxa: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.valorTaxa}" styleClass="outputLabel" />
 							</h:panelGrid>
 
 
@@ -221,22 +222,14 @@
 							</h:panelGrid>
 						</h:panelGrid>
 
-						<p:commandButton value="Submit"
-							actionListener="#{userWizard.save}" update="growl"
-							process="@this" />
+						<p:commandButton value="Salvar"
+							action="#{campeonatoMB.salvar}"
+							update=":formCampeonato" />
 					</p:panel>
 				</p:tab>
 			</p:wizard>
 
 		</h:form>
-
-
-
-
-
-
-
-
 
 		<br />
 

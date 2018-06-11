@@ -39,11 +39,11 @@
 
 								<p:outputLabel for="nome" value="Nome: " />
 								<p:inputText id="nome"
-									value="#{msg['pages.cadastroCampeonato.nome']}" required="true"
+									value="#{campeonatoMB.campeonato.nome}" required="true"
 									label="nome" style="width:87%" />
 
 								<p:outputLabel for="juizes" value="Juizes:" />
-								<p:selectOneMenu id="juizes" value="null" style="width:170px">
+								<p:selectOneMenu id="juizes" value="#{campeonatoMB.campeonato.juizes}" style="width:170px">
 									<f:selectItem itemLabel="Selecionar Juizes" itemValue="#{null}"
 										noSelectionOption="true" />
 									<f:selectItems value="" />
@@ -51,13 +51,13 @@
 
 								<p:outputLabel for="dataII" value="Data Inicio Inscrição:" />
 								<p:outputLabel id="dataII" required="true" label="DataII">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar value="#{campeonatoMB.campeonato.dataInicioInscricao}" pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 
 								<p:outputLabel for="dataFI" value="Data Final Inscrição:" />
 								<p:outputLabel id="dataFI" required="true" label="DataFI">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar value="#{campeonatoMB.campeonato.dataFimInscricao}" pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 							</h:panelGrid>
@@ -68,16 +68,16 @@
 
 								<p:outputLabel for="dataIC" value="Data Inicio Campeonato: " />
 								<p:outputLabel id="dataIC" required="true" label="DataIC">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar value="#{campeonatoMB.campeonato.dataInicioCampeonato}" pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 								<p:outputLabel for="dataFC" value="Data Final Campeonato: " />
 								<p:outputLabel id="dataFC" required="true" label="DataFC">
-									<p:calendar value="null" pattern="dd/MM/yyyy" />
+									<p:calendar value="#{campeonatoMB.campeonato.dataFimCampeonato}" pattern="dd/MM/yyyy" />
 								</p:outputLabel>
 
 								<p:outputLabel for="taxa" value="Valor Taxa: " />
-								<p:inputText id="taxa" value="null" required="true" label="taxa" />
+								<p:inputText id="taxa" value="#{campeonatoMB.campeonato.valorTaxa}" required="true" label="taxa" />
 
 
 							</h:panelGrid>
@@ -89,7 +89,7 @@
 				</p:tab>
 
 
-
+<!-- ARRUMAR A PARTIR DAQUI -->
 
 				<p:tab id="categoria" title="Categoria">
 					<p:panel header="Detalhes da Categoria">

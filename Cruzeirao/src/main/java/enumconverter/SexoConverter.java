@@ -16,7 +16,7 @@ public class SexoConverter implements AttributeConverter<Sexo, String>{
 			case MASCULINO: 		
 				return "M"; 
 			case FEMININO:
-				return "N";
+				return "F";
 			default: throw new IllegalArgumentException("Unknown" + sexo);
 		}
 	}

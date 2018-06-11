@@ -30,10 +30,10 @@
 					<h:panelGrid id="cadastro" columns="2" columnClasses="grid,grid">
 						
 						<p:outputLabel for="idlocal" value="Código do Local:" />
-						<p:inputText id="idlocal" value="" required="true" label="numero" />
+						<p:inputText id="idlocal" value="#{localMB.local.id}" required="true" label="numero" />
 
 						<p:outputLabel for="end" value="Endereço:" />
-						<p:inputText id="end" value="" required="true" label="end" />
+						<p:inputText id="end" value="#{localMB.local.endereco}" required="true" label="end" />
 
 					</h:panelGrid>
 
@@ -42,7 +42,7 @@
 
 				</p:panel>
 				<div align="right">
-					<p:commandButton value="Submit" actionListener="1" update="growl"
+					<p:commandButton value="Submit" actionListener="#{localMB.salvar()}" update="growl"
 						process="@this" />
 				</div>
 			</p:tab>

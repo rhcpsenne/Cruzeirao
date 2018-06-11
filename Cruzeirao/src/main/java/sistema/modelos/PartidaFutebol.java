@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="num_partida")
 public class PartidaFutebol extends Partida implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -35,12 +35,20 @@
 							<p:inputText id="nome" value="#{usuarioMB.usuario.nome}"
 								required="true" label="Nome" />
 
-							<p:outputLabel for="tipo" value="Tipo:" />
+							<p:outputLabel for="tipo" value="Tipo: *" />
 							<p:selectOneMenu id="tipo" value="#{usuarioMB.usuario.tipo}"
 								style="width:170px">
-								<f:selectItem itemLabel="Selecionar Tipo" itemValue="#{usuarioMB.usuario.tipo}"
+								<f:selectItem itemLabel="Selecionar Tipo"
 									noSelectionOption="true" />
-								<f:selectItems value="#{usuarioMB.tipo}" />
+								<f:selectItem itemLabel="Administrador"
+									itemValue="Administrador" />
+								<f:selectItem itemLabel="Juiz" itemValue="Juiz" />
+								<f:selectItem itemLabel="Organizador" itemValue="Organizador" />
+								<f:selectItem itemLabel="Tecnico" itemValue="Tecnico" />
+								<f:selectItem itemLabel="Jogador" itemValue="Jogador" />
+								<f:selectItem itemLabel="Torcedor" itemValue="Torcedor" />
+								<f:selectItem itemLabel="Diretor" itemValue="Diretor" />
+								
 							</p:selectOneMenu>
 
 							<p:outputLabel for="email" value="E-Mail:" />
@@ -56,8 +64,8 @@
 
 							<p:outputLabel for="telefonefixo" value="Telefone Fixo:" />
 							<p:inputMask id="telefonefixo"
-								value="#{usuarioMB.usuario.telefoneFixo}"
-								mask="(99) 9999-9999" required="true" label="Telefonefixo" />
+								value="#{usuarioMB.usuario.telefoneFixo}" mask="(99) 9999-9999"
+								required="true" label="Telefonefixo" />
 							<h:outputText />
 
 						</h:panelGrid>
@@ -74,24 +82,25 @@
 
 							<p:outputLabel for="rg" value="RG:" />
 							<p:inputMask id="rg" value="#{usuarioMB.usuario.rg}"
-								required="true" label="RG" mask="99.999.999-9"/>
+								required="true" label="RG" mask="99.999.999-9" />
 
 							<p:outputLabel for="cpf" value="CPF:" />
 							<p:inputMask id="cpf" value="#{usuarioMB.usuario.cpf}"
-								required="true" label="CPF" mask="999.999.999-99"/>
-								
+								required="true" label="CPF" mask="999.999.999-99" />
+
 
 							<p:outputLabel for="cref" value="Cref:" />
 							<p:inputText id="cref" value="#{usuarioMB.usuario.nome}"
 								required="true" label="cref" />
 
 
-							<p:outputLabel for="sexo" value="Sexo:" />
+							<p:outputLabel for="sexo" value="Sexo: *" />
 							<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}"
 								style="width:170px">
-								<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{usuarioMB.usuario.sexo}"
+								<f:selectItem itemLabel="Selecionar Sexo"
 									noSelectionOption="true" />
-								<f:selectItems value="#{usuarioMB.sexo}" />
+								<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+								<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
 							</p:selectOneMenu>
 
 
@@ -100,8 +109,8 @@
 
 				</p:panel>
 				<div align="right">
-					<p:commandButton value="Submit" actionListener="#{usuarioMB.salvar}" update="growl"
-						process="@this" />
+					<p:commandButton value="Salvar" action="#{usuarioMB.salvar}"
+						update=":formUsuario" />
 				</div>
 			</p:tab>
 

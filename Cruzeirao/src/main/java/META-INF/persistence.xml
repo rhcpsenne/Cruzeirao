@@ -18,9 +18,6 @@
 		<class>sistema.modelos.Usuario</class>
 		<class>sistema.modelos.Diretor</class>
 		<class>sistema.modelos.Jogador</class>
-		<class>enumconverter.FormatoConverter</class>
-		<class>enumconverter.SexoConverter</class>
-		<class>enumconverter.TipoConverter</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:derby://localhost:1527/Cruzeirao;create=true" />

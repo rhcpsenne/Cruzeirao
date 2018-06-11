@@ -48,7 +48,7 @@ public class Usuario implements Serializable {
 	private String rg;
 	private String cpf;
 	private String cref;
-	@Enumerated(EnumType.STRING)
+//	@Enumerated(EnumType.STRING)
 	private Sexo sexo; 
 	private String foto;
 

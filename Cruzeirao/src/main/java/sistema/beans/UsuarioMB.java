@@ -24,7 +24,13 @@ public class UsuarioMB implements Serializable {
 	private List<Usuario> usuarios = new ArrayList<Usuario>();
 	private UsuarioService service = new UsuarioService();
 	
-	
+	public Sexo[] getSexo(){
+		return Sexo.values();
+	}
+		 
+	public Tipo[] getTipo() {
+		return Tipo.values();
+	}
 
 	public void onRowEdit(RowEditEvent event) {
 

@@ -38,9 +38,9 @@
 							<p:outputLabel for="tipo" value="Tipo:" />
 							<p:selectOneMenu id="tipo" value="#{usuarioMB.usuario.tipo}"
 								style="width:170px">
-								<f:selectItem itemLabel="Selecionar Tipo" itemValue="#{null}"
+								<f:selectItem itemLabel="Selecionar Tipo" itemValue="#{usuarioMB.usuario.tipo}"
 									noSelectionOption="true" />
-								<f:selectItems value="#{usuarioMB.usuario.tipo}" />
+								<f:selectItems value="#{usuarioMB.tipo}" />
 							</p:selectOneMenu>
 
 							<p:outputLabel for="email" value="E-Mail:" />
@@ -55,30 +55,31 @@
 							</p:outputLabel>
 
 							<p:outputLabel for="telefonefixo" value="Telefone Fixo:" />
-							<p:inputText id="telefonefixo"
+							<p:inputMask id="telefonefixo"
 								value="#{usuarioMB.usuario.telefoneFixo}"
-								mask="(99)9999-9999" required="true" label="Telefonefixo" />
+								mask="(99) 9999-9999" required="true" label="Telefonefixo" />
 							<h:outputText />
 
 						</h:panelGrid>
 
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="telefonemovel" value="Telefone Movel:" />
-							<p:inputText id="telefonemovel"
+							<p:inputMask id="telefonemovel"
 								value="#{usuarioMB.usuario.telefoneMovel}"
-								mask="(99)99999-9999" required="true" label="Telefonemovel" />
+								mask="(99) 99999-9999" required="true" label="Telefonemovel" />
 
 							<p:outputLabel for="endereco" value="Endereco:" />
 							<p:inputText id="endereco" value="#{usuarioMB.usuario.endereco}"
 								required="true" label="Endereco" />
 
 							<p:outputLabel for="rg" value="RG:" />
-							<p:inputText id="rg" value="#{usuarioMB.usuario.rg}"
-								required="true" label="RG" />
+							<p:inputMask id="rg" value="#{usuarioMB.usuario.rg}"
+								required="true" label="RG" mask="99.999.999-9"/>
 
 							<p:outputLabel for="cpf" value="CPF:" />
-							<p:inputText id="cpf" value="#{usuarioMB.usuario.cpf}"
-								required="true" label="CPF" />
+							<p:inputMask id="cpf" value="#{usuarioMB.usuario.cpf}"
+								required="true" label="CPF" mask="999.999.999-99"/>
+								
 
 							<p:outputLabel for="cref" value="Cref:" />
 							<p:inputText id="cref" value="#{usuarioMB.usuario.nome}"
@@ -88,9 +89,9 @@
 							<p:outputLabel for="sexo" value="Sexo:" />
 							<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}"
 								style="width:170px">
-								<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{null}"
+								<f:selectItem itemLabel="Selecionar Sexo" itemValue="#{usuarioMB.usuario.sexo}"
 									noSelectionOption="true" />
-								<f:selectItems value="#{usuarioMB.usuario.sexo}" />
+								<f:selectItems value="#{usuarioMB.sexo}" />
 							</p:selectOneMenu>
 
 

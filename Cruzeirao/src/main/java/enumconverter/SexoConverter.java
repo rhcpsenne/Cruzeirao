@@ -13,10 +13,10 @@ public class SexoConverter implements AttributeConverter<Sexo, String>{
 	{
 		switch (sexo) 
 		{
-			case MASCULINO: 		
+			case Masculino: 		
 				return "M"; 
-			case FEMININO:
-				return "N";
+			case Feminino:
+				return "F";
 			default: throw new IllegalArgumentException("Unknown" + sexo);
 		}
 	}
@@ -27,9 +27,9 @@ public class SexoConverter implements AttributeConverter<Sexo, String>{
 		switch (sexo)
 		{
 			case "M": 
-				return Sexo.MASCULINO;
+				return Sexo.Masculino;
 			case "F":
-				return Sexo.FEMININO;
+				return Sexo.Feminino;
 			default: throw new IllegalArgumentException("Unknown" + sexo);
 		}
 	}

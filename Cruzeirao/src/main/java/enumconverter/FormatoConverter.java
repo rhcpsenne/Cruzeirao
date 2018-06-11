@@ -13,7 +13,7 @@ public class FormatoConverter implements AttributeConverter<Formato, String>{
 	{
 		switch (formato) 
 		{
-			case ELIMINATÓRIAS: 		
+			case Eliminatórias: 		
 				return "E"; 
 			default: throw new IllegalArgumentException("Unknown" + formato);
 		}
@@ -24,7 +24,7 @@ public class FormatoConverter implements AttributeConverter<Formato, String>{
 
 		switch (formato)
 		{
-			case "E": return Formato.ELIMINATÓRIAS;
+			case "E": return Formato.Eliminatórias;
 			default: throw new IllegalArgumentException("Unknown" + formato);
 		}
 	}

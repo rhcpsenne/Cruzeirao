@@ -1,5 +1,5 @@
 package enumerator;
 
 public enum Tipo {
-	ADM, JUIZ, ORGANIZADOR, TECNICO, JOGADOR, TORCEDOR, DIRETOR;
+	ADM, Juiz, Organizador, Tecnico, Jogador, Torcedor, Diretor, Medico;
 }

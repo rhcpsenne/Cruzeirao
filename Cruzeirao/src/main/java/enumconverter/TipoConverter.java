@@ -15,17 +15,19 @@ public class TipoConverter implements AttributeConverter<Tipo, String>{
 		{
 			case ADM: 		
 				return "ADM"; 
-			case DIRETOR:
+			case Diretor:
 				return "Dir";
-			case JUIZ:
+			case Juiz:
 				return "Juíz";
-			case JOGADOR:
+			case Jogador:
 				return "Jog";
-			case ORGANIZADOR:
+			case Medico:
+				return "Med";
+			case Organizador:
 				return "Org";
-			case TECNICO:
+			case Tecnico:
 				return "Tec";
-			case TORCEDOR:
+			case Torcedor:
 				return "Tor";
 			default: throw new IllegalArgumentException("Unknown" + tipo);
 		}
@@ -39,17 +41,19 @@ public class TipoConverter implements AttributeConverter<Tipo, String>{
 			case "ADM": 
 				return Tipo.ADM;
 			case "Dir":
-				return Tipo.DIRETOR;
+				return Tipo.Diretor;
 			case "Juíz":
-				return Tipo.JUIZ;
+				return Tipo.Juiz;
 			case "Jog":
-				return Tipo.JOGADOR;
+				return Tipo.Jogador;
+			case "Med":
+				return Tipo.Medico;
 			case "Org":
-				return Tipo.ORGANIZADOR;
+				return Tipo.Organizador;
 			case "Tec":
-				return Tipo.TECNICO;
+				return Tipo.Tecnico;
 			case "Tor":
-				return Tipo.TORCEDOR;
+				return Tipo.Torcedor;
 			default: throw new IllegalArgumentException("Unknown" + tipo);
 		}
 	}

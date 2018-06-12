@@ -25,6 +25,9 @@ public class LocalMB {
 	}
 
 	public void salvar() {
+		
+		System.out.println(local);
+		
 		local = service.salvar(local);
 
 		if (locals != null)

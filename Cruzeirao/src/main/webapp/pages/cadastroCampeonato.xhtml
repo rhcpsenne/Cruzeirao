@@ -24,7 +24,7 @@
 
 		<h:form id="formCampeonato">
 
-			<p:growl id="growl" sticky="true" showDetail="true"/>
+			<p:growl id="growl" sticky="true" showDetail="true" />
 
 			<p:wizard flowListener="#{campeonatoMB.onFlowProcess}">
 				<p:tab id="campeonato" title="Campeonato">
@@ -126,12 +126,13 @@
 									label="max" />
 
 
-								<p:outputLabel for="sexo" value="Sexo:" />
-								<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}"
+								<p:outputLabel for="sexo" value="Sexo: *" />
+								<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}"
 									style="width:170px">
 									<f:selectItem itemLabel="Selecionar Sexo"
-										itemValue="#{usuarioMB.usuario.sexo}" noSelectionOption="true" />
-									<f:selectItems value="#{usuarioMB.sexo}" />
+										noSelectionOption="true" />
+									<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+									<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
 								</p:selectOneMenu>
 
 							</h:panelGrid>
@@ -149,12 +150,79 @@
 
 						<h:panelGrid id="cadastro3" columns="2" columnClasses="grid,grid">
 
-							<p:outputLabel for="idlocal" value="Código do Local:" />
-							<p:inputText id="idlocal" value="null" required="true"
-								label="numero" />
+							<p:dataTable id="basicDT" var="car" value="#{localMB.local.id}">
+								<f:facet name="header">
+            Locais
+        </f:facet>
 
-							<p:outputLabel for="end" value="Endereço:" />
-							<p:inputText id="end" value="null" required="true" label="end" />
+								<p:column headerText="Codigos dos Locais">
+									<h:outputText value="#{localMB.local.id}" />
+								</p:column>
+
+								<p:column style="width:32px;text-align: center">
+									<p:commandButton update=""
+										oncomplete="PF('carOP').show('#{localMB.local.id}')"
+										icon="ui-icon-search" title="View">
+										<f:setPropertyActionListener value="#{car}"
+											target="#{localMB.local.id}" />
+									</p:commandButton>
+								</p:column>
+							</p:dataTable>
+
+							<p:overlayPanel widgetVar="carOP" showEffect="fade"
+								hideEffect="fade" dismissable="false" showCloseIcon="true">
+								<p:outputPanel id="localDetail" style="text-align:center;">
+									<p:panelGrid columns="2"
+										rendered="#{not empty dtSelectionView.selectedCar}"
+										columnClasses="label,value">
+										<f:facet name="header">
+										</f:facet>
+
+										<h:outputText value="Codigo do Local: " />
+										<h:outputText value="#{localMB.local.id}"
+											styleClass="outputLabel" />
+
+										<h:outputText value="Endereco do Local: " />
+										<h:outputText value="#{localMB.local.endereco}"
+											styleClass="outputLabel" />
+
+									</p:panelGrid>
+								</p:outputPanel>
+							</p:overlayPanel>
+
+
+							<p:commandButton value="Adicionar Locais" type="button"
+								onclick="PF('dlg2').show();" />
+
+							<p:dialog header="Cadastro Local" widgetVar="dlg2" modal="true"
+								height="300" lenght="500" appendTo="@(body)">
+
+								<p:tab id="personal" title="Cadastro">
+
+									<p:messages />
+
+									<h:panelGrid id="cadastrolocal" columns="2"
+										columnClasses="grid,grid">
+
+										<p:outputLabel for="codigo" value="Codigo do Local: " />
+										<p:inputText id="codigo" value="#{localMB.local.id}"
+											required="true" label="codigo" />
+
+										<p:outputLabel for="endereco" value="Endereco do Local: " />
+										<p:inputText id="endereco" value="#{localMB.local.endereco}"
+											required="true" label="endereco" />
+
+									</h:panelGrid>
+
+									<div align="right">
+										<p:commandButton value="Salvar"
+											actionListener="#{localMB.salvar}"
+											update=":formCampeonato" process="@this" />
+									</div>
+								</p:tab>
+
+
+							</p:dialog>
 
 						</h:panelGrid>
 
@@ -203,40 +271,27 @@
 							</h:panelGrid>
 
 
+
 							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Nome: " />
-								<h:outputText value="" styleClass="outputLabel" />
 
-								<h:outputText value="Fases: " />
-								<h:outputText value="" styleClass="outputLabel" />
-
-								<h:outputText value="Minimo de jogadores: " />
-								<h:outputText value="" styleClass="outputLabel" />
-
-								<h:outputText value="Maximo de jogadores: " />
-								<h:outputText value="" styleClass="outputLabel" />
-
-								<h:outputText value="Sexo: " />
-								<h:outputText value="" styleClass="outputLabel" />
 							</h:panelGrid>
 
 
 
 							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Código do Local: " />
-								<h:outputText value="" styleClass="outputLabel" />
 
-								<h:outputText value="Endereço: " />
-								<h:outputText value="" styleClass="outputLabel" />
-
-
-								<h:outputText />
-								<h:outputText />
 							</h:panelGrid>
+
+
+
 						</h:panelGrid>
+
+
+
+
 						<p:commandButton value="Salvar"
-							actionListener="#{campeonatoMB.salvar}" update="growl"
-							process="@this" />
+							actionListener="#{campeonatoMB.salvarCampeonato}"
+							update=":formCampeonato" process="@this" />
 					</p:panel>
 				</p:tab>
 			</p:wizard>

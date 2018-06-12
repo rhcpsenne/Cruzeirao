@@ -22,9 +22,8 @@ public class Local implements Serializable {
 	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
 	@OneToMany(mappedBy="local", cascade=CascadeType.ALL)
 	private ArrayList<Partida> partidas = new ArrayList<Partida>();
+	private String endereco; 
 	
-	
-	private String endereco;
 	
 	
 	public Local(int local_id, String endereco) {

@@ -31,25 +31,25 @@
 
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel for="golsMandantes" value="Gols Mandantes: " />
-							<p:inputText id="golsMandantes" value="" required="true" label="golsMandantes" />
+							<p:inputText id="golsMandantes" value="#{partidaFutebolMB.partidaFutebol.golsMandantes}" required="true" label="golsMandantes" />
 							
 							<p:outputLabel for="golsVisitantes" value="Gols Visitantes: " />
-							<p:inputText id="golsVisitantes" value="" required="true" label="golsVisitantes" />
+							<p:inputText id="golsVisitantes" value="#{partidaFutebolMB.partidaFutebol.golsVisitantes}" required="true" label="golsVisitantes" />
 							
-							<p:outputLabel for="golsPenaltesMandantes" value="Gols Penaltes Mandantes: " />
-							<p:inputText id="golsPenaltesMandantes" value="" required="true" label="golsPenaltesMandantes" />
+							<p:outputLabel for="golsPenaltisMandantes" value="Gols Penaltis Mandantes: " />
+							<p:inputText id="golsPenaltisMandantes" value="#{partidaFutebolMB.partidaFutebol.golsPenaltesMandantes}" required="true" label="golsPenaltisMandantes" />
 
 						</h:panelGrid>
 						
 						<h:panelGrid columns="2" columnClasses="label, value">
-							<p:outputLabel for="golsPenaltesVisitantes" value="Gols Penaltes Visitantes: " />
-							<p:inputText id="golsPenaltesVisitantes" value="" required="true" label="golsPenaltesVisitantes" />
+							<p:outputLabel for="golsPenaltisVisitantes" value="Gols Penaltis Visitantes: " />
+							<p:inputText id="golsPenaltisVisitantes" value="#{partidaFutebolMB.partidaFutebol.golsPenaltesVisitantes}" required="true" label="golsPenaltisVisitantes" />
 							
 							<p:outputLabel for="cartoesMandante" value="Cartoes Mandante: " />
-							<p:inputText id="cartoesMandante" value="" required="true" label="cartoesMandante" />
+							<p:inputText id="cartoesMandante" value="#{partidaFutebolMB.partidaFutebol.cartoesMandante}" required="true" label="cartoesMandante" />
 							
 							<p:outputLabel for="cartoesVisitantes" value="Cartoes Visitantes: " />
-							<p:inputText id="cartoesVisitantes" value="" required="true" label="cartoesVisitantes" />
+							<p:inputText id="cartoesVisitantes" value="#{partidaFutebolMB.partidaFutebol.cartoesVisitantes}" required="true" label="cartoesVisitantes" />
 
 						</h:panelGrid>
 
@@ -58,7 +58,7 @@
 
 				</p:panel>
 				<div align="right">
-					<p:commandButton value="Submit" actionListener="1" update="growl"
+					<p:commandButton value="Salvar" actionListener="#{partidaFutebolMB.salvar}" update="growl"
 						process="@this" />
 				</div>
 			</p:tab>

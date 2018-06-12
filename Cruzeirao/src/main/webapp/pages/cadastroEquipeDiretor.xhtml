@@ -21,13 +21,13 @@
 			<p:outputLabel value="#{msg['pages.cadastroCampeonato.menu']}" />
 		</h1>
 
-		<h:form>
+		<h:form id="formEquipe">
 
 			<p:growl id="growl" sticky="true" showDetail="true" />
 
 			<p:wizard flowListener="#{campeonatoMB.onFlowProcess}">
 				<p:tab id="campeonato" title="Campeonato">
-					<p:panel >
+					<p:panel>
 						<p:messages />
 
 						<h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
@@ -57,29 +57,34 @@
 					</p:panel>
 				</p:tab>
 
-				<p:tab id="confirm" title="Confirmation">
-					<p:panel header="Confirmation">
+				<p:tab id="confirm" title="Confirmação">
+					<p:panel header="Confirmação">
 						<h:panelGrid id="confirmation" columns="3"
 							columnClasses="grid,grid,grid">
 
 
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<h:outputText value="Nome: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{equipeMB.equipe.nome}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Data da Fundação: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{equipeMB.equipe.dataFundacao}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Cidade: " />
-								<h:outputText value="null" styleClass="outputLabel" />
+								<h:outputText value="#{equipeMB.equipe.cidade}"
+									styleClass="outputLabel" />
 							</h:panelGrid>
 
 						</h:panelGrid>
-
-						<p:commandButton value="Submit"
-							actionListener="#{userWizard.save}" update="growl"
-							process="@this" />
+						<div align="left">
+							<p:commandButton value="Salvar" action="#{equipeMB.salvar}"
+								update=":formEquipe" />
+						</div>
 					</p:panel>
+
+
 				</p:tab>
 			</p:wizard>
 

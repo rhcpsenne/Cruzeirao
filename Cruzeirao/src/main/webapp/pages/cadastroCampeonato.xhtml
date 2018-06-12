@@ -110,25 +110,25 @@
 
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<p:outputLabel for="nome2" value="Nome: " />
-								<p:inputText id="nome2" value="#{categoriaMB.categoria.nome}"
+								<p:inputText id="nome2" value="#{campeonatoMB.categoria.nome}"
 									required="true" label="nome2" />
 
 							</h:panelGrid>
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<p:outputLabel for="min" value="Minimo de jogadores: " />
 								<p:inputText id="min"
-									value="#{categoriaMB.categoria.minJogadores}" required="true"
+									value="#{campeonatoMB.categoria.minJogadores}" required="true"
 									label="min" />
 
 								<p:outputLabel for="max" value="Maximo de jogadores: " />
 								<p:inputText id="max"
-									value="#{categoriaMB.categoria.maxJogadores}" required="true"
+									value="#{campeonatoMB.categoria.maxJogadores}" required="true"
 									label="max" />
 
 
 								<p:outputLabel for="sexo" value="Sexo: *" />
-								<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}"
-									style="width:170px">
+								<p:selectOneMenu id="sexo"
+									value="#{campeonatoMB.categoria.sexo}" style="width:170px">
 									<f:selectItem itemLabel="Selecionar Sexo"
 										noSelectionOption="true" />
 									<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
@@ -150,21 +150,21 @@
 
 						<h:panelGrid id="cadastro3" columns="2" columnClasses="grid,grid">
 
-							<p:dataTable id="basicDT" var="car" value="#{localMB.local.id}">
+							<p:dataTable id="basicDT" var="car" value="#{campeonatoMB.local.id}">
 								<f:facet name="header">
             Locais
         </f:facet>
 
 								<p:column headerText="Codigos dos Locais">
-									<h:outputText value="#{localMB.local.id}" />
+									<h:outputText value="#{campeonatoMB.local.id}" />
 								</p:column>
 
 								<p:column style="width:32px;text-align: center">
 									<p:commandButton update=""
-										oncomplete="PF('carOP').show('#{localMB.local.id}')"
+										oncomplete="PF('carOP').show('#{campeonatoMB.local.id}')"
 										icon="ui-icon-search" title="View">
-										<f:setPropertyActionListener value="#{car}"
-											target="#{localMB.local.id}" />
+										<f:setPropertyActionListener value="#{campeonatoMB.local}"
+											target="#{campeonatoMB.local.id}" />
 									</p:commandButton>
 								</p:column>
 							</p:dataTable>
@@ -179,11 +179,11 @@
 										</f:facet>
 
 										<h:outputText value="Codigo do Local: " />
-										<h:outputText value="#{localMB.local.id}"
+										<h:outputText value="#{campeonatoMB.local.id}"
 											styleClass="outputLabel" />
 
 										<h:outputText value="Endereco do Local: " />
-										<h:outputText value="#{localMB.local.endereco}"
+										<h:outputText value="#{campeonatoMB.local.endereco}"
 											styleClass="outputLabel" />
 
 									</p:panelGrid>
@@ -205,19 +205,19 @@
 										columnClasses="grid,grid">
 
 										<p:outputLabel for="codigo" value="Codigo do Local: " />
-										<p:inputText id="codigo" value="#{localMB.local.id}"
+										<p:inputText id="codigo" value="#{campeonatoMB.local.id}"
 											required="true" label="codigo" />
 
 										<p:outputLabel for="endereco" value="Endereco do Local: " />
-										<p:inputText id="endereco" value="#{localMB.local.endereco}"
+										<p:inputText id="endereco" value="#{campeonatoMB.local.endereco}"
 											required="true" label="endereco" />
 
 									</h:panelGrid>
 
 									<div align="right">
 										<p:commandButton value="Salvar"
-											actionListener="#{localMB.salvar}"
-											update=":formCampeonato" process="@this" />
+											actionListener="#{campeonatoMB.salvarLocal}" update=":formCampeonato"
+											process="@this" />
 									</div>
 								</p:tab>
 
@@ -230,60 +230,85 @@
 					</p:panel>
 				</p:tab>
 
-				<p:tab id="confirm" title="Confirmation">
-					<p:panel header="Confirmation">
+				<p:tab id="confirm" title="Confirmação">
+					<p:panel header="Confirmação">
 						<h:panelGrid id="confirmation" columns="3"
 							columnClasses="grid,grid,grid">
 
+							<h:form>
+								<p:panel header="Campeonato">
+									<h:panelGrid columns="2" columnClasses="label, value">
+										<h:outputText value="Nome do campeonato: " />
+										<h:outputText value="#{campeonatoMB.campeonato.nome}"
+											styleClass="outputLabel" />
 
-							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Nome: " />
-								<h:outputText value="#{campeonatoMB.campeonato.nome}"
-									styleClass="outputLabel" />
+										<h:outputText value="Juizes: " />
+										<h:outputText value="#{campeonatoMB.campeonato.juizes}"
+											styleClass="outputLabel" />
 
-								<h:outputText value="Juizes: " />
-								<h:outputText value="#{campeonatoMB.campeonato.juizes}"
-									styleClass="outputLabel" />
+										<h:outputText value="Data Inicio Inscrição: " />
+										<h:outputText
+											value="#{campeonatoMB.campeonato.dataInicioInscricao}"
+											styleClass="outputLabel" />
 
-								<h:outputText value="Data Inicio Inscrição: " />
-								<h:outputText
-									value="#{campeonatoMB.campeonato.dataInicioInscricao}"
-									styleClass="outputLabel" />
+										<h:outputText value="Data Final Inscrição: " />
+										<h:outputText
+											value="#{campeonatoMB.campeonato.dataFimInscricao}"
+											styleClass="outputLabel" />
 
-								<h:outputText value="Data Final Inscrição: " />
-								<h:outputText
-									value="#{campeonatoMB.campeonato.dataFimInscricao}"
-									styleClass="outputLabel" />
+										<h:outputText value="Data Inicio Campeonato: " />
+										<h:outputText
+											value="#{campeonatoMB.campeonato.dataInicioCampeonato}"
+											styleClass="outputLabel" />
 
-								<h:outputText value="Data Inicio Campeonato: " />
-								<h:outputText
-									value="#{campeonatoMB.campeonato.dataInicioCampeonato}"
-									styleClass="outputLabel" />
+										<h:outputText value="Data Final Campeonato: " />
+										<h:outputText
+											value="#{campeonatoMB.campeonato.dataFimCampeonato}"
+											styleClass="outputLabel" />
 
-								<h:outputText value="Data Final Campeonato: " />
-								<h:outputText
-									value="#{campeonatoMB.campeonato.dataFimCampeonato}"
-									styleClass="outputLabel" />
+										<h:outputText value="Valor Taxa: " />
+										<h:outputText value="#{campeonatoMB.campeonato.valorTaxa}"
+											styleClass="outputLabel" />
+									</h:panelGrid>
+								</p:panel>
+							</h:form>
 
-								<h:outputText value="Valor Taxa: " />
-								<h:outputText value="#{campeonatoMB.campeonato.valorTaxa}"
-									styleClass="outputLabel" />
-							</h:panelGrid>
+							<h:form>
+								<p:panel header="Categoria">
+									<h:panelGrid columns="2" columnClasses="label, value">
 
-
-
-							<h:panelGrid columns="2" columnClasses="label, value">
-
-							</h:panelGrid>
-
-
-
-							<h:panelGrid columns="2" columnClasses="label, value">
-
-							</h:panelGrid>
-
+										<h:outputText value="Categoria: " />
+										<h:outputText value="#{campeonatoMB.categoria.nome}"
+											styleClass="outputLabel" />
 
 
+										<h:outputText value="Mínimo de jogadores: " />
+										<h:outputText value="#{campeonatoMB.categoria.minJogadores}"
+											styleClass="outputLabel" />
+
+
+										<h:outputText value="Máximo de jogadores: " />
+										<h:outputText value="#{campeonatoMB.categoria.maxJogadores}"
+											styleClass="outputLabel" />
+
+
+										<h:outputText value="Sexo: " />
+										<h:outputText value="#{campeonatoMB.categoria.sexo}"
+											styleClass="outputLabel" />
+									</h:panelGrid>
+								</p:panel>
+							</h:form>
+
+							<h:form>
+								<p:panel header="Locais">
+									<h:panelGrid columns="2" columnClasses="label, value">
+
+
+										<h:outputText value="#{campeonatoMB.campeonato.locais}"
+											styleClass="outputLabel" />
+									</h:panelGrid>
+								</p:panel>
+							</h:form>
 						</h:panelGrid>
 
 

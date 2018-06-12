@@ -24,7 +24,7 @@
 
 		<h:form id="formCampeonato">
 
-			<p:growl id="growl" sticky="true" showDetail="true" />
+			<p:growl id="growl" sticky="true" showDetail="true"/>
 
 			<p:wizard flowListener="#{campeonatoMB.onFlowProcess}">
 				<p:tab id="campeonato" title="Campeonato">
@@ -39,7 +39,7 @@
 
 								<p:outputLabel for="nome" value="Nome: " />
 								<p:inputText id="nome" value="#{campeonatoMB.campeonato.nome}"
-									required="true" label="nome" style="width:87%" />
+									required="true" label="nome" />
 
 								<p:outputLabel for="juizes" value="Juizes:" />
 								<p:selectOneMenu id="juizes"
@@ -116,10 +116,14 @@
 							</h:panelGrid>
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<p:outputLabel for="min" value="Minimo de jogadores: " />
-								<p:inputText id="min" value="null" required="true" label="min" />
+								<p:inputText id="min"
+									value="#{categoriaMB.categoria.minJogadores}" required="true"
+									label="min" />
 
 								<p:outputLabel for="max" value="Maximo de jogadores: " />
-								<p:inputText id="max" value="null" required="true" label="max" />
+								<p:inputText id="max"
+									value="#{categoriaMB.categoria.maxJogadores}" required="true"
+									label="max" />
 
 
 								<p:outputLabel for="sexo" value="Sexo:" />
@@ -174,19 +178,28 @@
 									styleClass="outputLabel" />
 
 								<h:outputText value="Data Inicio Inscrição: " />
-								<h:outputText value="#{campeonatoMB.campeonato.dataInicioInscricao}" styleClass="outputLabel" />
+								<h:outputText
+									value="#{campeonatoMB.campeonato.dataInicioInscricao}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Data Final Inscrição: " />
-								<h:outputText value="#{campeonatoMB.campeonato.dataFimInscricao}" styleClass="outputLabel" />
+								<h:outputText
+									value="#{campeonatoMB.campeonato.dataFimInscricao}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Data Inicio Campeonato: " />
-								<h:outputText value="#{campeonatoMB.campeonato.dataInicioCampeonato}" styleClass="outputLabel" />
+								<h:outputText
+									value="#{campeonatoMB.campeonato.dataInicioCampeonato}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Data Final Campeonato: " />
-								<h:outputText value="#{campeonatoMB.campeonato.dataFimCampeonato}" styleClass="outputLabel" />
+								<h:outputText
+									value="#{campeonatoMB.campeonato.dataFimCampeonato}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="Valor Taxa: " />
-								<h:outputText value="#{campeonatoMB.campeonato.valorTaxa}" styleClass="outputLabel" />
+								<h:outputText value="#{campeonatoMB.campeonato.valorTaxa}"
+									styleClass="outputLabel" />
 							</h:panelGrid>
 
 
@@ -221,17 +234,14 @@
 								<h:outputText />
 							</h:panelGrid>
 						</h:panelGrid>
-
 						<p:commandButton value="Salvar"
-							action="#{campeonatoMB.salvar}"
-							update=":formCampeonato" />
+							actionListener="#{campeonatoMB.salvar}" update="growl"
+							process="@this" />
 					</p:panel>
 				</p:tab>
 			</p:wizard>
 
 		</h:form>
-
-		<br />
 
 	</ui:define>
 </ui:composition>

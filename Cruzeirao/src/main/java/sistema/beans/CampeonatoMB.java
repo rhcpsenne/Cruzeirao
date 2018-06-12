@@ -21,22 +21,18 @@ public class CampeonatoMB {
 	private List<Campeonato> campeonatos;
 	private CampeonatoService service = new CampeonatoService();
 	
-	private Usuario usuario = new Usuario();
+//	private Usuario usuario = new Usuario();
     
     private boolean skip;
      
-    public Usuario getUsuario() {
-        return usuario;
-    }
- 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-     
-    public void save() {        
-        FacesMessage msg = new FacesMessage("Successful", "Welcome :" + usuario.getNome());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+//    public Usuario getUsuario() {
+//        return usuario;
+//    }
+// 
+//    public void setUsuario(Usuario usuario) {
+//        this.usuario = usuario;
+//    }
+//   
      
     public boolean isSkip() {
         return skip;
@@ -48,7 +44,7 @@ public class CampeonatoMB {
      
     public String onFlowProcess(FlowEvent event) {
         if(skip) {
-            skip = false;   //reset in case usuario goes back
+            skip = false;   
             return "confirm";
         }
         else {
@@ -63,6 +59,9 @@ public class CampeonatoMB {
 	}
 
 	public void salvar() {
+
+        FacesMessage msg = new FacesMessage("Campeonato criado com sucesso!", "Campeonato: " + campeonato.getNome());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
 		campeonato = service.salvar(campeonato);
 
 		if (campeonatos != null)
@@ -101,6 +100,5 @@ public class CampeonatoMB {
 	public void setCampeonato(Campeonato campeonato) {
 		this.campeonato = campeonato;
 	}
-	
 	
 }

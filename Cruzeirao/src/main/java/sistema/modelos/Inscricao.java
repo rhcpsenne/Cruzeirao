@@ -88,6 +88,66 @@ public class Inscricao implements Serializable {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
+		result = prime * result + ((equipe == null) ? 0 : equipe.hashCode());
+		result = prime * result + ((inscritos == null) ? 0 : inscritos.hashCode());
+		result = prime * result + (int) (numero ^ (numero >>> 32));
+		result = prime * result + (pagamento ? 1231 : 1237);
+		result = prime * result + ((partidas == null) ? 0 : partidas.hashCode());
+		result = prime * result + (validade ? 1231 : 1237);
+		return result;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Inscricao other = (Inscricao) obj;
+		if (categoria == null) {
+			if (other.categoria != null)
+				return false;
+		} else if (!categoria.equals(other.categoria))
+			return false;
+		if (equipe == null) {
+			if (other.equipe != null)
+				return false;
+		} else if (!equipe.equals(other.equipe))
+			return false;
+		if (inscritos == null) {
+			if (other.inscritos != null)
+				return false;
+		} else if (!inscritos.equals(other.inscritos))
+			return false;
+		if (numero != other.numero)
+			return false;
+		if (pagamento != other.pagamento)
+			return false;
+		if (partidas == null) {
+			if (other.partidas != null)
+				return false;
+		} else if (!partidas.equals(other.partidas))
+			return false;
+		if (validade != other.validade)
+			return false;
+		return true;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Inscricao [numero=" + numero + ", pagamento=" + pagamento + ", validade=" + validade + ", inscritos="

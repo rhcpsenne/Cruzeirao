@@ -112,6 +112,71 @@ public class Categoria implements Serializable {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + apartirDe;
+		result = prime * result + attribute74;
+		result = prime * result + ((campeonato == null) ? 0 : campeonato.hashCode());
+		result = prime * result + cat_id;
+		result = prime * result + ((fases == null) ? 0 : fases.hashCode());
+		result = prime * result + ((inscricoes == null) ? 0 : inscricoes.hashCode());
+		result = prime * result + maxJogadores;
+		result = prime * result + minJogadores;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Categoria other = (Categoria) obj;
+		if (apartirDe != other.apartirDe)
+			return false;
+		if (attribute74 != other.attribute74)
+			return false;
+		if (campeonato == null) {
+			if (other.campeonato != null)
+				return false;
+		} else if (!campeonato.equals(other.campeonato))
+			return false;
+		if (cat_id != other.cat_id)
+			return false;
+		if (fases == null) {
+			if (other.fases != null)
+				return false;
+		} else if (!fases.equals(other.fases))
+			return false;
+		if (inscricoes == null) {
+			if (other.inscricoes != null)
+				return false;
+		} else if (!inscricoes.equals(other.inscricoes))
+			return false;
+		if (maxJogadores != other.maxJogadores)
+			return false;
+		if (minJogadores != other.minJogadores)
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (sexo != other.sexo)
+			return false;
+		return true;
+	}
 	@Override
 	public String toString() {
 		return "Categoria [cat_id=" + cat_id + ", nome=" + nome + ", apartirDe=" + apartirDe + ", inscricoes="

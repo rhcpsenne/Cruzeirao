@@ -112,6 +112,90 @@ public class Partida implements Serializable {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result + ((equipeMandante == null) ? 0 : equipeMandante.hashCode());
+		result = prime * result + ((equipeVisitante == null) ? 0 : equipeVisitante.hashCode());
+		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
+		result = prime * result + ((juizes == null) ? 0 : juizes.hashCode());
+		result = prime * result + ((local == null) ? 0 : local.hashCode());
+		result = prime * result + num_partida;
+		result = prime * result + ((proxPartida == null) ? 0 : proxPartida.hashCode());
+		result = prime * result + ((relatoJuiz == null) ? 0 : relatoJuiz.hashCode());
+		result = prime * result + ((rod == null) ? 0 : rod.hashCode());
+		return result;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Partida other = (Partida) obj;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (equipeMandante == null) {
+			if (other.equipeMandante != null)
+				return false;
+		} else if (!equipeMandante.equals(other.equipeMandante))
+			return false;
+		if (equipeVisitante == null) {
+			if (other.equipeVisitante != null)
+				return false;
+		} else if (!equipeVisitante.equals(other.equipeVisitante))
+			return false;
+		if (grupo == null) {
+			if (other.grupo != null)
+				return false;
+		} else if (!grupo.equals(other.grupo))
+			return false;
+		if (juizes == null) {
+			if (other.juizes != null)
+				return false;
+		} else if (!juizes.equals(other.juizes))
+			return false;
+		if (local == null) {
+			if (other.local != null)
+				return false;
+		} else if (!local.equals(other.local))
+			return false;
+		if (num_partida != other.num_partida)
+			return false;
+		if (proxPartida == null) {
+			if (other.proxPartida != null)
+				return false;
+		} else if (!proxPartida.equals(other.proxPartida))
+			return false;
+		if (relatoJuiz == null) {
+			if (other.relatoJuiz != null)
+				return false;
+		} else if (!relatoJuiz.equals(other.relatoJuiz))
+			return false;
+		if (rod == null) {
+			if (other.rod != null)
+				return false;
+		} else if (!rod.equals(other.rod))
+			return false;
+		return true;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Partida [num_partida=" + num_partida + ", equipeMandante=" + equipeMandante + ", equipeVisitante="

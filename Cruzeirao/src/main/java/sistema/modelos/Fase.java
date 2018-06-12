@@ -78,6 +78,59 @@ public class Fase implements Serializable {
 	public void setFormato(Formato formato) {
 		this.formato = formato;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
+		result = prime * result + ((dataFim == null) ? 0 : dataFim.hashCode());
+		result = prime * result + ((dataInicio == null) ? 0 : dataInicio.hashCode());
+		result = prime * result + fase_id;
+		result = prime * result + ((formato == null) ? 0 : formato.hashCode());
+		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Fase other = (Fase) obj;
+		if (categoria == null) {
+			if (other.categoria != null)
+				return false;
+		} else if (!categoria.equals(other.categoria))
+			return false;
+		if (dataFim == null) {
+			if (other.dataFim != null)
+				return false;
+		} else if (!dataFim.equals(other.dataFim))
+			return false;
+		if (dataInicio == null) {
+			if (other.dataInicio != null)
+				return false;
+		} else if (!dataInicio.equals(other.dataInicio))
+			return false;
+		if (fase_id != other.fase_id)
+			return false;
+		if (formato != other.formato)
+			return false;
+		if (grupos == null) {
+			if (other.grupos != null)
+				return false;
+		} else if (!grupos.equals(other.grupos))
+			return false;
+		return true;
+	}
 	@Override
 	public String toString() {
 		return "Fase [dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", categoria=" + categoria + ", grupos="

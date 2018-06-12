@@ -150,10 +150,11 @@
 
 						<h:panelGrid id="cadastro3" columns="2" columnClasses="grid,grid">
 
-							<p:dataTable id="basicDT" var="car" value="#{campeonatoMB.local.id}">
+							<p:dataTable id="basicDT" var="car"
+								value="#{campeonatoMB.local.id}">
 								<f:facet name="header">
-            Locais
-        </f:facet>
+
+								</f:facet>
 
 								<p:column headerText="Codigos dos Locais">
 									<h:outputText value="#{campeonatoMB.local.id}" />
@@ -209,15 +210,16 @@
 											required="true" label="codigo" />
 
 										<p:outputLabel for="endereco" value="Endereco do Local: " />
-										<p:inputText id="endereco" value="#{campeonatoMB.local.endereco}"
-											required="true" label="endereco" />
+										<p:inputText id="endereco"
+											value="#{campeonatoMB.local.endereco}" required="true"
+											label="endereco" />
 
 									</h:panelGrid>
 
 									<div align="right">
 										<p:commandButton value="Salvar"
-											actionListener="#{campeonatoMB.salvarLocal}" update=":formCampeonato"
-											process="@this" />
+											actionListener="#{campeonatoMB.salvarLocal}"
+											update=":formCampeonato" process="@this" />
 									</div>
 								</p:tab>
 

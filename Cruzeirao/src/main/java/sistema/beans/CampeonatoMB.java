@@ -1,7 +1,5 @@
 package sistema.beans;
 
-
-
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -59,10 +57,10 @@ public class CampeonatoMB {
 
 	// Salvar local
 	public void salvarLocal() {
-		
+
 		System.out.println(local);
-		
-		if (this.getLocal().getEndereco() == "") {
+
+		if (this.getLocal().getEndereco() == "" || this.getLocal().getEndereco() == null) {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro! O campo de local está inválido.",
 					null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
@@ -128,6 +126,5 @@ public class CampeonatoMB {
 		Campeonato c = ((Campeonato) event.getObject());
 		campeonatoService.alterar(c);
 	}
-
 
 }

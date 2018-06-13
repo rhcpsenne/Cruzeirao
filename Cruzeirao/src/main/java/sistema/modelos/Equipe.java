@@ -151,7 +151,6 @@ public class Equipe implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Equipe [nome=" + nome + ", dataFundacao=" + dataFundacao + ", cidade=" + cidade + ", diretores="
-				+ diretores + "]";
+		return nome;
 	}
 }

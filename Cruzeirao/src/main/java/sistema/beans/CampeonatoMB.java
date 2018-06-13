@@ -14,6 +14,8 @@ import sistema.modelos.Campeonato;
 import sistema.modelos.Categoria;
 import sistema.modelos.Local;
 import sistema.service.CampeonatoService;
+import sistema.service.CategoriaService;
+import sistema.service.LocalService;
 
 @ManagedBean
 @ViewScoped
@@ -23,6 +25,10 @@ public class CampeonatoMB {
 	private Local local = new Local();
 	private Categoria categoria = new Categoria();
 	private CampeonatoService campeonatoService = new CampeonatoService();
+	private List<Local> locals;
+	private LocalService localService = new LocalService();
+	private List<Categoria> categorias;
+	private CategoriaService categoriaService = new CategoriaService();
 
 	// Getters and Setters
 	public Campeonato getCampeonato() {
@@ -60,7 +66,7 @@ public class CampeonatoMB {
 
 		System.out.println(local);
 
-		if (this.getLocal().getEndereco() == "" || this.getLocal().getEndereco() == null) {
+		if (this.getLocal().getEndereco() == "") {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro! O campo de local está inválido.",
 					null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
@@ -69,6 +75,14 @@ public class CampeonatoMB {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
 					"Sucesso! O Local " + this.getLocal().getEndereco() + " foi cadastrado", null);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
+			
+			System.out.println(local);
+			
+			local = localService.salvar(local);
+
+			if (locals != null)
+				locals.add(local);
+			
 			local = new Local();
 		}
 	}
@@ -93,6 +107,13 @@ public class CampeonatoMB {
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 			categoria = new Categoria();
 		}
+		
+		categoria = categoriaService.salvar(categoria);
+
+		if (categorias != null)
+			categorias.add(categoria);
+
+		categoria = new Categoria();
 	}
 
 	// Salvar categoria

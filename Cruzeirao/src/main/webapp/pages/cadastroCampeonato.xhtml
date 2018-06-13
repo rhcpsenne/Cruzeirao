@@ -113,12 +113,14 @@
 								<p:inputText id="nome2" value="#{campeonatoMB.categoria.nome}"
 									required="true" label="nome2" />
 
-							</h:panelGrid>
-							<h:panelGrid columns="2" columnClasses="label, value">
 								<p:outputLabel for="min" value="Minimo de jogadores: " />
 								<p:inputText id="min"
 									value="#{campeonatoMB.categoria.minJogadores}" required="true"
 									label="min" />
+
+							</h:panelGrid>
+							<h:panelGrid columns="2" columnClasses="label, value">
+
 
 								<p:outputLabel for="max" value="Maximo de jogadores: " />
 								<p:inputText id="max"
@@ -136,6 +138,10 @@
 								</p:selectOneMenu>
 
 							</h:panelGrid>
+
+							<p:commandButton value="Salvar"
+								actionListener="#{campeonatoMB.salvarCategoria}"
+								update=":formCampeonato" process="@this" />
 
 
 						</h:panelGrid>
@@ -162,7 +168,7 @@
 
 								<p:column style="width:32px;text-align: center">
 									<p:commandButton update=""
-										oncomplete="PF('carOP').show('#{campeonatoMB.local.id}')"
+										oncomplete="PF('campOP').show('#{campeonatoMB.local.id}')"
 										icon="ui-icon-search" title="View">
 										<f:setPropertyActionListener value="#{campeonatoMB.local}"
 											target="#{campeonatoMB.local.id}" />
@@ -170,7 +176,7 @@
 								</p:column>
 							</p:dataTable>
 
-							<p:overlayPanel widgetVar="carOP" showEffect="fade"
+							<p:overlayPanel widgetVar="campOP" showEffect="fade"
 								hideEffect="fade" dismissable="false" showCloseIcon="true">
 								<p:outputPanel id="localDetail" style="text-align:center;">
 									<p:panelGrid columns="2"
@@ -195,36 +201,6 @@
 							<p:commandButton value="Adicionar Locais" type="button"
 								onclick="PF('dlg2').show();" />
 
-							<p:dialog header="Cadastro Local" widgetVar="dlg2" modal="true"
-								height="300" lenght="500" appendTo="@(body)">
-
-								<p:tab id="personal" title="Cadastro">
-
-									<p:messages />
-
-									<h:panelGrid id="cadastrolocal" columns="2"
-										columnClasses="grid,grid">
-
-										<p:outputLabel for="codigo" value="Codigo do Local: " />
-										<p:inputText id="codigo" value="#{campeonatoMB.local.id}"
-											required="true" label="codigo" />
-
-										<p:outputLabel for="endereco" value="Endereco do Local: " />
-										<p:inputText id="endereco"
-											value="#{campeonatoMB.local.endereco}" required="true"
-											label="endereco" />
-
-									</h:panelGrid>
-
-									<div align="right">
-										<p:commandButton value="Salvar"
-											actionListener="#{campeonatoMB.salvarLocal}"
-											update=":formCampeonato" process="@this" />
-									</div>
-								</p:tab>
-
-
-							</p:dialog>
 
 						</h:panelGrid>
 
@@ -323,7 +299,36 @@
 				</p:tab>
 			</p:wizard>
 
+			<p:dialog header="Cadastro Local" widgetVar="dlg2" modal="true"
+				height="300" lenght="500" appendTo="@(body)">
+
+				<p:tab id="personal" title="Cadastro">
+
+					<p:messages />
+
+					<h:panelGrid id="cadastrolocal" columns="2"
+						columnClasses="grid,grid">
+
+						<p:outputLabel for="endereco" value="Endereco do Local: " />
+						<p:inputText id="endereco" value="#{campeonatoMB.local.endereco}"
+							required="true" label="endereco" />
+
+					</h:panelGrid>
+
+					<div align="right">
+						<p:commandButton value="Salvar"
+							actionListener="#{campeonatoMB.salvarLocal}"
+							update=":formCampeonato" process="@this" />
+					</div>
+				</p:tab>
+
+
+			</p:dialog>
+
 		</h:form>
+
+
+
 
 	</ui:define>
 </ui:composition>

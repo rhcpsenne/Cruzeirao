@@ -29,10 +29,10 @@
 
 
 						<p:outputLabel for="equipes" value="Equipes:" />
-						<p:selectOneMenu id="equipes" value="#{null}" style="width:170px">
-							<f:selectItem itemLabel="Selecionar Equipe" itemValue="#{null}"
+						<p:selectOneMenu id="equipes" value="#{equipeMB.equipes}" style="width:170px">
+							<f:selectItem itemLabel="Selecionar Equipe" itemValue="#{equipeMB.equipe}"
 								noSelectionOption="true" />
-							<f:selectItems value="#{null}" />
+							<f:selectItems value="#{equipeMB.equipes}" />
 						</p:selectOneMenu>
 
 
@@ -41,8 +41,8 @@
 
 				</p:panel>
 				<div align="right">
-					<p:commandButton value="Show" actionListener="1" update="growl"
-						process="@this" />
+					<p:commandButton value="Show" actionListener="#{equipeMB.equipe}" 
+						process="@this" update="formEquipe"/>
 				</div>
 			</p:tab>
 
@@ -52,7 +52,7 @@
 		<h:form id="formEquipes">
 
 
-			<p:dataTable var="equipe" value="#{equipeMB.equipe}" editable="false"
+			<p:dataTable var="equipe" value="#{equipeMB.equipe}" editable="false" 
 				editMode="cell">
 
 				<p:column headerText="Equipes">
@@ -60,22 +60,14 @@
 						itemLabel="#{equipe.nome}" />
 				</p:column>
 				<p:column headerText="Data Fundacao">
-					<p:outputLabel value=""
-						itemLabel="" />
+					<p:outputLabel value="#{equipe.dataFundacao}"
+						itemLabel="#{equipe.dataFundacao}" />
 				</p:column>
 				<p:column headerText="Cidade">
-					<p:outputLabel value=""
-						itemLabel="" />
+					<p:outputLabel value="#{equipe.cidade}"
+						itemLabel="#{equipe.cidade}" />
 				</p:column>
-				<p:column headerText="Diretores">
-					<p:outputLabel value=""
-						itemLabel="" />
-				</p:column>
-				<p:column headerText="Jogadores">
-					<p:outputLabel value=""
-						itemLabel="" />
-				</p:column>
-
+			
 				<p:column>
 
 					<p:commandLink value="Excluir"

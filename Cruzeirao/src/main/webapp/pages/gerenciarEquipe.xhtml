@@ -21,7 +21,7 @@
 			<p:outputLabel value="#{msg['pages.cadastroCampeonato.menu']}" />
 		</h1>
 
-		<h:form>
+		<h:form id="form">
 
 			<p:growl id="growl" sticky="true" showDetail="true" />
 
@@ -314,7 +314,7 @@
 								</p:panel>
 								<div align="right">
 									<p:commandButton value="Salvar" action="#{usuarioMB.salvar}"
-										update=":formUsuario" />
+										update=":form" />
 								</div>
 							</p:tab>
 

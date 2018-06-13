@@ -29,36 +29,32 @@
       <h:panelGrid id="cadastro" columns="3" columnClasses="grid,grid">
       <h:panelGrid columns="2" columnClasses="label, value">
       <p:outputLabel for="eqmand" value="Equipe Mandante:"/>
-           	<p:selectOneMenu id="eqmand" value="" style="width:170px" >
+           	<p:selectOneMenu id="eqmand" value="#{equipeMB.equipe}" style="width:170px" >
      			<f:selectItem itemLabel="Selecionar Equipe" itemValue="#{equipeMB.equipes}" noSelectionOption="true" />
                 <f:selectItems value="#{partidaMB.partida.equipeMandante}" />
             </p:selectOneMenu>
       
       <p:outputLabel for="eqv" value="Equipe Visitante:"/>
-           	<p:selectOneMenu id="eqv" value="" style="width:170px" >
+           	<p:selectOneMenu id="eqv" value="#{equipeMB.equipe}" style="width:170px" >
      			<f:selectItem itemLabel="Selecionar Equipe" itemValue="#{equipeMB.equipes}" noSelectionOption="true" />
                 <f:selectItems value="#{partidaMB.partida.equipeVisitante}" />
             </p:selectOneMenu>
       
-     
-      
-      <p:outputLabel for="proximaPartida" value="Próxima Partida:" />
-      <p:inputText id="proximaPartida" value="#{partidaMB.partida.proxPartida}" />
-      <h:outputText />
+                
       
       </h:panelGrid>
       
       <h:panelGrid columns="2" columnClasses="label, value">
       
       <p:outputLabel for="juizes" value="Juízes: "/>
-           	<p:selectOneMenu id="juizes" value="" style="width:170px" >
-     			<f:selectItem itemLabel="Selecionar Juízes" itemValue="#{juizMB.juizes}" noSelectionOption="true" />
+           	<p:selectOneMenu id="juizes" value="#{juizMB.juiz}" style="width:170px" >
+     			<f:selectItem itemLabel="Selecionar Juízes" itemValue="#{juizMB.juiz}" noSelectionOption="true" />
                 <f:selectItems value="#{partidaMB.partida.juizes}" />
             </p:selectOneMenu>
       
      <p:outputLabel for="local" value="Local: "/>
-           	<p:selectOneMenu id="local" value="" style="width:170px" >
-     			<f:selectItem itemLabel="Selecionar Local" itemValue="#{localMB.locais}" noSelectionOption="true" />
+           	<p:selectOneMenu id="local" value="#{localMB.local}" style="width:170px" >
+     			<f:selectItem itemLabel="Selecionar Local" itemValue="#{localMB.local}" noSelectionOption="true" />
                 <f:selectItems value="#{partidaMB.partida.local}" />
             </p:selectOneMenu>
             
@@ -72,8 +68,9 @@
                 
             </p:panel>
             <div align="right">
-            <p:commandButton value="Salvar" actionListener="#{partidaMB.salvar}" update="growl" process="@this"/>
-            </div>
+					<p:commandButton value="Salvar" action="#{partidaMB.salvar}"
+						update=":formUsuario" />
+				</div>
           
         </p:tab>
   
